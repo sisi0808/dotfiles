@@ -28,7 +28,9 @@ set nobackup "バックアップファイルを作らない
 set noswapfile "スワップファイルを作らない
 set autoread "編集中のファイルが変更されたら、自動的に読み込み直す
 
-" diagraph setting
+set smartindent "インテンドを整える
+
+"diagraph setting
 " 12354 => "あ"
 digraph aa 12354
 digraph ii 12356
@@ -74,10 +76,11 @@ nnoremap <Leader>4 $
 nnoremap <Leader>6 ^
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>h :<C-u>split<CR>
-nnoremap <Leader>v :<C-u>vsplit<CR>
-" nnoremap <Leader>s <C-w>s
-" nnoremap <Leader>v <C-w>v
+nnoremap <Leader>wq :q<CR>
+" nnoremap <Leader>h :<C-u>split<CR>
+" nnoremap <Leader>v :<C-u>vsplit<CR>
+nnoremap <Leader>s <C-w>s
+nnoremap <Leader>v <C-w>v
 " noremap <Leader>a myggVG$
 " inoremap <Leader>a <Esc>myggVG$
 nnoremap <silent> <Leader>vr :new ~/.config/nvim/init.vim<CR>
@@ -89,8 +92,12 @@ nnoremap P ]P
 vnoremap < <gv
 vnoremap > >gv
 
+" 空行を挿入
 nnoremap <Leader>o o<ESC>k
 nnoremap <Leader>O O<ESC>j
+
+" カーソル下の単語を、置換後の文字列の入力を待つ状態にする
+nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
 
 " ウインドウ移動
 nnoremap sj <C-w>j
