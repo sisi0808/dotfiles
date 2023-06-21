@@ -85,6 +85,8 @@ nnoremap <Leader>v <C-w>v
 " inoremap <Leader>a <Esc>myggVG$
 nnoremap <silent> <Leader>vr :new ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
+"編集中ファイルのリネーム
+map <leader>n :call RenameCurrentFile()<cr> 
 
 nnoremap p ]p
 nnoremap P ]P
@@ -186,27 +188,6 @@ nnoremap + <C-x>
 noremap <leader>f <Plug>(easymotion-overwin-w)
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
-" map f <Plug>(easymotion-bd-f)
-" map t <Plug>(easymotion-bd-t)
-" map f <Plug>(easymotion-fl)
-" map t <Plug>(easymotion-tl)
-" map F <Plug>(easymotion-Fl)
-" map T <Plug>(easymotion-Tl)
-
-" fzf settings
-" " CTRL-A CTRL-Q to select all and build quickfix list
-
-" function! s:build_quickfix_list(lines)
-"   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-"   copen
-"   cc
-" endfunction
-
-" let g:fzf_action = {
-"   \ 'ctrl-q': function('s:build_quickfix_list'),
-"   \ 'ctrl-t': 'tab split',
-"   \ 'ctrl-x': 'split',
-"   \ 'ctrl-v': 'vsplit' }
 
 " let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
@@ -249,3 +230,14 @@ endif
 if !exists('g:vscode')
     set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
 endif
+
+" リネーム関数定義
+function! RenameCurrentFile()
+  let old = expand('%')
+  let new = input('新規ファイル名: ', old , 'file')
+  if new != '' && new != old
+    exec ':saveas ' . new
+    exec ':silent !rm ' . old
+    redraw!
+  endif
+endfunction
