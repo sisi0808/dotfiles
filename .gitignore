@@ -1,6 +1,6 @@
 ## nvim
-#/config/nvim/*
-#!/config/nvim/init.vim
+/config/nvim/*
+!/config/nvim/init.vim
 #/plugged
 #/session
 #/undo
