@@ -144,6 +144,7 @@ Plug 'vim-jp/vimdoc-ja' "ヘルプ日本語化
 Plug 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Plug 'tpope/vim-fugitive' "Git操作
 Plug 'skanehira/preview-markdown.vim' "Preview Markdown
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 call plug#end()
 
 " vim-markdown settings
@@ -180,6 +181,9 @@ nnoremap <silent><leader>gb :Git blame<CR>
 nnoremap <silent><leader>ga :Git add %<CR>
 nnoremap <silent><leader>gc :Git commit<CR>
 nnoremap <silent><leader>gp :Git push<CR>
+
+nnoremap <silent><leader>gl :Git log<CR>
+nnoremap <silent><leader>glp :Git log -p<CR>
 
 " Easymotion Setting
 noremap <leader>f <Plug>(easymotion-overwin-w)

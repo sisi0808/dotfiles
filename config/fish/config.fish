@@ -64,5 +64,6 @@ export PATH="$PATH:/Users/sisi0808/src/flutter/bin"
 starship init fish | source
 
 # Add asdf path
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
