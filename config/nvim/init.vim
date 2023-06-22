@@ -1,5 +1,4 @@
 set number "行番号の表示
-"set relativenumber "相対的行番号の表示
 set list "タブ、空白、改行を可視化
 set title "編集中ファイル名の表示
 set visualbell t_vb= "ビープ音を視覚表示
@@ -176,6 +175,7 @@ nnoremap <leader>ss :SaveSession<Space>
 "vim-fugitive
 "sでadd, ccでコミット
 nnoremap <leader>gg :Git<CR>
+
 nnoremap <silent><leader>gb :Git blame<CR>
 nnoremap <silent><leader>ga :Git add %<CR>
 nnoremap <silent><leader>gc :Git commit<CR>
