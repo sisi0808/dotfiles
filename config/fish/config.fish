@@ -16,13 +16,18 @@ alias l='ls -CF'
 alias cat='bat'
 
 # Git
-alias g='git'
-alias gb='git branch'
-alias gcm='git commit -m'
-alias gc='git checkout'
 alias ga='git add'
-alias gp='git push'
+alias gcm='git commit -m'
+alias gps  'git push '
+alias gb='git branch'
+alias gp  'git pull '
+alias gc='git checkout'
+alias gcb='git checkout -b'
 alias gps='git push'
+alias gl  'git log --oneline '
+alias gt  'git tree '
+alias gs  'git status '
+alias gss  'git status -s'
 
 # setting nvim
 alias vi='nvim'
@@ -57,4 +62,7 @@ export PATH="$PATH:/Users/sisi0808/src/flutter/bin"
 
 # setup starship
 starship init fish | source
+
+# Add asdf path
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 

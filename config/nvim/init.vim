@@ -1,6 +1,5 @@
 set number "行番号の表示
 "set relativenumber "相対的行番号の表示
-set number "相対的行番号の表示
 set list "タブ、空白、改行を可視化
 set title "編集中ファイル名の表示
 set visualbell t_vb= "ビープ音を視覚表示
@@ -10,10 +9,10 @@ set ambiwidth=double "○や□などの文字が重ならないようにする
 syntax on "コードに色をつける
 
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
+set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
 set expandtab "タブをスペースに変換する
 set autoindent "自動インデント
 set smartindent "オートインデント
-set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
 set tabstop=2 "タブをスペース2つ分に設定
 set shiftwidth=2 "インテンドをスペース二つ分
 
@@ -30,6 +29,10 @@ set noswapfile "スワップファイルを作らない
 set autoread "編集中のファイルが変更されたら、自動的に読み込み直す
 
 set smartindent "インテンドを整える
+set wildmenu "保管の強化
+set encoding=utf8 "エンコーディングの設定
+
+syntax enable "シンタックスをオン
 
 "diagraph setting
 " 12354 => "あ"
@@ -71,29 +74,25 @@ digraphs jj 106  " j
 
 " Leaderキーをspaceキーに設定
 let mapleader = "\<Space>"
-" space 4で行末へ移動
+
 nnoremap <Leader>4 $
-" space 6で行頭へ移動
 nnoremap <Leader>6 ^
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :q<CR>
-" nnoremap <Leader>h :<C-u>split<CR>
-" nnoremap <Leader>v :<C-u>vsplit<CR>
+
+"ウインドウ操作
 nnoremap <Leader>s <C-w>s
 nnoremap <Leader>v <C-w>v
-" noremap <Leader>a myggVG$
-" inoremap <Leader>a <Esc>myggVG$
 nnoremap <silent> <Leader>vr :new ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
+
 "編集中ファイルのリネーム
 map <leader>n :call RenameCurrentFile()<cr> 
 
-nnoremap p ]p
+"インテンドを揃えたペースト
+nnoremap p ]p 
 nnoremap P ]P
-
-vnoremap < <gv
-vnoremap > >gv
 
 " 空行を挿入
 nnoremap <Leader>o o<ESC>k
@@ -103,49 +102,49 @@ nnoremap <Leader>O O<ESC>j
 nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
 
 " ウインドウ移動
+nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
-nnoremap sh <C-w>h
 nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 
+" digraph setting
 nnoremap fj f<C-k>
 nnoremap Fj F<C-k>
 nnoremap tj t<C-k>
 nnoremap Tj T<C-k>
 
-set wildmenu
-set encoding=utf8
-syntax enable
+" Esc SETTINGS
+inoremap jk <Esc>
+
+" Increment/Decrement
+nnoremap - <C-a>
+nnoremap + <C-x>
 
 " PLUGIN SETTINGS
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' "コメントアウト
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'mattn/vim-maketable'
-Plug 'unblevable/quick-scope'
-Plug 'haya14busa/vim-edgemotion'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'mattn/vim-sonictemplate'
-Plug 'brglng/vim-im-select'
-Plug 'tpope/vim-markdown'
+Plug 'easymotion/vim-easymotion' " easymotion
+Plug 'tpope/vim-surround' "囲み文字の操作
+Plug 'tpope/vim-repeat' "vim-surroundの依存
+Plug 'jiangmiao/auto-pairs' "閉じカッコ作成
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fuzzyfinder
+Plug 'junegunn/fzf.vim' "fuzzyfinder
+Plug 'unblevable/quick-scope' "行内のf文字ハイライト
+Plug 'xolox/vim-session' "セッション管理
+Plug 'xolox/vim-misc' "xolox/vim-sessionの依存
+Plug 'brglng/vim-im-select' "Escで日本語->英語
+Plug 'vim-jp/vimdoc-ja' "ヘルプ日本語化
+Plug 'airblade/vim-gitgutter' "Git差分をシンタックス表示
+Plug 'tpope/vim-fugitive' "Git操作
+Plug 'skanehira/preview-markdown.vim' "Preview Markdown
 call plug#end()
 
 " vim-markdown settings
@@ -162,10 +161,6 @@ let g:airline#extensions#tabline#enabled = 1
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
-" VIm-Edgemotion
-map <C-j> <Plug>(edgemotion-j)
-map <C-k> <Plug>(edgemotion-k)
-
 " Airline SETTINGS
 let g:airline_powerline_fonts = 1
 
@@ -178,22 +173,20 @@ let g:session_command_aliases = 1
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 
-" Esc SETTINGS
-inoremap jk <Esc>
-
-" Increment/Decrement
-nnoremap - <C-a>
-nnoremap + <C-x>
+"vim-fugitive
+"sでadd, ccでコミット
+nnoremap <leader>gg :Git<CR>
+nnoremap <silent><leader>gb :Git blame<CR>
+nnoremap <silent><leader>ga :Git add %<CR>
+nnoremap <silent><leader>gc :Git commit<CR>
+nnoremap <silent><leader>gp :Git push<CR>
 
 " Easymotion Setting
 noremap <leader>f <Plug>(easymotion-overwin-w)
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 
-" let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
-
-" let $FZF_DEFAULT_OPTS="--layout=reverse"
-" let $FZF_DEFAULT_COMMAND="Rg --files --hidden --glob"
+" Fuzzy find
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 nnoremap <silent> <leader>e :Files<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
