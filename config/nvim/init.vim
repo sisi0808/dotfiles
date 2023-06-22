@@ -1,5 +1,6 @@
 set number "行番号の表示
-set relativenumber "相対的行番号の表示
+"set relativenumber "相対的行番号の表示
+set number "相対的行番号の表示
 set list "タブ、空白、改行を可視化
 set title "編集中ファイル名の表示
 set visualbell t_vb= "ビープ音を視覚表示

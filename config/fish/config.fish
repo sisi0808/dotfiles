@@ -15,13 +15,19 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cat='bat'
 
-#Git
+# Git
 alias g='git'
 alias gb='git branch'
 alias gcm='git commit -m'
 alias gc='git checkout'
 alias ga='git add'
 alias gp='git push'
+alias gps='git push'
+
+# setting nvim
+alias vi='nvim'
+alias vim='nvim'
+alias view='nvim -R'
 
 #! enable vi mode
 fish_vi_key_bindings
@@ -33,7 +39,6 @@ alias cptest='python cptest_atcoder.py'
 alias autocommit='python ./delete_compiled_file.py && python ./auto.py'
 alias makef='python makef.py'
 alias ojs='oj s main.cpp -y --no-open'
-alias vim='nvim'
 
 # Set key bindings
 # set fish_key_bindings fish_user_key_bindings
