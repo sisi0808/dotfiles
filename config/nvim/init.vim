@@ -145,10 +145,11 @@ Plug 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Plug 'tpope/vim-fugitive' "Git操作
 Plug 'skanehira/preview-markdown.vim' "Preview Markdown
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "lsp
+Plug 'ryanoasis/vim-devicons' "Icon
 call plug#end()
 
-" vim-markdown settings
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+"coc Setting
+command! -nargs=0 Ml :CocCommand markdownlint.fixAll
 
 " vim-im-select
 let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
