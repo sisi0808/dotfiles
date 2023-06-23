@@ -87,10 +87,10 @@ nnoremap <silent> <Leader>vr :new ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
 
 "編集中ファイルのリネーム
-map <leader>n :call RenameCurrentFile()<cr> 
+map <leader>n :call RenameCurrentFile()<cr>
 
 "インテンドを揃えたペースト
-nnoremap p ]p 
+nnoremap p ]p
 nnoremap P ]P
 
 " 空行を挿入
@@ -150,6 +150,7 @@ call plug#end()
 
 "coc Setting
 command! -nargs=0 Ml :CocCommand markdownlint.fixAll
+nnoremap <Leader>ml :Ml<CR>
 
 " vim-im-select
 let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
@@ -212,16 +213,15 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 hi VertSplit cterm=none
 
 " Terminal Mode
-"
 :tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
-" autocmd TermOpen * startinsert
+nnoremap <Leader>t :T<CR>
 
 " Undoの永続化
 if has('persistent_undo')
-	let undo_path = expand('~/.config/nvim/undo')
-	exe 'set undodir=' .. undo_path
-	set undofile
+ let undo_path = expand('~/.config/nvim/undo')
+ exe 'set undodir=' .. undo_path
+ set undofile
 endif
 
 " VsCodeのための除外指定
@@ -239,3 +239,4 @@ function! RenameCurrentFile()
     redraw!
   endif
 endfunction
+
