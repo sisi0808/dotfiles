@@ -129,6 +129,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary' "コメントアウト
 Plug 'preservim/nerdtree'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 Plug 'easymotion/vim-easymotion' " easymotion
 Plug 'tpope/vim-surround' "囲み文字の操作
