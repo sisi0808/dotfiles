@@ -195,6 +195,7 @@ let g:EasyMotion_smartcase = 1
 " Fuzzy find
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 nnoremap <silent> <leader>e :Files<CR>
+nnoremap <silent> <leader>ee :History<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 
 " /// Enable Netrw (default file browser)
