@@ -50,11 +50,6 @@ alias ojs='oj s main.cpp -y --no-open'
 # Set key bindings
 # set fish_key_bindings fish_user_key_bindings
 
-# pyenv settings
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-eval "$(pyenv init -)"
-
 # autostart fish_ssh_agent
 # fish_ssh_agent
 eval (ssh-agent -c)
