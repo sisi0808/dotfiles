@@ -33,6 +33,7 @@ alias gss  'git status -s'
 alias vi='nvim'
 alias vim='nvim'
 alias view='nvim -R'
+alias vit='nvim ~/.config/nvim/init.vim'
 
 #! enable vi mode
 fish_vi_key_bindings
