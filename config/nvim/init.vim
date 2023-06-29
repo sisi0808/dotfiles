@@ -151,6 +151,8 @@ Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
 call jetpack#end()
 
+let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
+
 "coc Setting
 command! -nargs=0 Ml :CocCommand markdownlint.fixAll
 nnoremap <Leader>ml :Ml<CR>
