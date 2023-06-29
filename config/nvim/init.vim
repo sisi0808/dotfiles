@@ -146,7 +146,6 @@ Jetpack 'brglng/vim-im-select' "Escで日本語->英語
 Jetpack 'vim-jp/vimdoc-ja' "ヘルプ日本語化
 Jetpack 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Jetpack 'tpope/vim-fugitive' "Git操作
-Jetpack 'skanehira/preview-markdown.vim' "Preview Markdown
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
 call jetpack#end()
