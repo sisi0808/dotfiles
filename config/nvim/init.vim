@@ -1,4 +1,4 @@
-set number "行番号の表示
+set relativenumber "行番号の表示
 set list "タブ、空白、改行を可視化
 set title "編集中ファイル名の表示
 set visualbell t_vb= "ビープ音を視覚表示
@@ -152,6 +152,14 @@ Jetpack 'ryanoasis/vim-devicons' "Icon
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
+
+" 起動時自動でPlugin更新
+for name in jetpack#names()
+  if !jetpack#tap(name)
+    call jetpack#sync()
+    break
+  endif
+endfor
 
 "coc Setting
 command! -nargs=0 Ml :CocCommand markdownlint.fixAll
