@@ -36,6 +36,28 @@ create_config() {
     fi
 }
 
+create_brew() {
+
+  # brewコマンドがなければインストール
+  if [! type brew > /dev/null 2>&1]; then
+   xcode-select --install
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  # 権限設定
+  sudo chown -R "$(whoami)":admin /usr/local/*
+  sudo chmod -R g+w /usr/local/*
+
+  # Brewfileを実行
+  cd "$PWD"/homebrew || exit
+  brew bundle
+  cd - || exit
+
+  echo "👍 Homebrew setting is done!"
+
+}
+
+
 while [ $# -gt 0 ];do
     case ${1} in
         --debug|-d)
@@ -55,4 +77,6 @@ ESC=$(printf '\033')
 
 command printf "${ESC}[36m >>> Installing config dirs... ${ESC}[m\n"
 create_config
+command printf "${ESC}[36m >>> Installing app from brew list... ${ESC}[m\n"
+create_brew
 command printf "${ESC}[33m <<< Install completed! ${ESC}[m\n"
