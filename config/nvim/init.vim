@@ -151,32 +151,6 @@ Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
 call jetpack#end()
 
-" PLUGIN SETTINGS
-" call plug#begin('~/.config/nvim/plugged')
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'tpope/vim-commentary' "コメントアウト
-" Plug 'preservim/nerdtree'
-" Plug 'nvim-tree/nvim-web-devicons'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'easymotion/vim-easymotion' " easymotion
-" Plug 'tpope/vim-surround' "囲み文字の操作
-" Plug 'tpope/vim-repeat' "vim-surroundの依存
-" Plug 'jiangmiao/auto-pairs' "閉じカッコ作成
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "fuzzyfinder
-" Plug 'junegunn/fzf.vim' "fuzzyfinder
-" Plug 'unblevable/quick-scope' "行内のf文字ハイライト
-" Plug 'xolox/vim-session' "セッション管理
-" Plug 'xolox/vim-misc' "xolox/vim-sessionの依存
-" Plug 'brglng/vim-im-select' "Escで日本語->英語
-" Plug 'vim-jp/vimdoc-ja' "ヘルプ日本語化
-" Plug 'airblade/vim-gitgutter' "Git差分をシンタックス表示
-" Plug 'tpope/vim-fugitive' "Git操作
-" Plug 'skanehira/preview-markdown.vim' "Preview Markdown
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} "lsp
-" Plug 'ryanoasis/vim-devicons' "Icon
-" call plug#end()
-
 "coc Setting
 command! -nargs=0 Ml :CocCommand markdownlint.fixAll
 nnoremap <Leader>ml :Ml<CR>
