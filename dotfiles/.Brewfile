@@ -21,12 +21,12 @@ brew "gnupg"
 brew "kubernetes-cli"
 brew "libtiff"
 brew "little-cms2"
+brew "mas"
 brew "openjdk"
 brew "maven"
 brew "neovim"
 brew "node-build"
 brew "openjpeg"
-brew "pyenv"
 brew "starship"
 brew "tmux"
 brew "wget"
@@ -54,6 +54,15 @@ cask "visual-studio-code"
 cask "warp"
 cask "webex-meetings"
 cask "zoom"
+mas "Drafts", id: 1435957248
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
+mas "私の壁紙", id: 1552826194
 vscode "alexcvzz.vscode-sqlite"
 vscode "asvetliakov.vscode-neovim"
 vscode "christian-kohler.path-intellisense"
