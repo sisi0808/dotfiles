@@ -30,8 +30,6 @@ alias gs  'git status '
 alias gss  'git status -s'
 
 # setting nvim
-alias vi='nvim'
-alias vim='nvim'
 alias view='nvim -R'
 alias vit='nvim ~/.config/nvim/init.vim'
 alias fit='nvim ~/.config/fish/config.fish'
