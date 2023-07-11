@@ -148,6 +148,7 @@ Jetpack 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Jetpack 'tpope/vim-fugitive' "Git操作
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
+Jetpack 'open-browser.vim'
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
@@ -159,6 +160,11 @@ for name in jetpack#names()
     break
   endif
 endfor
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 "coc Setting
 command! -nargs=0 Ml :CocCommand markdownlint.fixAll
