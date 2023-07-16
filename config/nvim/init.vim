@@ -167,8 +167,24 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 "coc Setting
-command! -nargs=0 Ml :CocCommand markdownlint.fixAll
-nnoremap <Leader>ml :Ml<CR>
+"スペースdfでDefinition
+nmap <silent> <space>df <Plug>(coc-definition)
+"スペースrfでReferences
+nmap <silent> <space>rf <Plug>(coc-references)
+"スペースfmtでFormat
+nmap <silent> <space>fm <Plug>(coc-format)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 
 " vim-im-select
 let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
