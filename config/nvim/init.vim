@@ -119,10 +119,6 @@ nnoremap Tj T<C-k>
 " Esc SETTINGS
 inoremap jk <Esc>
 
-" Increment/Decrement
-nnoremap - <C-a>
-nnoremap + <C-x>
-
 " Plug Settings
 packadd vim-jetpack
 call jetpack#begin()
