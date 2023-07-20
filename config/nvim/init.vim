@@ -27,8 +27,7 @@ set nobackup "バックアップファイルを作らない
 set noswapfile "スワップファイルを作らない
 set autoread "編集中のファイルが変更されたら、自動的に読み込み直す
 
-set smartindent "インテンドを整える
-set wildmenu "保管の強化
+set wildmenu "補完の強化
 set encoding=utf8 "エンコーディングの設定
 
 syntax enable "シンタックスをオン
