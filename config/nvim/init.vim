@@ -143,7 +143,7 @@ Jetpack 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Jetpack 'tpope/vim-fugitive' "Git操作
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
-Jetpack 'open-browser.vim'
+Jetpack 'tyru/open-browser.vim'
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
@@ -188,12 +188,12 @@ let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
+" Airline SETTINGS
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
-" Airline SETTINGS
-let g:airline_powerline_fonts = 1
 
 " Session Setting
 let g:session_directory = "~/.config/nvim/session"
