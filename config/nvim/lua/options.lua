@@ -1,5 +1,4 @@
--- opt settings
-
+-- options
 vim.opt.encoding = "utf8" -- エンコーディングの設定
 vim.opt.relativenumber = true -- 相対行番号の表示
 vim.opt.list = true -- タブ、空白、改行を可視化
