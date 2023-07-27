@@ -144,6 +144,7 @@ Jetpack 'tpope/vim-fugitive' "Git操作
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
 Jetpack 'tyru/open-browser.vim'
+Jetpack 'github/copilot.vim'
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
