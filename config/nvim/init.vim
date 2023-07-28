@@ -122,8 +122,9 @@ inoremap jk <Esc>
 packadd vim-jetpack
 call jetpack#begin()
 Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
-Jetpack 'vim-airline/vim-airline'
-Jetpack 'vim-airline/vim-airline-themes'
+" Jetpack 'vim-airline/vim-airline'
+" Jetpack 'vim-airline/vim-airline-themes'
+Jetpack 'nvim-lualine/lualine.nvim'
 Jetpack 'tpope/vim-commentary' "コメントアウト
 Jetpack 'preservim/nerdtree'
 Jetpack 'nvim-tree/nvim-web-devicons'
@@ -190,11 +191,14 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " Airline SETTINGS
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-nmap <C-p> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" nmap <C-p> <Plug>AirlineSelectPrevTab
+" nmap <C-n> <Plug>AirlineSelectNextTab
 
+" lualine setting
+nmap <C-p> gt
+nmap <C-n> gT
 
 " Session Setting
 let g:session_directory = "~/.config/nvim/session"
@@ -247,6 +251,51 @@ hi VertSplit cterm=none
 :tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 nnoremap <Leader>t :T<CR>
+
+" lualine settings
+lua << END
+require('lualine').setup {
+options = {
+  icons_enabled = true,
+  theme = 'gruvbox',
+  component_separators = { left = '', right = ''},
+  section_separators = { left = '', right = ''},
+  disabled_filetypes = {
+    statusline = {},
+    winbar = {},
+  },
+  ignore_focus = {},
+  always_divide_middle = true,
+  colored = true,
+  globalstatus = false,
+  refresh = {
+    statusline = 1000,
+    tabline = 1000,
+    winbar = 1000,
+  }
+},
+sections = {
+  lualine_a = {'mode'},
+  lualine_b = {'branch', 'diff'},
+  lualine_c = {'filename'},
+  lualine_x = {'encoding', 'fileformat', 'filetype'},
+  lualine_y = {'progress'},
+  lualine_z = {'location'}
+},
+inactive_sections = {
+  lualine_a = {},
+  lualine_b = {},
+  lualine_c = {'filename'},
+  lualine_x = {'location'},
+  lualine_y = {},
+  lualine_z = {}
+},
+tabline = {},
+winbar = {},
+inactive_winbar = {},
+extensions = {}
+}
+END
 
 " Undoの永続化
 if has('persistent_undo')
