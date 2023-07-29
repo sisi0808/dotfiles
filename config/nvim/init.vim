@@ -297,7 +297,7 @@ extensions = {}
 }
 END
 
-" Undoの永続化
+"  Undoの永続化
 if has('persistent_undo')
  let undo_path = expand('~/.config/nvim/undo')
  exe 'set undodir=' .. undo_path
@@ -320,3 +320,7 @@ function! RenameCurrentFile()
   endif
 endfunction
 
+" Copilot settings
+" 提案を<C-j>で受け入れる
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
