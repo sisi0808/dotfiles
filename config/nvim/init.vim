@@ -95,8 +95,8 @@ nnoremap <Leader>t :T<CR>
 " ウインドウ操作
 nnoremap <Leader>s <C-w>s
 nnoremap <Leader>v <C-w>v
-nnoremap <silent> <Leader>vv :new ~/.config/nvim/init.vim<CR>
-nnoremap <silent> <Leader>v :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>rr :new ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
 
 "編集中ファイルのリネーム
 map <leader>n :call RenameCurrentFile()<cr>
