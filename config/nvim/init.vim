@@ -29,6 +29,7 @@ set autoread "編集中のファイルが変更されたら、自動的に読み
 
 set wildmenu "補完の強化
 set encoding=utf8 "エンコーディングの設定
+set signcolumn=yes " lualine用の設定
 
 syntax enable "シンタックスをオン
 
@@ -73,17 +74,29 @@ digraphs jj 106  " j
 " Leaderキーをspaceキーに設定
 let mapleader = "\<Space>"
 
-nnoremap <Leader>4 $
-nnoremap <Leader>6 ^
+" nnoremap <Leader>4 $
+" nnoremap <Leader>6 ^
+nnoremap <Leader>a ^
+nnoremap <Leader>l $
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :q<CR>
 
-"ウインドウ操作
+" tab settings
+nmap <C-t> :tabe ~/<cr> " 新規タブをホームディレクトリで
+" nmap <C-t> :tabe<cr> " 新規タブを同じディレクトリで
+
+" Terminal Mode settings
+hi VertSplit cterm=none
+:tnoremap <Esc> <C-\><C-n>
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+nnoremap <Leader>t :T<CR>
+
+" ウインドウ操作
 nnoremap <Leader>s <C-w>s
 nnoremap <Leader>v <C-w>v
-nnoremap <silent> <Leader>vr :new ~/.config/nvim/init.vim<CR>
-nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>vv :new ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>v :source ~/.config/nvim/init.vim<CR>
 
 "編集中ファイルのリネーム
 map <leader>n :call RenameCurrentFile()<cr>
@@ -244,14 +257,6 @@ let g:netrw_timefmt = "%Y/%m/%d(%a) %H:%M:%S"
 let g:netrw_preview = 1
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 
-"/// SPLIT BORDER SETTINGS
-hi VertSplit cterm=none
-
-" Terminal Mode
-:tnoremap <Esc> <C-\><C-n>
-command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
-nnoremap <Leader>t :T<CR>
-
 " lualine settings
 lua << END
 require('lualine').setup {
@@ -290,7 +295,6 @@ inactive_sections = {
   lualine_y = {},
   lualine_z = {}
 },
-tabline = {},
 winbar = {},
 inactive_winbar = {},
 extensions = {}
@@ -324,3 +328,6 @@ endfunction
 " 提案を<C-j>で受け入れる
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+imap <silent> <M-i> <Plug>(copilot-next)
+imap <silent> <M-o> <Plug>(copilot-previous)
