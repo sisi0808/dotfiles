@@ -29,7 +29,6 @@ set autoread "編集中のファイルが変更されたら、自動的に読み
 
 set wildmenu "補完の強化
 set encoding=utf8 "エンコーディングの設定
-set signcolumn=yes " lualine用の設定
 
 syntax enable "シンタックスをオン
 
@@ -95,8 +94,8 @@ nnoremap <Leader>t :T<CR>
 " ウインドウ操作
 nnoremap <Leader>s <C-w>s
 nnoremap <Leader>v <C-w>v
-nnoremap <silent> <Leader>rr :new ~/.config/nvim/init.vim<CR>
-nnoremap <silent> <Leader>r :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>wr :new ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>ww :source ~/.config/nvim/init.vim<CR>
 
 "編集中ファイルのリネーム
 map <leader>n :call RenameCurrentFile()<cr>
@@ -145,7 +144,8 @@ Jetpack 'ryanoasis/vim-devicons'
 Jetpack 'easymotion/vim-easymotion' " easymotion
 Jetpack 'tpope/vim-surround' "囲み文字の操作
 Jetpack 'tpope/vim-repeat' "vim-surroundの依存
-Jetpack 'jiangmiao/auto-pairs' "閉じカッコ作成
+" Jetpack 'jiangmiao/auto-pairs' 
+Jetpack 'windwp/nvim-autopairs' "閉じカッコ作成
 Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } } "fuzzyfinder
 Jetpack 'junegunn/fzf.vim' "fuzzyfinder
 Jetpack 'unblevable/quick-scope' "行内のf文字ハイライト
@@ -159,6 +159,7 @@ Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'ryanoasis/vim-devicons' "Icon
 Jetpack 'tyru/open-browser.vim'
 Jetpack 'github/copilot.vim'
+Jetpack 'lukas-reineke/indent-blankline.nvim' "インデント表示
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
@@ -331,3 +332,21 @@ let g:copilot_no_tab_map = v:true
 
 imap <silent> <M-i> <Plug>(copilot-next)
 imap <silent> <M-o> <Plug>(copilot-previous)
+
+
+" indent-blankline.nvim 
+lua << END
+
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    show_end_of_line = true,
+}
+END
+
+
+" nvim-autopairs
+lua << END
+require("nvim-autopairs").setup {}
+END
