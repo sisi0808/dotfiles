@@ -5,7 +5,6 @@ set visualbell t_vb= "ビープ音を視覚表示
 set laststatus=2 "ステータスを表示
 set ruler "カーソル位置を表示
 set ambiwidth=double "○や□などの文字が重ならないようにする
-syntax on "コードに色をつける
 
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
 set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
@@ -29,6 +28,7 @@ set autoread "編集中のファイルが変更されたら、自動的に読み
 
 set wildmenu "補完の強化
 set encoding=utf8 "エンコーディングの設定
+set noundofile "Undoの永続化
 
 syntax enable "シンタックスをオン
 
@@ -97,8 +97,28 @@ nnoremap <Leader>v <C-w>v
 nnoremap <silent> <Leader>wr :new ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <Leader>ww :source ~/.config/nvim/init.vim<CR>
 
+" ウインドウ移動
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+
 "編集中ファイルのリネーム
 map <leader>n :call RenameCurrentFile()<cr>
+" リネーム関数定義
+function! RenameCurrentFile()
+  let old = expand('%')
+  let new = input('新規ファイル名: ', old , 'file')
+  if new != '' && new != old
+    exec ':saveas ' . new
+    exec ':silent !rm ' . old
+    redraw!
+  endif
+endfunction
 
 "インテンドを揃えたペースト
 nnoremap p ]p
@@ -111,21 +131,16 @@ nnoremap <Leader>O O<ESC>j
 " カーソル下の単語を、置換後の文字列の入力を待つ状態にする
 nnoremap <Leader>re :%s;\<<C-R><C-W>\>;g<Left><Left>;
 
-" ウインドウ移動
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
 
 " digraph setting
 nnoremap fj f<C-k>
 nnoremap Fj F<C-k>
 nnoremap tj t<C-k>
 nnoremap Tj T<C-k>
+
+" tab moving setting
+nmap <C-p> gt
+nmap <C-n> gT
 
 " Esc SETTINGS
 inoremap jk <Esc>
@@ -144,7 +159,6 @@ Jetpack 'ryanoasis/vim-devicons'
 Jetpack 'easymotion/vim-easymotion' " easymotion
 Jetpack 'tpope/vim-surround' "囲み文字の操作
 Jetpack 'tpope/vim-repeat' "vim-surroundの依存
-" Jetpack 'jiangmiao/auto-pairs' 
 Jetpack 'windwp/nvim-autopairs' "閉じカッコ作成
 Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } } "fuzzyfinder
 Jetpack 'junegunn/fzf.vim' "fuzzyfinder
@@ -204,16 +218,6 @@ let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-" Airline SETTINGS
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" nmap <C-p> <Plug>AirlineSelectPrevTab
-" nmap <C-n> <Plug>AirlineSelectNextTab
-
-" lualine setting
-nmap <C-p> gt
-nmap <C-n> gT
-
 " Session Setting
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
@@ -245,18 +249,6 @@ let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffse
 nnoremap <silent> <leader>e :Files<CR>
 nnoremap <silent> <leader>ee :History<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
-
-" /// Enable Netrw (default file browser)
-filetype plugin on
-" /// Netrw SETTINGS
-let g:netwr_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 30
-let g:netrw_sizestyle = "H"
-let g:netrw_timefmt = "%Y/%m/%d(%a) %H:%M:%S"
-let g:netrw_preview = 1
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 
 " lualine settings
 lua << END
@@ -302,28 +294,7 @@ extensions = {}
 }
 END
 
-"  Undoの永続化
-if has('persistent_undo')
- let undo_path = expand('~/.config/nvim/undo')
- exe 'set undodir=' .. undo_path
- set undofile
-endif
 
-" VsCodeのための除外指定
-if !exists('g:vscode')
-    set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
-endif
-
-" リネーム関数定義
-function! RenameCurrentFile()
-  let old = expand('%')
-  let new = input('新規ファイル名: ', old , 'file')
-  if new != '' && new != old
-    exec ':saveas ' . new
-    exec ':silent !rm ' . old
-    redraw!
-  endif
-endfunction
 
 " Copilot settings
 " 提案を<C-j>で受け入れる
