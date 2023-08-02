@@ -174,6 +174,7 @@ Jetpack 'ryanoasis/vim-devicons' "Icon
 Jetpack 'tyru/open-browser.vim'
 Jetpack 'github/copilot.vim'
 Jetpack 'lukas-reineke/indent-blankline.nvim' "インデント表示
+Jetpack 'yuttie/comfortable-motion.vim' "画面移動の滑らか化
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
