@@ -149,13 +149,10 @@ inoremap jk <Esc>
 packadd vim-jetpack
 call jetpack#begin()
 Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
-" Jetpack 'vim-airline/vim-airline'
-" Jetpack 'vim-airline/vim-airline-themes'
 Jetpack 'nvim-lualine/lualine.nvim'
 Jetpack 'tpope/vim-commentary' "コメントアウト
-Jetpack 'preservim/nerdtree'
-Jetpack 'nvim-tree/nvim-web-devicons'
-Jetpack 'ryanoasis/vim-devicons'
+Jetpack 'nvim-tree/nvim-web-devicons' "Icon
+Jetpack 'ryanoasis/vim-devicons' "Icon
 Jetpack 'easymotion/vim-easymotion' " easymotion
 Jetpack 'tpope/vim-surround' "囲み文字の操作
 Jetpack 'tpope/vim-repeat' "vim-surroundの依存
@@ -170,11 +167,16 @@ Jetpack 'vim-jp/vimdoc-ja' "ヘルプ日本語化
 Jetpack 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Jetpack 'tpope/vim-fugitive' "Git操作
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
-Jetpack 'ryanoasis/vim-devicons' "Icon
-Jetpack 'tyru/open-browser.vim'
-Jetpack 'github/copilot.vim'
-Jetpack 'lukas-reineke/indent-blankline.nvim' "インデント表示
+Jetpack 'tyru/open-browser.vim' " リンクをブラウザで開く
+Jetpack 'github/copilot.vim' "Copilot
 Jetpack 'yuttie/comfortable-motion.vim' "画面移動の滑らか化
+
+Jetpack 'lambdalisue/fern.vim' "ファイラー
+Jetpack 'lambdalisue/nerdfont.vim' " fern.vim用のアイコン
+Jetpack 'lambdalisue/fern-renderer-nerdfont.vim' " fern.vim用のアイコン
+Jetpack 'lambdalisue/fern-hijack.vim' " fernをデフォルトのエクスプローラーに
+Jetpack 'lambdalisue/glyph-palette.vim' "fern.vim用のアイコン
+Jetpack 'lambdalisue/fern-git-status.vim' " fern.vimでgitstatusを表示
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
@@ -216,8 +218,28 @@ endfunction
 let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 
 " NERDTree SETTINGS
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+" nnoremap <silent> <F2> :NERDTreeFind<CR>
+" nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+
+" Fern Settings
+nnoremap <silent> <F2> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <silent> <F3> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+let g:fern#renderer = 'nerdfont'
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+
+" GitGutterのための表示セッティング
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=blue
+highlight GitGutterDelete ctermfg=red
+
+"" 反映時間を短くする(デフォルトは4000ms)
+set updatetime=250
 
 " Session Setting
 let g:session_directory = "~/.config/nvim/session"
@@ -247,9 +269,20 @@ let g:EasyMotion_smartcase = 1
 
 " Fuzzy find
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
-nnoremap <silent> <leader>e :Files<CR>
+" git管理されていれば:GFiles、そうでなければ:Filesを実行する
+fun! FzfOmniFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GFiles
+  endif
+endfun
+
+nnoremap <silent> <leader>e FzfOmniFiles()<CR>
 nnoremap <silent> <leader>ee :History<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
+
 
 " lualine settings
 lua << END
@@ -295,8 +328,6 @@ extensions = {}
 }
 END
 
-
-
 " Copilot settings
 " 提案を<C-j>で受け入れる
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
@@ -307,16 +338,15 @@ imap <silent> <M-o> <Plug>(copilot-previous)
 
 
 " indent-blankline.nvim 
-lua << END
+" lua << END
 
-vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
+" vim.opt.list = true
+" vim.opt.listchars:append "eol:↴"
 
-require("indent_blankline").setup {
-    show_end_of_line = true,
-}
-END
-
+" require("indent_blankline").setup {
+"     show_end_of_line = true,
+" }
+" END
 
 " nvim-autopairs
 lua << END
