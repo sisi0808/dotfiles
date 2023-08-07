@@ -279,7 +279,7 @@ fun! FzfOmniFiles()
   endif
 endfun
 
-nnoremap <silent> <leader>e FzfOmniFiles()<CR>
+nnoremap <silent> <leader>e :call FzfOmniFiles()<CR>
 nnoremap <silent> <leader>ee :History<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 
