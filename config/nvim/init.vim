@@ -177,6 +177,7 @@ Jetpack 'lambdalisue/fern-renderer-nerdfont.vim' " fern.vim用のアイコン
 Jetpack 'lambdalisue/fern-hijack.vim' " fernをデフォルトのエクスプローラーに
 Jetpack 'lambdalisue/glyph-palette.vim' "fern.vim用のアイコン
 Jetpack 'lambdalisue/fern-git-status.vim' " fern.vimでgitstatusを表示
+Jetpack 'yuki-yano/fern-preview.vim' " fern.vimでプレビュー
 call jetpack#end()
 
 let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
@@ -229,10 +230,11 @@ let g:fern#renderer = 'nerdfont'
 map <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:split)
 
 function! s:init_fern() abort
-  echo "This function is called ON a fern buffer WHEN initialized"
-  " Open node with 'o'
   nmap <buffer> ss <Plug>(fern-action-open:select
-  " Add any code to customize fern buffer
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
 endfunction
 
 augroup fern-custom
