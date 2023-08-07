@@ -226,7 +226,20 @@ let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 nnoremap <silent> <F2> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 nnoremap <silent> <F3> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 let g:fern#renderer = 'nerdfont'
-" アイコンに色をつける
+map <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:split)
+
+function! s:init_fern() abort
+  echo "This function is called ON a fern buffer WHEN initialized"
+  " Open node with 'o'
+  nmap <buffer> ss <Plug>(fern-action-open:select
+  " Add any code to customize fern buffer
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
+
 augroup my-glyph-palette
   autocmd! *
   autocmd FileType fern call glyph_palette#apply()
