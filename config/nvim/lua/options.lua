@@ -1,36 +1,36 @@
 -- options
-vim.opt.relativenumber = true -- 行番号の表示
-vim.opt.list = true -- タブ、空白、改行を可視化
-vim.opt.title = true -- 編集中ファイル名の表示
-vim.opt.laststatus = 2 -- ステータスを表示
-vim.opt.ruler = true -- カーソル位置を表示
-vim.opt.ambiwidth = "double" -- ○や□などの文字が重ならないようにする
+opt.relativenumber = true -- 行番号の表示
+opt.list = true -- タブ、空白、改行を可視化
+opt.title = true -- 編集中ファイル名の表示
+opt.laststatus = 2 -- ステータスを表示
+opt.ruler = true -- カーソル位置を表示
+opt.ambiwidth = "double" -- ○や□などの文字が重ならないようにする
 
-vim.opt.backspace = "indent,eol,start" -- バックスペースでの行移動を可能にする
-vim.opt.virtualedit = "onemore" -- カーソルを行末の一つ先まで移動可能にする
-vim.opt.ignorecase = true -- 大文字、小文字の区別をしない
-vim.opt.smartcase = true -- 大文字が含まれている場合は区別する
-vim.opt.wrapscan = true -- 検索時に最後まで行ったら最初に戻る
-vim.opt.incsearch = true -- インクリメンタルサーチを有効にする
-vim.opt.hlsearch = true -- 検索した文字を強調
-vim.opt.history = 1000 -- 履歴を1000件保存
+opt.backspace = "indent,eol,start" -- バックスペースでの行移動を可能にする
+opt.virtualedit = "onemore" -- カーソルを行末の一つ先まで移動可能にする
+opt.ignorecase = true -- 大文字、小文字の区別をしない
+opt.smartcase = true -- 大文字が含まれている場合は区別する
+opt.wrapscan = true -- 検索時に最後まで行ったら最初に戻る
+opt.incsearch = true -- インクリメンタルサーチを有効にする
+opt.hlsearch = true -- 検索した文字を強調
+opt.history = 1000 -- 履歴を1000件保存
 
-vim.opt.expandtab = true -- タブをスペースに変換する
-vim.opt.autoindent = true -- 自動インデント
-vim.opt.smartindent = true -- オートインデント
-vim.opt.tabstop = 2 -- タブをスペース2つ分に設定
-vim.opt.shiftwidth = 2 -- インテンドをスペース二つ分に
+opt.expandtab = true -- タブをスペースに変換する
+opt.autoindent = true -- 自動インデント
+opt.smartindent = true -- オートインデント
+opt.tabstop = 2 -- タブをスペース2つ分に設定
+opt.shiftwidth = 2 -- インテンドをスペース二つ分に
 
-vim.opt.clipboard:append("unnamed") -- コピーしたときはクリップボードを使用
-vim.opt.backup = false -- バックアップファイルを作らない
-vim.opt.swapfile = false -- スワップファイルを作らない
-vim.opt.autoread = true -- 編集中のファイルが変更されたら、自動的に読み込み直す
+opt.clipboard:append("unnamed") -- コピーしたときはクリップボードを使用
+opt.backup = false -- バックアップファイルを作らない
+opt.swapfile = false -- スワップファイルを作らない
+opt.autoread = true -- 編集中のファイルが変更されたら、自動的に読み込み直す
 
-vim.opt.encoding = "utf8" -- エンコーディングの設定
-vim.opt.wildmenu = true -- 補完の強化
-vim.opt.undofile = false -- Undoの永続化
+opt.encoding = "utf8" -- エンコーディングの設定
+opt.wildmenu = true -- 補完の強化
+opt.undofile = false -- Undoの永続化
 vim.cmd("syntax enable") -- シンタックスをオン
-vim.opt.helplang = 'ja', 'en' -- ヘルプを日本語で
+opt.helplang = 'ja', 'en' -- ヘルプを日本語で
 
 -- digraph setting
 -- 12354 => "あ"
