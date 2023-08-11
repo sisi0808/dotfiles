@@ -1,8 +1,14 @@
+-- Jetpack settings
+-- vim.cmd('packadd vim-jetpack')
+-- require('jetpack.packer').add {
+--   {'tani/vim-jetpack'}, -- bootstrap
+-- }
+
 -- 起動時に自動でjetpackを読み込む
-local jetpack = require('jetpack')
-for _, name in ipairs(jetpack.names()) do
-  if not jetpack.tap(name) then
-    jetpack.sync()
-    break
-  end
-end
+-- local jetpack = require('jetpack')
+-- for _, name in ipairs(jetpack.names()) do
+--   if not jetpack.tap(name) then
+--     jetpack.sync()
+--     break
+--   end
+-- end
