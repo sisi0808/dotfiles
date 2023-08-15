@@ -352,17 +352,6 @@ imap <silent> <M-i> <Plug>(copilot-next)
 imap <silent> <M-o> <Plug>(copilot-previous)
 
 
-" indent-blankline.nvim 
-" lua << END
-
-" vim.opt.list = true
-" vim.opt.listchars:append "eol:↴"
-
-" require("indent_blankline").setup {
-"     show_end_of_line = true,
-" }
-" END
-
 " nvim-autopairs
 lua << END
 require("nvim-autopairs").setup {}
