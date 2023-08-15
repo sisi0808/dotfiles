@@ -1,71 +1,89 @@
--- options
-opt.relativenumber = true -- 行番号の表示
-opt.list = true -- タブ、空白、改行を可視化
-opt.title = true -- 編集中ファイル名の表示
-opt.laststatus = 2 -- ステータスを表示
-opt.ruler = true -- カーソル位置を表示
-opt.ambiwidth = "double" -- ○や□などの文字が重ならないようにする
+-- 文字コード
+vim.scriptencoding = 'utf-8'
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
 
-opt.backspace = "indent,eol,start" -- バックスペースでの行移動を可能にする
-opt.virtualedit = "onemore" -- カーソルを行末の一つ先まで移動可能にする
-opt.ignorecase = true -- 大文字、小文字の区別をしない
-opt.smartcase = true -- 大文字が含まれている場合は区別する
-opt.wrapscan = true -- 検索時に最後まで行ったら最初に戻る
-opt.incsearch = true -- インクリメンタルサーチを有効にする
-opt.hlsearch = true -- 検索した文字を強調
-opt.history = 1000 -- 履歴を1000件保存
+-- タブ、インテンド
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
+opt.tabstop = 2
+opt.shiftwidth = 2
 
-opt.expandtab = true -- タブをスペースに変換する
-opt.autoindent = true -- 自動インデント
-opt.smartindent = true -- オートインデント
-opt.tabstop = 2 -- タブをスペース2つ分に設定
-opt.shiftwidth = 2 -- インテンドをスペース二つ分に
+-- 表示、見た目
+opt.relativenumber = true
+opt.list = true
+opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
+opt.title = true
+opt.laststatus = 2
+opt.ruler = true
+opt.ambiwidth = "double"
+vim.cmd("syntax enable")
+opt.updatetime = 250
 
-opt.clipboard:append("unnamed") -- コピーしたときはクリップボードを使用
-opt.backup = false -- バックアップファイルを作らない
-opt.swapfile = false -- スワップファイルを作らない
-opt.autoread = true -- 編集中のファイルが変更されたら、自動的に読み込み直す
 
-opt.encoding = "utf8" -- エンコーディングの設定
-opt.wildmenu = true -- 補完の強化
-opt.undofile = false -- Undoの永続化
-vim.cmd("syntax enable") -- シンタックスをオン
-opt.helplang = 'ja', 'en' -- ヘルプを日本語で
+-- 行末への移動
+opt.backspace = "indent,eol,start"
+opt.virtualedit = "onemore"
+
+-- 検索
+opt.ignorecase = true
+opt.smartcase = true
+opt.wrapscan = true
+opt.incsearch = true
+opt.hlsearch = true
+
+-- バックアップ、スワップ
+opt.backup = false
+opt.swapfile = false
+opt.autoread = true
+
+-- 履歴
+opt.history = 1000
+opt.undofile = false
+opt.clipboard:append("unnamed")
+
+-- ヘルプを日本語で
+opt.helplang = 'ja', 'en'
+
+-- opt.wildmenu = true -- 補完の強化
 
 -- digraph setting
--- 12354 => "あ"
--- vim.digraph.aa = 12354
--- vim.digraph.ii = 12356
--- vim.digraph.uu = 12358
--- vim.digraph.ee = 12360
--- vim.digraph.oo = 12362
+vim.cmd([[
+  " 12354 => "あ"
+  digraph aa 12354
+  digraph ii 12356
+  digraph uu 12358
+  digraph ee 12360
+  digraph oo 12362
 
--- -- 12450 => "ア"
--- vim.digraph.Aa = 12450
--- vim.digraph.Ii = 12452
--- vim.digraph.Uu = 12454
--- vim.digraph.Ee = 12456
--- vim.digraph.Oo = 12458
+  " 12450 => "ア"
+  digraph Aa 12450
+  digraph Ii 12452
+  digraph Uu 12454
+  digraph Ee 12456
+  digraph Oo 12458
 
--- -- ん、ン
--- vim.digraph.nn = 12435
--- vim.digraph.Nn = 12531
+  " ん、ン
+  digraph nn 12435
+  digraph Nn 12531
 
--- -- カッコ
--- vim.digraph.j( = 65288 -- （
--- vim.digraph.j) = 65289 -- ）
--- vim.digraph.j[ = 12300 -- 「
--- vim.digraph.j] = 12301 -- 」
--- vim.digraph.j{ = 12302 -- 『
--- vim.digraph.j} = 12303 -- 』
--- vim.digraph.j< = 12304 -- 【
--- vim.digraph.j> = 12305 -- 】
+  " カッコ
+  digraphs j( 65288  " （
+  digraphs j) 65289  " ）
+  digraphs j[ 12300  " 「
+  digraphs j] 12301  " 」
+  digraphs j{ 12302  " 『
+  digraphs j} 12303  " 』
+  digraphs j< 12304  " 【
+  digraphs j> 12305  " 】
 
--- -- 句読点
--- vim.digraph.j, = 65292 - ，
--- vim.digraph.j. = 65294 - ．
--- vim.digraph.j! = 65281 - ！
--- vim.digraph.j? = 65311 - ？
--- vim.digraph.j: = 65306 - ：
+  " 句読点
+  digraphs j, 65292  " ，
+  digraphs j. 65294  " ．
+  digraphs j! 65281  " ！
+  digraphs j? 65311  " ？
+  digraphs j: 65306  " ：
 
--- vim.digraph.jj = 106
+  digraphs jj 106  " j
+]])

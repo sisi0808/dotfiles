@@ -1,64 +1,64 @@
 -- Pluginが関係無いKeymapを設定する
 
 -- leaderキーをspaceキーに設定
-vim.g.mapleader = " "
+g.mapleader = " "
 
 -- カーソル移動
-api.nvim_set_keymap('n', '<leader>4', '$', { noremap = true })
-api.nvim_set_keymap('n', '<leader>6', '^', { noremap = true })
+nmap('<leader>4', '$')
+nmap('<leader>6', '^')
 
 -- ファイル保存・終了
-api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true })
-api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true })
-api.nvim_set_keymap('n', '<leader>wq', ':wq<CR>', { noremap = true })
+nmap('<leader>w', ':w<CR>')
+nmap('<leader>q', ':q<CR>')
+nmap('<leader>wq', ':wq<CR>')
 
 -- タブ設定
 -- 新規タブをホームディレクトリで
-api.nvim_set_keymap('n', '<C-t>', ':tabe ~/<CR>', { noremap = true })
+nmap('<C-t>', ':tabe ~/<CR>')
 -- 新規タブを同じディレクトリで
--- api.nvim_set_keymap('n', '<C-t>', ':tabe<CR>', { noremap = true })
+-- nmap('<C-t>', ':tabe<CR>')
 
 -- タブ移動設定
-api.nvim_set_keymap('n', '<C-p>', 'gt', { noremap = true })
-api.nvim_set_keymap('n', '<C-n>', 'gT', { noremap = true })
+nmap('<C-p>', 'gt')
+nmap('<C-n>', 'gT')
 
 -- Terminalモード設定
-api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
-vim.cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')
-api.nvim_set_keymap('n', '<leader>t', ':T<CR>', { noremap = true })
+tmap('<Esc>', '<C-\\><C-n>')
+cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')
+nmap('<leader>t', ':T<CR>')
 
 -- ウィンドウ操作
-api.nvim_set_keymap('n', '<leader>s', '<C-w>s', { noremap = true })
-api.nvim_set_keymap('n', '<leader>v', '<C-w>v', { noremap = true })
-api.nvim_set_keymap('n', '<leader>wr', ':new ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<leader>ww', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
+nmap('<leader>s', '<C-w>s')
+nmap('<leader>v', '<C-w>v')
+nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true })
+nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true })
 
 -- ウィンドウ移動
-api.nvim_set_keymap('n', 'sh', '<C-w>h', { noremap = true })
-api.nvim_set_keymap('n', 'sj', '<C-w>j', { noremap = true })
-api.nvim_set_keymap('n', 'sk', '<C-w>k', { noremap = true })
-api.nvim_set_keymap('n', 'sl', '<C-w>l', { noremap = true })
-api.nvim_set_keymap('n', 'sH', '<C-w>H', { noremap = true })
-api.nvim_set_keymap('n', 'sJ', '<C-w>J', { noremap = true })
-api.nvim_set_keymap('n', 'sK', '<C-w>K', { noremap = true })
-api.nvim_set_keymap('n', 'sL', '<C-w>L', { noremap = true })
+nmap('sh', '<C-w>h')
+nmap('sj', '<C-w>j')
+nmap('sk', '<C-w>k')
+nmap('sl', '<C-w>l')
+nmap('sH', '<C-w>H')
+nmap('sJ', '<C-w>J')
+nmap('sK', '<C-w>K')
+nmap('sL', '<C-w>L')
 
 -- インデントを揃えたペースト
-api.nvim_set_keymap('n', 'p', ']p', { noremap = true })
-api.nvim_set_keymap('n', 'P', ']P', { noremap = true })
+nmap('p', ']p')
+nmap('P', ']P')
 
 -- 空行を挿入
-api.nvim_set_keymap('n', '<leader>o', 'o<ESC>k', { noremap = true })
-api.nvim_set_keymap('n', '<leader>O', 'O<ESC>j', { noremap = true })
+nmap('<leader>o', 'o<ESC>k')
+nmap('<leader>O', 'O<ESC>j')
 
 -- カーソル下の単語を、置換後の文字列の入力を待つ状態にする
-api.nvim_set_keymap('n', '<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', { noremap = true, silent = true })
+nmap('<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', {silent = true })
 
 -- Digraph設定
--- api.nvim_set_keymap('n', 'fj', 'f<C-k>', { noremap = true })
--- api.nvim_set_keymap('n', 'Fj', 'F<C-k>', { noremap = true })
--- api.nvim_set_keymap('n', 'tj', 't<C-k>', { noremap = true })
--- api.nvim_set_keymap('n', 'Tj', 'T<C-k>', { noremap = true })
+nmap('fj', 'f<C-k>')
+nmap('Fj', 'F<C-k>')
+nmap('tj', 't<C-k>')
+nmap('Tj', 'T<C-k>')
 
 -- Esc設定
-api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
+imap('jk', '<Esc>')
