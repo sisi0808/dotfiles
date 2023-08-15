@@ -130,6 +130,16 @@ require("lazy").setup({
       'romgrk/barbar.nvim',
       dependencies = {'nvim-web-devicons'},
       event = {'BufNewFile', 'BufRead'},
+      keys = {
+        -- Move to previous/next
+        { '<M-,>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true }},
+        { '<M-.>', '<Cmd>BufferNext<CR>' ,{ noremap = true, silent = true }},
+        -- Reorder to previous/next
+        { '<M-<>', '<Cmd>BufferMovePrevious<CR>', { noremap = true, silent = true }},
+        { '<M->>', '<Cmd>BufferMoveNext<CR>' ,{ noremap = true, silent = true }},
+        -- Close buffer
+        { '<M-c>', '<Cmd>BufferClose<CR>' ,{ noremap = true, silent = true }},
+      }
     }, 
     -- 囲まれているものの操作
     {
@@ -264,7 +274,6 @@ require("lazy").setup({
       keys = {
         { "<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>"},
         { "<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>"},
-        { "<Plug>(fern-action-open)", "<Plug>(fern-action-open:split)"},
       },
   },
 })
