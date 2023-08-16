@@ -20,7 +20,7 @@ opt.ruler = true
 opt.ambiwidth = "double"
 vim.cmd("syntax enable")
 opt.updatetime = 250
-
+opt.singlecolumn = "yes"
 
 -- 行末への移動
 opt.backspace = "indent,eol,start"

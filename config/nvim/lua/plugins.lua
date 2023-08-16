@@ -28,6 +28,10 @@ require("lazy").setup({
     dependencies = { 
       'xolox/vim-misc'
     },
+    keys = {
+      {'<leader>so', ':OpenSession<Space>'},
+      {'<leader>ss', ':SaveSession<Space>'},
+    },
     config = function()
       g['session_directory'] = "~/.config/nvim/session"
       g['session_autoload'] = "no"
@@ -35,7 +39,6 @@ require("lazy").setup({
       g['session_command_aliases'] = 1
     end
   },
-
   -- copilot
   {
     "zbirenbaum/copilot.lua",
@@ -49,6 +52,32 @@ require("lazy").setup({
       g['copilot_no_tab_map'] = true
         require('copilot').setup()
     end
+  },
+  -- Gitの差分表示
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+        signs = {
+          add          = { text = '+' },
+          change       = { text = '~' },
+          delete       = { text = '_' },
+          topdelete    = { text = '‾' },
+          changedelete = { text = '~_' },
+        },
+        current_line_blame = true,
+      })
+    end
+  },
+  -- Registerを拡張
+  {
+    "tversteeg/registers.nvim",
+    name = "registers",
+    keys = {
+      { "\"",    mode = { "n", "v" } },
+      { "<C-R>", mode = "i" }
+    },
+    cmd = "Registers",
   },
   -- 閉じカッコ作成
   {
@@ -244,14 +273,7 @@ require("lazy").setup({
         -- fernをデフォルトのエクスプローラーに
         {'lambdalisue/fern-hijack.vim'},
         -- git statusを表示
-        {
-          'lambdalisue/fern-git-status.vim',
-          vim.cmd [[
-            highlight GitGutterAdd ctermfg=green
-            highlight GitGutterChange ctermfg=blue
-            highlight GitGutterDelete ctermfg=red
-          ]]
-        },
+        { 'lambdalisue/fern-git-status.vim' },
         -- ファイルのプレビュー
         {
           'yuki-yano/fern-preview.vim',
