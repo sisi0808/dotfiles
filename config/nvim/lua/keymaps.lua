@@ -18,10 +18,6 @@ nmap('<C-t>', ':tabe ~/<CR>')
 -- 新規タブを同じディレクトリで
 -- nmap('<C-t>', ':tabe<CR>')
 
--- タブ移動設定
-nmap('<C-p>', 'gt')
-nmap('<C-n>', 'gT')
-
 -- Terminalモード設定
 tmap('<Esc>', '<C-\\><C-n>')
 cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')

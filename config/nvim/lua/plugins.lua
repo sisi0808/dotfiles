@@ -15,13 +15,19 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
    -- 行内のf文字ハイライト
   'unblevable/quick-scope',
-  -- コメントアウト
-  'tpope/vim-commentary',
   -- ヘルプ日本語化
   'vim-jp/vimdoc-ja',
   -- 画面移動の滑らか化
   'yuttie/comfortable-motion.vim',
 
+  -- コメントアウト
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+  },
   -- セッション管理
   {
     'xolox/vim-session',
