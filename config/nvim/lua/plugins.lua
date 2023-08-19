@@ -19,7 +19,6 @@ require("lazy").setup({
   'vim-jp/vimdoc-ja',
   -- 画面移動の滑らか化
   'yuttie/comfortable-motion.vim',
-
   -- コメントアウト
   {
     'numToStr/Comment.nvim',
@@ -48,16 +47,26 @@ require("lazy").setup({
   -- copilot
   {
     "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
     event = "InsertEnter",
-    keys = {
-      {'<C-j>','copilot#Accept("<CR>")' ,mode = "i" },
-      {'<M-i>','<Plug>(copilot-next)' ,mode = "i" },
-      {'<M-o>','<Plug>(copilot-previous)' ,mode = "i" }
-    },
+    lazy = false,
     config = function()
-      g['copilot_no_tab_map'] = true
-        require('copilot').setup()
-    end
+      require('copilot').setup({
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 75,
+        keymap = {
+          accept = "<C-j>",
+          accept_word = false,
+          accept_line = false,
+          next = "<M-o>",
+          prev = "<M-i>",
+          dismiss = "<C-]>",
+        },
+        },
+      })
+    end,
   },
   -- Gitの差分表示
   {
@@ -78,12 +87,9 @@ require("lazy").setup({
   -- Registerを拡張
   {
     "tversteeg/registers.nvim",
-    name = "registers",
-    keys = {
-      { "\"",    mode = { "n", "v" } },
-      { "<C-R>", mode = "i" }
-    },
-    cmd = "Registers",
+    config = function()
+      require("registers").setup()
+    end
   },
   -- 閉じカッコ作成
   {
@@ -211,48 +217,49 @@ require("lazy").setup({
       }
     },
      -- VSCode like
-    {
-      'neoclide/coc.nvim',
-      branch = "release",
-      event = "InsertEnter",
-      keys = {
-        -- 定義に移動
-        { '<C-]>', '<Plug>(coc-definition)' },
-        -- 呼び出し元に移動
-        { '<C-j>h', '<Plug>(coc-references)' },
-        -- 実装に移動
-        { '<C-j>i', '<Plug>(coc-implementation)' },
-        -- 配下の定義を表示
-        { '<M-s>', ':call CocActionAsync(\'doHover\')<CR>' },
-        { '<C-P>', '<C-\\><C-O>:call CocActionAsync(\'showSignatureHelp\')<CR>', mode = "i" },
-        -- 前後のエラーや警告に移動
-        { '<M-k>', '<Plug>(coc-diagnostic-prev)' },
-        { '<M-j>', '<Plug>(coc-diagnostic-next)' },
-        -- Enterキーで決定
-        { "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], mode = "i", expr = true, replace_keycodes = false },
-        -- code action
-        { '<M-CR>', '<Plug>(coc-codeaction-cursor)' },
-        -- Find symbol of current document
-        { '<C-j>o', ':<C-u>CocList outline<cr>' },
-        -- Search workspace symbols
-        { '<C-j>s', ':<C-u>CocList -I symbols<cr>' },
-        -- Rename
-        { '<S-M-r>', '<Plug>(coc-rename)' },
-        -- Auto complete
-        { "<F5>", "coc#refresh()" },
-      },
-      config = function()
-        g.coc_global_extensions = {
-          "coc-json",
-          "coc-tsserver",
-          "coc-css",
-          "coc-yaml",
-          "coc-sh",
-          "coc-prettier",
-          "coc-pyright",
-        }
-      end
-    },
+    -- {
+    --   'neoclide/coc.nvim',
+    --   branch = "release",
+    --   event = "InsertEnter",
+    --   lazy = false,
+    --   keys = {
+    --     -- 定義に移動
+    --     { '<C-]>', '<Plug>(coc-definition)' },
+    --     -- 呼び出し元に移動
+    --     { '<C-j>h', '<Plug>(coc-references)' },
+    --     -- 実装に移動
+    --     { '<C-j>i', '<Plug>(coc-implementation)' },
+    --     -- 配下の定義を表示
+    --     { '<M-s>', ':call CocActionAsync(\'doHover\')<CR>' },
+    --     { '<C-P>', '<C-\\><C-O>:call CocActionAsync(\'showSignatureHelp\')<CR>', mode = "i" },
+    --     -- 前後のエラーや警告に移動
+    --     { '<M-k>', '<Plug>(coc-diagnostic-prev)' },
+    --     { '<M-j>', '<Plug>(coc-diagnostic-next)' },
+    --     -- Enterキーで決定
+    --     { "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], mode = "i", expr = true, replace_keycodes = false },
+    --     -- code action
+    --     { '<M-CR>', '<Plug>(coc-codeaction-cursor)' },
+    --     -- Find symbol of current document
+    --     { '<C-j>o', ':<C-u>CocList outline<cr>' },
+    --     -- Search workspace symbols
+    --     { '<C-j>s', ':<C-u>CocList -I symbols<cr>' },
+    --     -- Rename
+    --     { '<S-M-r>', '<Plug>(coc-rename)' },
+    --     -- Auto complete
+    --     { "<F5>", "coc#refresh()" },
+    --   },
+    --   config = function()
+    --     g.coc_global_extensions = {
+    --       "coc-json",
+    --       "coc-tsserver",
+    --       "coc-css",
+    --       "coc-yaml",
+    --       "coc-sh",
+    --       "coc-prettier",
+    --       "coc-pyright",
+    --     }
+    --   end
+    -- },
     -- ファイラー
     {
       'lambdalisue/fern.vim',
