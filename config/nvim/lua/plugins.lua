@@ -194,7 +194,7 @@ require("lazy").setup({
       'phaazon/hop.nvim',
       branch = 'v2',
       keys = {
-        { 's', ':HopChar2MW<CR>' }
+        { 'ss', ':HopChar2MW<CR>' }
       },
       config = function()
         require('hop').setup({
@@ -257,13 +257,14 @@ require("lazy").setup({
     --       "coc-sh",
     --       "coc-prettier",
     --       "coc-pyright",
+    --       "coc-lua",
     --     }
     --   end
     -- },
     -- ファイラー
     {
       'lambdalisue/fern.vim',
-      dependencies = { 
+      dependencies = {
         -- アイコン類
         {'lambdalisue/nerdfont.vim'},
         {
@@ -275,12 +276,12 @@ require("lazy").setup({
         -- アイコン類
         {
           'lambdalisue/glyph-palette.vim',
-          vim.cmd [[
-            augroup my-glyph-palette
-              autocmd! *
-              autocmd FileType fern call glyph_palette#apply()
-              autocmd FileType nerdtree,startify call glyph_palette#apply()
-            augroup END
+          vim.cmd[[
+              augroup my-glyph-palette
+                autocmd! *
+                autocmd FileType fern call glyph_palette#apply()
+                autocmd FileType nerdtree,startify call glyph_palette#apply()
+              augroup END
           ]]
         },
         -- fernをデフォルトのエクスプローラーに
@@ -290,25 +291,34 @@ require("lazy").setup({
         -- ファイルのプレビュー
         {
           'yuki-yano/fern-preview.vim',
-          vim.cmd [[
-            function! s:init_fern() abort
-              nmap <buffer> ss <Plug>(fern-action-open:select
+          -- keys = {
+          --   {"p", "<Plug>(fern-action-preview:toggle)", buffer=true, silent=true},
+          --   {"<C-p>", "<Plug>(fern-action-preview:auto:toggle)", buffer=true, silent=true},
+          --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", buffer=true, silent=true},
+          --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", buffer=true, silent=true},
+          -- },
+          vim.cmd[[
+            function! s:fern_settings() abort
               nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
               nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
               nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
               nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+
+              nmap <buffer> sa <Plug>(fern-action-open:select)
+              nmap <buffer> ss <Plug>(fern-action-open:split)
+              nmap <buffer> sd <Plug>(fern-action-open:vsplit)
             endfunction
 
-            augroup fern-custom
-              autocmd! *
-              autocmd FileType fern call s:init_fern()
+            augroup fern-settings
+              autocmd!
+               autocmd FileType fern call s:fern_settings()
             augroup END
           ]]
-        }
+        },
       },
       keys = {
-        { "<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>"},
-        { "<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>"},
+        {"<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
+        {"<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
       },
-  },
+    },
 })
