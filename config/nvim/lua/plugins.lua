@@ -19,6 +19,47 @@ require("lazy").setup({
   'vim-jp/vimdoc-ja',
   -- 画面移動の滑らか化
   'yuttie/comfortable-motion.vim',
+  -- Lazy Vim用のカラースキーム
+  'ellisonleao/gruvbox.nvim', 
+  -- Configure LazyVim to load gruvbox
+  {
+    'LazyVim/LazyVim',
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+  -- keymapの補完表示
+  {
+    'folke/which-key.nvim',
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {}
+  },
+  -- インデント
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      opt.termguicolors = true
+      cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
+      cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
+      require("indent_blankline").setup {
+          char = "",
+          char_highlight_list = {
+              "IndentBlanklineIndent1",
+              "IndentBlanklineIndent2",
+          },
+          space_char_highlight_list = {
+              "IndentBlanklineIndent1",
+              "IndentBlanklineIndent2",
+          },
+          show_trailing_blankline_indent = false,
+      }
+    end,
+
+  },
   -- コメントアウト
   {
     'numToStr/Comment.nvim',
@@ -186,7 +227,7 @@ require("lazy").setup({
     {
       'machakann/vim-sandwich',
       config = function()
-        vim.cmd("runtime macros/sandwich/keymap/surround.vim")
+       cmd("runtime macros/sandwich/keymap/surround.vim")
       end
     },
     -- 画面内瞬間移動
@@ -276,7 +317,7 @@ require("lazy").setup({
         -- アイコン類
         {
           'lambdalisue/glyph-palette.vim',
-          vim.cmd[[
+          cmd[[
               augroup my-glyph-palette
                 autocmd! *
                 autocmd FileType fern call glyph_palette#apply()
@@ -297,7 +338,7 @@ require("lazy").setup({
           --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", buffer=true, silent=true},
           --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", buffer=true, silent=true},
           -- },
-          vim.cmd[[
+          cmd[[
             function! s:fern_settings() abort
               nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
               nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
