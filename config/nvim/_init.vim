@@ -79,7 +79,7 @@ nnoremap <Leader>a ^
 nnoremap <Leader>l $
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :q<CR>
+nnoremap <Leader>wq :wq<CR>
 
 " tab settings
 nmap <C-t> :tabe ~/<cr> " 新規タブをホームディレクトリで
@@ -164,8 +164,10 @@ Jetpack 'xolox/vim-session' "セッション管理
 Jetpack 'xolox/vim-misc' "xolox/vim-sessionの依存
 Jetpack 'brglng/vim-im-select' "Escで日本語->英語
 Jetpack 'vim-jp/vimdoc-ja' "ヘルプ日本語化
+
 Jetpack 'airblade/vim-gitgutter' "Git差分をシンタックス表示
 Jetpack 'tpope/vim-fugitive' "Git操作
+
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'} "lsp
 Jetpack 'tyru/open-browser.vim' " リンクをブラウザで開く
 Jetpack 'github/copilot.vim' "Copilot
@@ -222,7 +224,6 @@ let g:im_select_default = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
 " nnoremap <silent> <F2> :NERDTreeFind<CR>
 " nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
-
 " Fern Settings
 nnoremap <silent> <F2> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 nnoremap <silent> <F3> :Fern . -reveal=% -drawer -toggle -width=40<CR>
@@ -230,7 +231,7 @@ let g:fern#renderer = 'nerdfont'
 map <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:split)
 
 function! s:init_fern() abort
-  nmap <buffer> ss <Plug>(fern-action-open:select
+  nmap <buffer> ss <Plug>(fern-action-open:select)
   nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
   nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
   nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
