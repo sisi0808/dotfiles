@@ -30,9 +30,10 @@ alias gs  'git status '
 alias gss  'git status -s'
 
 # setting nvim
-alias view='nvim -R'
-alias vit='nvim ~/.config/nvim/init.vim'
-alias fit='nvim ~/.config/fish/config.fish'
+alias nv='nvim -u ~/.config/nvim/init.lua'
+alias view='nv -R'
+alias vit='nv ~/.config/nvim/init.lua'
+alias fit='nv ~/.config/fish/config.fish'
 
 #! enable vi mode
 fish_vi_key_bindings
