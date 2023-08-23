@@ -1,6 +1,7 @@
 -- Call Script
 -- alias to vim's objects
 g = vim.g
+o = vim.o
 opt = vim.opt
 cmd = vim.cmd
 fn = vim.fn

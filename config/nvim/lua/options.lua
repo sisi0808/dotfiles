@@ -1,5 +1,4 @@
 -- 文字コード
-opt.scriptencoding 'utf-8'
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 
@@ -51,7 +50,7 @@ opt.clipboard:append("unnamed")
 opt.helplang = 'ja', 'en'
 
 -- digraph setting
-vim.cmd [[
+cmd [[
   " 12354 => "あ"
   digraph aa 12354
   digraph ii 12356
