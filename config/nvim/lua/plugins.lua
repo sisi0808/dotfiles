@@ -133,14 +133,17 @@ require("lazy").setup({
       'vim-denops/denops.vim',
     },
     keys = {
-      {'<leader>ga', ':Gin add %<CR>'},
+      {'<leader>ga', ':Gin add .<CR>'},
       {'<leader>gc', ':Gin commit<CR>'},
       {'<leader>gp', ':Gin push<CR>'},
 
       {'<leader>gs', ':GinStatus <CR>'},
       {'<leader>gb', ':GinBranch <CR>'},
       {'<leader>gbr', ':GinBrowse <CR>'},
-    }
+    },
+    config = function ()
+      g[gin_proxy_apply_without_confirm] = 1
+    end
   },
   -- Registerを拡張
   {
