@@ -1,5 +1,5 @@
 -- 文字コード
-vim.scriptencoding = 'utf-8'
+opt.scriptencoding 'utf-8'
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 
@@ -18,8 +18,12 @@ opt.title = true
 opt.laststatus = 2
 opt.ruler = true
 opt.ambiwidth = "double"
-vim.cmd("syntax enable")
+cmd("syntax enable")
 opt.updatetime = 250
+
+-- カーソルを常に中央に表示
+opt.so = 999
+-- opt.so = 0
 
 -- 行末への移動
 opt.backspace = "indent,eol,start"
@@ -42,13 +46,12 @@ opt.history = 1000
 opt.undofile = false
 opt.clipboard:append("unnamed")
 
+
 -- ヘルプを日本語で
 opt.helplang = 'ja', 'en'
 
--- opt.wildmenu = true -- 補完の強化
-
 -- digraph setting
-vim.cmd([[
+vim.cmd [[
   " 12354 => "あ"
   digraph aa 12354
   digraph ii 12356
@@ -85,4 +88,4 @@ vim.cmd([[
   digraphs j: 65306  " ：
 
   digraphs jj 106  " j
-]])
+]]
