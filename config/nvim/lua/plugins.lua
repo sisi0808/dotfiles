@@ -141,9 +141,9 @@ require("lazy").setup({
       {'<leader>gb', ':GinBranch <CR>'},
       {'<leader>gbr', ':GinBrowse <CR>'},
     },
-    -- config = function ()
-    --   g[gin_proxy_apply_without_confirm] = 1
-    -- end
+    config = function ()
+      g['gin_proxy_apply_without_confirm'] = 1
+    end
   },
   -- Registerを拡張
   {
@@ -179,7 +179,7 @@ require("lazy").setup({
   -- ステータスライン
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 
+    dependencies = {
       'nvim-tree/nvim-web-devicons',
       'ryanoasis/vim-devicons'
     },
@@ -336,13 +336,10 @@ require("lazy").setup({
         -- アイコン類
         {
           'lambdalisue/glyph-palette.vim',
-          cmd[[
-              augroup my-glyph-palette
-                autocmd! *
-                autocmd FileType fern call glyph_palette#apply()
-                autocmd FileType nerdtree,startify call glyph_palette#apply()
-              augroup END
-          ]]
+          ft='fern',
+          config = function()
+            fn['glyph_palette#apply']()
+          end
         },
         -- fernをデフォルトのエクスプローラーに
         {'lambdalisue/fern-hijack.vim'},
@@ -351,11 +348,12 @@ require("lazy").setup({
         -- ファイルのプレビュー
         {
           'yuki-yano/fern-preview.vim',
+          ft='fern',
           -- keys = {
-          --   {"p", "<Plug>(fern-action-preview:toggle)", buffer=true, silent=true},
-          --   {"<C-p>", "<Plug>(fern-action-preview:auto:toggle)", buffer=true, silent=true},
-          --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", buffer=true, silent=true},
-          --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", buffer=true, silent=true},
+          --   {"p", "<Plug>(fern-action-preview:toggle)", silent=true, buffer=true},
+          --   {"<C-p>", "<Plug>(fern-action-preview:auto:toggle)", silent=true, buffer=true},
+          --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", silent=true, buffer=true},
+          --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", silent=true, buffer=true},
           -- },
           cmd[[
             function! s:fern_settings() abort
@@ -379,6 +377,9 @@ require("lazy").setup({
       keys = {
         {"<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
         {"<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
+        -- {"sa", "<Plug>(fern-action-open:select)", silent=true},
+        -- {"ss", "<Plug>(fern-action-open:split)", silent=true},
+        -- {"sd", "<Plug>(fern-action-open:vsplit)", silent=true}
       },
     },
 })
