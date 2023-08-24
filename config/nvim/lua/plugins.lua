@@ -141,9 +141,9 @@ require("lazy").setup({
       {'<leader>gb', ':GinBranch <CR>'},
       {'<leader>gbr', ':GinBrowse <CR>'},
     },
-    config = function ()
-      g[gin_proxy_apply_without_confirm] = 1
-    end
+    -- config = function ()
+    --   g[gin_proxy_apply_without_confirm] = 1
+    -- end
   },
   -- Registerを拡張
   {
@@ -347,7 +347,7 @@ require("lazy").setup({
         -- fernをデフォルトのエクスプローラーに
         {'lambdalisue/fern-hijack.vim'},
         -- git statusを表示
-        { 'lambdalisue/fern-git-status.vim' },
+        -- { 'lambdalisue/fern-git-status.vim' },
         -- ファイルのプレビュー
         {
           'yuki-yano/fern-preview.vim',
