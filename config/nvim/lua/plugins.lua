@@ -133,9 +133,9 @@ require("lazy").setup({
       'vim-denops/denops.vim',
     },
     keys = {
-      {'<leader>ga', ':Gin add .<CR>'},
-      {'<leader>gc', ':Gin commit<CR>'},
-      {'<leader>gp', ':Gin push<CR>'},
+      {'<leader>ga', ':silent Gin add .<CR>'},
+      {'<leader>gc', ':silent Gin commit<CR>'},
+      {'<leader>gp', ':silent Gin push<CR>'},
 
       {'<leader>gs', ':GinStatus <CR>'},
       {'<leader>gb', ':GinBranch <CR>'},
