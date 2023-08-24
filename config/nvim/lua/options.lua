@@ -47,7 +47,7 @@ opt.clipboard:append("unnamed")
 
 
 -- ヘルプを日本語で
-opt.helplang = 'ja', 'en'
+opt.helplang = 'ja'
 
 -- digraph setting
 cmd [[
