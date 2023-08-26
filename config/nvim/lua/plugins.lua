@@ -318,6 +318,9 @@ require("lazy").setup({
           "coc-prettier",
           "coc-pyright",
           "coc-lua",
+          "coc-git",
+          "coc-java",
+          "coc-markdownlint",
         }
       end
     },
