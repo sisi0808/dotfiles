@@ -39,6 +39,7 @@ opt.hlsearch = true
 opt.backup = false
 opt.swapfile = false
 opt.autoread = true
+opt.undodir = '~/.config/nvim/undo/'
 
 -- 履歴
 opt.history = 1000

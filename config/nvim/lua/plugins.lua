@@ -133,9 +133,9 @@ require("lazy").setup({
       'vim-denops/denops.vim',
     },
     keys = {
-      {'<leader>ga', ':silent Gin add .<CR>'},
-      {'<leader>gc', ':silent Gin commit<CR>'},
-      {'<leader>gp', ':silent Gin push<CR>'},
+      {'<leader>ga', 'Gin add .<CR>', {silent = true}},
+      {'<leader>gc', 'Gin commit<CR>', {silent = true}},
+      {'<leader>gp', 'Gin push<CR>', {silent = true}},
 
       {'<leader>gs', ':GinStatus <CR>'},
       {'<leader>gb', ':GinBranch <CR>'},
@@ -249,17 +249,42 @@ require("lazy").setup({
        cmd("runtime macros/sandwich/keymap/surround.vim")
       end
     },
-    -- 画面内瞬間移動
+    -- kensakuのプラグイン
     {
-      'phaazon/hop.nvim',
-      branch = 'v2',
+      'lambdalisue/kensaku.vim',
+      lazy = false,
+      dependencies = {
+        'vim-denops/denops.vim',
+      }
+    },
+    --/キーでの検索でkensaku.vimを使うためのプラグイン。
+    {
+      'lambdalisue/kensaku-search.vim',
+      lazy = false,
       keys = {
-        { 'ss', ':HopChar2MW<CR>' }
+        {'<CR>', '<Plug>(kensaku-search-replace)', mode="c"},
+      },
+    }, 
+    -- 画面内瞬間移動
+    -- {
+    --   'phaazon/hop.nvim',
+    --   branch = 'v2',
+    --   keys = {
+    --     { 'ss', ':HopChar2MW<CR>' }
+    --   },
+    --   config = function()
+    --     require('hop').setup({
+    --       keys = 'etovxqpdygfblzhckisuran' 
+    --     })
+    --   end
+    -- },
+    {
+      'yuki-yano/fuzzy-motion.nvim',
+      keys = {
+          { 'ss', '<cmd>FuzzyMotion<CR>' }
       },
       config = function()
-        require('hop').setup({
-          keys = 'etovxqpdygfblzhckisuran' 
-        })
+        cmd("let g:fuzzy_motion_matchers = ['kensaku', 'fzf']")
       end
     },
       -- Fuzzy finder
@@ -270,7 +295,8 @@ require("lazy").setup({
         'nvim-lua/plenary.nvim'
       },
       keys = {
-        { '<leader>ff', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
+        -- { '<leader>ff', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
+        { '<leader><leader>', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
         { '<leader>fg', ':Telescope live_grep<CR>' },
         { '<leader>fb', ':Telescope current_buffer_fuzzy_find<CR>' },
         { '<leader>fh', ':Telescope help_tags<CR>' }
@@ -332,6 +358,7 @@ require("lazy").setup({
         {'lambdalisue/nerdfont.vim'},
         {
           'lambdalisue/fern-renderer-nerdfont.vim',
+          ft='fern',
           config = function()
             g['fern#renderer'] = "nerdfont"
           end
@@ -353,10 +380,10 @@ require("lazy").setup({
           'yuki-yano/fern-preview.vim',
           ft='fern',
           -- keys = {
-          --   {"p", "<Plug>(fern-action-preview:toggle)", silent=true, buffer=true},
-          --   {"<C-p>", "<Plug>(fern-action-preview:auto:toggle)", silent=true, buffer=true},
-          --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", silent=true, buffer=true},
-          --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", silent=true, buffer=true},
+          --   {"p", "<Plug>(fern-action-preview:toggle)", {silent=true, buffer=true}},
+          --   {"<C-p>", "<Plug>(fern-action-preview:auto:toggle)", {silent=true, buffer=true}},
+          --   {"<C-d>", "<Plug>(fern-action-preview:scroll:down:half)", {silent=true, buffer=true}},
+          --   {"<C-u>", "<Plug>(fern-action-preview:scroll:up:half)", {silent=true, buffer=true}},
           -- },
           cmd[[
             function! s:fern_settings() abort
@@ -380,9 +407,9 @@ require("lazy").setup({
       keys = {
         {"<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
         {"<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
-        -- {"sa", "<Plug>(fern-action-open:select)", silent=true},
-        -- {"ss", "<Plug>(fern-action-open:split)", silent=true},
-        -- {"sd", "<Plug>(fern-action-open:vsplit)", silent=true}
+        -- {"sa", "<Plug>(fern-action-open:select)", {silent=true, buffer=true}},
+        -- {"ss", "<Plug>(fern-action-open:split)", {silent=true, buffer=true}},
+        -- {"sd", "<Plug>(fern-action-open:vsplit)", {silent=true, buffer=true}}
       },
     },
 })

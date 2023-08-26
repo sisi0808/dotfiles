@@ -26,8 +26,10 @@ nmap('<leader>t', ':T<CR>')
 -- ウィンドウ操作
 nmap('<leader>s', '<C-w>s')
 nmap('<leader>v', '<C-w>v')
-nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true })
+-- nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true })
 nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true })
+nmap('<leader>wr', ':new ~/.config/nvim/lua/plugins.lua<CR>', {silent = true })
+-- nmap('<leader>ww', ':source ~/.config/lua/plugins.lua<CR>', {silent = true })
 
 -- ウィンドウ移動
 nmap('sh', '<C-w>h')
