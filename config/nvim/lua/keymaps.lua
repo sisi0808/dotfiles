@@ -19,9 +19,9 @@ nmap('<C-t>', ':tabe ~/<CR>')
 -- nmap('<C-t>', ':tabe<CR>')
 
 -- Terminalモード設定
-tmap('<Esc>', '<C-\\><C-n>')
-cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')
-nmap('<leader>t', ':T<CR>')
+-- tmap('<Esc>', '<C-\\><C-n>')
+-- cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')
+-- nmap('<leader>t', ':T<CR>')
 
 -- ウィンドウ操作
 nmap('<leader>s', '<C-w>s')
