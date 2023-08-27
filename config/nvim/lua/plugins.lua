@@ -162,6 +162,15 @@ require("lazy").setup({
       g['gin_proxy_apply_without_confirm'] = 1
     end
   },
+  -- Git操作
+  -- brewでlazygitを事前にインストールしておく
+  -- {
+  --   "kdheepak/lazygit.nvim",
+  --   -- optional for floating window border decoration
+  --   dependencies = {
+  --       "nvim-lua/plenary.nvim",
+  --   },
+  -- },
   -- Registerを拡張
   {
     "tversteeg/registers.nvim",
@@ -169,6 +178,17 @@ require("lazy").setup({
       require("registers").setup()
     end
   },
+  -- ターミナル操作をVimで
+  -- {
+  --   'glacambre/firenvim',
+  --
+  --   -- Lazy load firenvim
+  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+  --   lazy = not vim.g.started_by_firenvim,
+  --   build = function()
+  --       vim.fn["firenvim#install"](0)
+  --   end
+  -- },
   -- 閉じカッコ作成
   {
     'windwp/nvim-autopairs',
