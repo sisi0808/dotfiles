@@ -133,9 +133,9 @@ require("lazy").setup({
       'vim-denops/denops.vim',
     },
     keys = {
-      {'<leader>ga', 'Gin add .<CR>', {silent = true}},
-      {'<leader>gc', 'Gin commit<CR>', {silent = true}},
-      {'<leader>gp', 'Gin push<CR>', {silent = true}},
+      {'<leader>ga', ':Gin add .<CR>', silent = true},
+      {'<leader>gc', ':Gin commit<CR>', silent = true},
+      {'<leader>gp', ':Gin push<CR>', silent = true},
 
       {'<leader>gs', ':GinStatus <CR>'},
       {'<leader>gb', ':GinBranch <CR>'},
@@ -249,42 +249,17 @@ require("lazy").setup({
        cmd("runtime macros/sandwich/keymap/surround.vim")
       end
     },
-    -- kensakuのプラグイン
-    {
-      'lambdalisue/kensaku.vim',
-      lazy = false,
-      dependencies = {
-        'vim-denops/denops.vim',
-      }
-    },
-    --/キーでの検索でkensaku.vimを使うためのプラグイン。
-    {
-      'lambdalisue/kensaku-search.vim',
-      lazy = false,
-      keys = {
-        {'<CR>', '<Plug>(kensaku-search-replace)', mode="c"},
-      },
-    }, 
     -- 画面内瞬間移動
-    -- {
-    --   'phaazon/hop.nvim',
-    --   branch = 'v2',
-    --   keys = {
-    --     { 'ss', ':HopChar2MW<CR>' }
-    --   },
-    --   config = function()
-    --     require('hop').setup({
-    --       keys = 'etovxqpdygfblzhckisuran' 
-    --     })
-    --   end
-    -- },
     {
-      'yuki-yano/fuzzy-motion.nvim',
+      'phaazon/hop.nvim',
+      branch = 'v2',
       keys = {
-          { 'ss', '<cmd>FuzzyMotion<CR>' }
+        { 'ss', ':HopChar2MW<CR>' }
       },
       config = function()
-        cmd("let g:fuzzy_motion_matchers = ['kensaku', 'fzf']")
+        require('hop').setup({
+          keys = 'etovxqpdygfblzhckisuran' 
+        })
       end
     },
       -- Fuzzy finder
@@ -292,11 +267,18 @@ require("lazy").setup({
       'nvim-telescope/telescope.nvim',
       tag = '0.1.2',
       dependencies = { 
-        'nvim-lua/plenary.nvim'
+        'nvim-lua/plenary.nvim',
+        {
+          "nvim-telescope/telescope-frecency.nvim",
+          config = function()
+            require"telescope".load_extension("frecency")
+          end,
+          dependencies = {"kkharji/sqlite.lua"}
+        },
       },
       keys = {
-        -- { '<leader>ff', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
         { '<leader><leader>', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
+        { '<leader>ff', ':Telescope frecency<CR>' },
         { '<leader>fg', ':Telescope live_grep<CR>' },
         { '<leader>fb', ':Telescope current_buffer_fuzzy_find<CR>' },
         { '<leader>fh', ':Telescope help_tags<CR>' }
