@@ -240,6 +240,7 @@ require("lazy").setup({
         { '<M->>', '<Cmd>BufferMoveNext<CR>' ,{ noremap = true, silent = true }},
         -- Close buffer
         { '<M-c>', '<Cmd>BufferClose<CR>' ,{ noremap = true, silent = true }},
+        { '<M-S-c>', '<Cmd>BufferCloseAllBufCurrent<CR>' ,{ noremap = true, silent = true }},
       }
     }, 
     -- 囲まれているものの操作
