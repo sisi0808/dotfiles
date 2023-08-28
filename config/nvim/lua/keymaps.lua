@@ -17,6 +17,8 @@ nmap('<leader>wq', ':wq<CR>')
 nmap('<C-t>', ':tabe ~/<CR>')
 -- 新規タブを同じディレクトリで
 -- nmap('<C-t>', ':tabe<CR>')
+nmap('<C-p>', 'gt')
+nmap('<C-n>', 'gT')
 
 -- Terminalモード設定
 -- tmap('<Esc>', '<C-\\><C-n>')
