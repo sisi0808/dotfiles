@@ -38,7 +38,7 @@ require("lazy").setup({
     keys ={
       {'<leader>tt', ':FloatermToggle<CR>'},
       {'<leader>tn', ':FloatermNew<CR>'},
-      {'<leader>tc', ':FloatermClose<CR>'},
+      {'<leader>tc', ':FloatermKill<CR>'},
       {'<leader>to', ':FloatermOnly<CR>'},
       {'<leader>th', ':FloatermPrev<CR>'},
       {'<leader>tl', ':FloatermNext<CR>'},
