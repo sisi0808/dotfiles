@@ -14,9 +14,9 @@ nmap('<leader>wq', ':wq<CR>')
 
 -- タブ設定
 -- 新規タブをホームディレクトリで
-nmap('<C-t>', ':tabe ~/<CR>')
+-- nmap('<C-t>', ':tabe ~/<CR>')
 -- 新規タブを同じディレクトリで
--- nmap('<C-t>', ':tabe<CR>')
+nmap('<C-t>', ':tabe .<CR>')
 nmap('<C-p>', 'gt')
 nmap('<C-n>', 'gT')
 
