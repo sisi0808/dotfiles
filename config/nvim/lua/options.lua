@@ -14,7 +14,7 @@ opt.relativenumber = true
 opt.list = true
 opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
 opt.title = true
-opt.laststatus = 2
+opt.laststatus = 3
 opt.ruler = true
 opt.ambiwidth = "double"
 cmd("syntax enable")
