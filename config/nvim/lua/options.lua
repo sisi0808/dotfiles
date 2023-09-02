@@ -47,7 +47,7 @@ opt.undofile = false
 opt.clipboard:append("unnamed")
 
 -- フォント
-opt.guifont = "HackGenNerd-Regular:h12"
+-- opt.guifont = "HackGenNerd-Regular:h12"
 
 -- ヘルプを日本語で
 opt.helplang = 'ja'

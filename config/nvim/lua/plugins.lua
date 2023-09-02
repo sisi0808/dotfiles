@@ -30,7 +30,54 @@ require("lazy").setup({
   },
   -- 起動画面
   {
+    "goolord/alpha-nvim",
+    event = "VimEnter",
+    opts = function()
+      local dashboard = require("alpha.themes.dashboard")
+      dashboard.section.buttons.val = {
+        dashboard.button("f", "󰥨 " .. " Find file", ":Telescope find_files <CR>"),
+        dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+        dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+        dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+        dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+      }
+      for _, button in ipairs(dashboard.section.buttons.val) do
+        button.opts.hl = "AlphaButtons"
+        button.opts.hl_shortcut = "AlphaShortcut"
+      end
+      dashboard.section.header.opts.hl = "AlphaHeader"
+      dashboard.section.buttons.opts.hl = "AlphaButtons"
+      dashboard.section.footer.opts.hl = "AlphaFooter"
+      dashboard.opts.layout[1].val = 8
+      return dashboard
+    end,
+    config = function(_, dashboard)
+      -- close Lazy and re-open when the dashboard is ready
+      if vim.o.filetype == "lazy" then
+        vim.cmd.close()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "AlphaReady",
+          callback = function()
+            require("lazy").show()
+          end,
+        })
+      end
 
+      require("alpha").setup(dashboard.opts)
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "LazyVimStarted",
+        callback = function()
+          local stats = require("lazy").stats()
+          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+          dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+          pcall(vim.cmd.AlphaRedraw)
+        end,
+      })
+    end,
   },
   -- floating terminal
   {
@@ -296,7 +343,7 @@ require("lazy").setup({
       'phaazon/hop.nvim',
       branch = 'v2',
       keys = {
-        { 'ss', ':HopChar2MW<CR>' }
+        -- { 'ss', ':HopChar2MW<CR>' }
       },
       config = function()
         require('hop').setup({
@@ -466,6 +513,7 @@ require("lazy").setup({
     -- ファイラー
     {
       'lambdalisue/fern.vim',
+      -- lazy=false,
       dependencies = {
         -- アイコン類
         {'lambdalisue/nerdfont.vim'},
@@ -485,7 +533,12 @@ require("lazy").setup({
           end
         },
         -- fernをデフォルトのエクスプローラーに
-        -- {'lambdalisue/fern-hijack.vim'},
+        {
+          'lambdalisue/fern-hijack.vim',
+          config = function()
+            api.nvim_set_var('loaded_netrwPlugin', 1)
+          end
+        },
         -- git statusを表示
         -- { 'lambdalisue/fern-git-status.vim' },
         -- ファイルのプレビュー
@@ -500,18 +553,18 @@ require("lazy").setup({
           -- },
           cmd[[
             function! s:fern_settings() abort
-              nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
-              nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
-              nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
-              nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+               nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+               nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+               nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+               nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
 
-              nmap <buffer> sa <Plug>(fern-action-open:select)
-              nmap <buffer> ss <Plug>(fern-action-open:split)
-              nmap <buffer> sd <Plug>(fern-action-open:vsplit)
+               nmap <buffer> sa <Plug>(fern-action-open:select)
+               nmap <buffer> ss <Plug>(fern-action-open:split)
+               nmap <buffer> sd <Plug>(fern-action-open:vsplit)
             endfunction
 
             augroup fern-settings
-              autocmd!
+               autocmd!
                autocmd FileType fern call s:fern_settings()
             augroup END
           ]]
