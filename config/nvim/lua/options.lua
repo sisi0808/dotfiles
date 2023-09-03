@@ -39,11 +39,11 @@ opt.hlsearch = true
 opt.backup = false
 opt.swapfile = false
 opt.autoread = true
-opt.undodir = '~/.config/nvim/undo/'
+opt.undodir = fn.stdpath('data') .. '/undo'
+opt.undofile = true
 
 -- 履歴
 opt.history = 1000
-opt.undofile = false
 opt.clipboard:append("unnamed")
 
 -- フォント
