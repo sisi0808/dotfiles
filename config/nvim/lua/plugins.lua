@@ -40,7 +40,7 @@ require("lazy").setup({
         dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+        dashboard.button("s", " " .. " Restore Session", "[[:lua require('persisted').load()<CR>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
@@ -141,9 +141,9 @@ require("lazy").setup({
     opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" } },
     -- stylua: ignore
     keys = {
-      { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+      { "<leader>qs", function() require("persisted").load() end, desc = "Restore Session" },
+      { "<leader>ql", function() require("persisted").load({ last = true }) end, desc = "Restore Last Session" },
+      { "<leader>qd", function() require("persisted").stop() end, desc = "Don't Save Current Session" },
     },
     config = function()
       require("persisted").setup({
@@ -159,7 +159,7 @@ require("lazy").setup({
           end
           return true
         end,
-        autoload = true, -- automatically load the session for the cwd on Neovim startup
+        -- autoload = true, -- automatically load the session for the cwd on Neovim startup
         on_autoload_no_session = function()
           vim.notify("No existing session to load.")
         end,
