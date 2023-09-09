@@ -21,6 +21,8 @@ require("lazy").setup({
   'yuttie/comfortable-motion.vim',
   -- Lazy Vim用のカラースキーム
   'ellisonleao/gruvbox.nvim', 
+  -- quick fixウインドウの一括置換
+  'thinca/vim-qfreplace',
   -- Configure LazyVim to load gruvbox
   {
     'LazyVim/LazyVim',

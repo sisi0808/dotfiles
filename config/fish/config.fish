@@ -64,3 +64,5 @@ starship init fish | source
 # source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+export PATH="/Users/sisi0808/.local/bin:$PATH"
