@@ -145,11 +145,8 @@ lbw["t"] = {
   l = { ":FloatermNext<CR>", "Next terminal" },
 }
 
--- Color Scheme
-lb.lualine.options.theme = "gruvbox"
-
--- deactivete colorschemes(ロード時にバグるため)
-lkn["<Space>sc"] = false
+-- colorscheme
+lvim.colorscheme = "gruvbox"
 
 -- Copilot(cmpの中に紛れ込んでくれる)
 table.insert(lvim.plugins, {
@@ -167,10 +164,14 @@ table.insert(lvim.plugins, {
 -- 無効化
 lb.indentlines.active = false
 lvim.builtin.nvimtree.active = false
+-- ファイラーを開く
 lbw["e"] = {}
+-- ハイライトを無効化
+lbw["h"] = {}
 
 -- Buffer操作
 lbw["b"] = {}
+lkn["<M-c>"] = ":BufferKill<CR>"
 lkn["<M-,>"] = ":BufferLineCyclePrev<CR>"
 lkn["<M-.>"] = ":BufferLineCycleNext<CR>"
 lkn["<M-<>"] = ":BufferLineMovePrev<CR>"
@@ -183,15 +184,20 @@ lb.telescope.on_config_done = function(telescope)
   -- any other extensions loading
 end
 
-lbw["f"] = {}
-lkn["<Space><Space>"] = ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>"
-lkn["<Space>ff"] = ":Telescope frecency<CR>"
-lkn["<Space>fg"] = ":Telescope live_grep<CR>"
-lkn["<Space>fb"] = ":Telescope current_buffer_fuzzy_find<CR>"
-lkn["<Space>fh"] = ":Telescope help_tags<CR>"
+-- lbw["f"] = {}
+-- lkn["<Space><Space>"] = ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>"
+-- lbw["<Space>"] = {
+--  ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", "File"
+-- }
+-- lkn["<Space>ff"] = ":Telescope frecency<CR>"
+-- lkn["<Space>fg"] = ":Telescope live_grep<CR>"
+-- lkn["<Space>fb"] = ":Telescope current_buffer_fuzzy_find<CR>"
+-- lkn["<Space>fh"] = ":Telescope help_tags<CR>"
 
 -- User Plugin
 lvim.plugins = {
+  -- カラースキーム
+  "ellisonleao/gruvbox.nvim",
    -- 行内のf文字ハイライト
   "unblevable/quick-scope",
   -- ヘルプ日本語化
