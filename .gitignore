@@ -5,3 +5,6 @@
 
 ## fish
 config/lvim/lazy-lock.json
+
+## coc
+/config/coc
