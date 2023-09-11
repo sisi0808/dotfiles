@@ -1,9 +1,9 @@
-[11:17:54.933][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:66]: Lua Lsp startup, root: 	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server
-[11:17:54.934][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:67]: ROOT:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server
-[11:17:54.934][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:68]: LOGPATH:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/log
-[11:17:54.934][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:69]: METAPATH:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/meta
-[11:17:54.934][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:70]: VERSION:	3.7.0
-[11:17:54.966][info] [#0:script/service/service.lua:144]: 
+[09:51:53.667][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:66]: Lua Lsp startup, root: 	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server
+[09:51:53.667][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:67]: ROOT:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server
+[09:51:53.667][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:68]: LOGPATH:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/log
+[09:51:53.667][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:69]: METAPATH:	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/meta
+[09:51:53.668][info] [#0:/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/main.lua:70]: VERSION:	3.7.0
+[09:51:53.702][info] [#0:script/service/service.lua:144]: 
 ========= Medical Examination Report =========
     --------------- Memory ---------------
         Total: 2.141 MB
@@ -25,7 +25,7 @@
         Holdon:   0
         Waiting:  0
 ==============================================
-[11:17:54.970][info] [#0:script/client.lua:657]: Client init	{
+[09:51:53.707][info] [#0:script/client.lua:657]: Client init	{
   capabilities = {
     general = {
       markdown = {
@@ -308,13 +308,13 @@
     changeConfiguration = true
   },
   locale = "ja_JP",
-  processId = 1801,
-  rootPath = "/Users/sisi0808/dotfiles/config/nvim",
-  rootUri = "file:///Users/sisi0808/dotfiles/config/nvim",
+  processId = 12796,
+  rootPath = "/Users/sisi0808/dotfiles",
+  rootUri = "file:///Users/sisi0808/dotfiles",
   trace = "off",
-  workDoneToken = "829ff97f-36ef-4f9f-b0dc-993c7752f435"
+  workDoneToken = "4fcb688e-2ff8-434d-a1ea-54de7e8a752e"
 }
-[11:17:54.971][info] [#0:script/language.lua:137]: VSC language: ja_JP
-[11:17:54.971][info] [#0:script/language.lua:138]: LS  language: en-us
-[11:17:54.971][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/sisi0808/dotfiles/config/nvim
-[11:17:54.971][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/log/file_Users_sisi0808_dotfiles_config_nvim.log
+[09:51:53.707][info] [#0:script/language.lua:137]: VSC language: ja_JP
+[09:51:53.707][info] [#0:script/language.lua:138]: LS  language: en-us
+[09:51:53.707][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/sisi0808/dotfiles
+[09:51:53.707][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/sisi0808/dotfiles/config/coc/extensions/coc-lua-data/lua-language-server/log/file_Users_sisi0808_dotfiles.log

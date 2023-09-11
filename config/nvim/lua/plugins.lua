@@ -384,7 +384,7 @@ require("lazy").setup({
       'phaazon/hop.nvim',
       branch = 'v2',
       keys = {
-        -- { 'ss', ':HopChar2MW<CR>' }
+        { 'ss', ':HopChar2MW<CR>' }
       },
       config = function()
         require('hop').setup({
