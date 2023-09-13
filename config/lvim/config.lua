@@ -135,15 +135,17 @@ lkn["<Esc><Esc>"] = ":nohlsearch<CR><Esc>"
 
 -- Plugins settings
 -- Core Plugin
-lvim.builtin.terminal.open_mapping = "<Space>tt"
--- lbw["t"] = {
---   name = "Toggle Term",
---   n = { ":FloatermNew<CR>", "New terminal" },
---   c = { ":FloatermKill<CR>", "Kill terminal" },
---   o = { ":FloatermOnly<CR>", "Only terminal" },
---   h = { ":FloatermPrev<CR>", "Prev terminal" },
---   l = { ":FloatermNext<CR>", "Next terminal" },
--- }
+
+-- 無効化
+lb.indentlines.active = false
+lvim.builtin.nvimtree.active = false
+-- ファイラーを開く
+lbw["e"] = {}
+-- ハイライトを無効化
+lbw["h"] = {}
+
+-- ターミナル
+lvim.builtin.terminal.open_mapping = "<C-t>"
 
 -- colorscheme
 lvim.colorscheme = "gruvbox"
@@ -161,14 +163,6 @@ table.insert(lvim.plugins, {
   end,
 })
 
--- 無効化
-lb.indentlines.active = false
-lvim.builtin.nvimtree.active = false
--- ファイラーを開く
-lbw["e"] = {}
--- ハイライトを無効化
-lbw["h"] = {}
-
 -- Buffer操作
 lbw["b"] = {}
 lkn["<M-c>"] = ":BufferKill<CR>"
@@ -184,15 +178,15 @@ lb.telescope.on_config_done = function(telescope)
   -- any other extensions loading
 end
 
--- lbw["f"] = {}
--- lkn["<Space><Space>"] = ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>"
--- lbw["<Space>"] = {
---  ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", "File"
--- }
--- lkn["<Space>ff"] = ":Telescope frecency<CR>"
--- lkn["<Space>fg"] = ":Telescope live_grep<CR>"
--- lkn["<Space>fb"] = ":Telescope current_buffer_fuzzy_find<CR>"
--- lkn["<Space>fh"] = ":Telescope help_tags<CR>"
+lbw["f"] = {}
+lkn["<Space><Space>"] = ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>"
+lbw["<Space>"] = {
+ ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", "File"
+}
+lkn["<Space>ff"] = ":Telescope frecency<CR>"
+lkn["<Space>fg"] = ":Telescope live_grep<CR>"
+lkn["<Space>fb"] = ":Telescope current_buffer_fuzzy_find<CR>"
+lkn["<Space>fh"] = ":Telescope help_tags<CR>"
 
 -- User Plugin
 lvim.plugins = {
