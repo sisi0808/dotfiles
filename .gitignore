@@ -1,10 +1,10 @@
 ## nvim
-/config/nvim/session
-/config/nvim/undo
-/config/nvim/lazy-lock.json
+config/nvim/session
+config/nvim/undo
+config/nvim/lazy-lock.json
 
 ## fish
 config/lvim/lazy-lock.json
 
 ## coc
-/config/coc
+config/coc
