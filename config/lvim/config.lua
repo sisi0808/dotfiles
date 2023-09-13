@@ -135,15 +135,15 @@ lkn["<Esc><Esc>"] = ":nohlsearch<CR><Esc>"
 
 -- Plugins settings
 -- Core Plugin
-lbw["t"] = {
-  name = "Toggle Term",
-  t = { ":FloatermToggle<CR>", "Toggle terminal" },
-  n = { ":FloatermNew<CR>", "New terminal" },
-  c = { ":FloatermKill<CR>", "Kill terminal" },
-  o = { ":FloatermOnly<CR>", "Only terminal" },
-  h = { ":FloatermPrev<CR>", "Prev terminal" },
-  l = { ":FloatermNext<CR>", "Next terminal" },
-}
+lvim.builtin.terminal.open_mapping = "<Space>tt"
+-- lbw["t"] = {
+--   name = "Toggle Term",
+--   n = { ":FloatermNew<CR>", "New terminal" },
+--   c = { ":FloatermKill<CR>", "Kill terminal" },
+--   o = { ":FloatermOnly<CR>", "Only terminal" },
+--   h = { ":FloatermPrev<CR>", "Prev terminal" },
+--   l = { ":FloatermNext<CR>", "Next terminal" },
+-- }
 
 -- colorscheme
 lvim.colorscheme = "gruvbox"
