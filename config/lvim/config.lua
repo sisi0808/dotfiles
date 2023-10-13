@@ -130,9 +130,6 @@ lkn["Fj"] = "F<C-k>"
 lkn["tj"] = "t<C-k>"
 lkn["Tj"] = "T<C-k>"
 
--- 検索後にEscを二回打ったら検索ワードのマーカーが消える
-lkn["<Esc><Esc>"] = ":nohlsearch<CR><Esc>"
-
 -- Plugins settings
 -- Core Plugin
 
