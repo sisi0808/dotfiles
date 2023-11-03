@@ -123,6 +123,8 @@ lkn["si"] = "<cmd>bprevious<cr>"
 
 lkn["s-"] = "<C-w>-"
 lkn["s+"] = "<C-w>+"
+lkn["s>"] = "<C-w>>"
+lkn["s<"] = "<C-w><"
 lkn["s="] = "<C-w>="
 
 -- インデントを揃えたペースト

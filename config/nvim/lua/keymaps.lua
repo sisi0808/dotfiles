@@ -39,10 +39,28 @@ nmap('sh', '<C-w>h')
 nmap('sj', '<C-w>j')
 nmap('sk', '<C-w>k')
 nmap('sl', '<C-w>l')
+
 nmap('sH', '<C-w>H')
 nmap('sJ', '<C-w>J')
 nmap('sK', '<C-w>K')
 nmap('sL', '<C-w>L')
+
+
+nmap('so', '<cmd>bnext<cr>')
+nmap('si', '<cmd>bprevious<cr>')
+-- nmap('sn', '<cmd>bnext<cr>')
+-- nmap('sp', '<cmd>bprevious<cr>')
+
+nmap('s-', '<C-w>-')
+nmap('s+', '<C-w>+')
+nmap('s>', '<C-w>>')
+nmap('s<', '<C-w><')
+nmap('s=', '<C-w>=')
+
+-- QuickFix
+nmap(']q', ':cnext<CR>')
+nmap('[q', ':cprev<CR>')
+nmap('<C-q>', ':call QuickFixToggle()<CR>')
 
 -- インデントを揃えたペースト
 nmap('p', ']p')

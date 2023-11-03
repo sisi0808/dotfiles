@@ -10,7 +10,8 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- 表示、見た目
-opt.relativenumber = true
+-- opt.relativenumber = true
+-- opt.number = true
 opt.list = true
 opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
 opt.title = true
@@ -47,7 +48,7 @@ opt.history = 1000
 opt.clipboard:append("unnamed")
 
 -- フォント
--- opt.guifont = "HackGenNerd-Regular:h12"
+opt.guifont = "HackGenNerd-Regular:h12"
 
 -- ヘルプを日本語で
 opt.helplang = 'ja'
