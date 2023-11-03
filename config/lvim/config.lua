@@ -116,8 +116,10 @@ lkn["sJ"] = "<C-w>J"
 lkn["sK"] = "<C-w>K"
 lkn["sL"] = "<C-w>L"
 
-lkn["sn"] = "<cmd>bnext<cr>"
-lkn["sp"] = "<cmd>bprevious<cr>"
+lkn["so"] = "<cmd>bnext<cr>"
+lkn["si"] = "<cmd>bprevious<cr>"
+-- lkn["sn"] = "<cmd>bnext<cr>"
+-- lkn["sp"] = "<cmd>bprevious<cr>"
 
 lkn["s-"] = "<C-w>-"
 lkn["s+"] = "<C-w>+"
