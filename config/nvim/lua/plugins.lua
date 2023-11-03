@@ -20,7 +20,7 @@ require("lazy").setup({
   -- 画面移動の滑らか化
   'yuttie/comfortable-motion.vim',
   -- Lazy Vim用のカラースキーム
-  'ellisonleao/gruvbox.nvim', 
+  'ellisonleao/gruvbox.nvim',
   -- quick fixウインドウの一括置換
   'thinca/vim-qfreplace',
   -- Configure LazyVim to load gruvbox
@@ -29,6 +29,15 @@ require("lazy").setup({
     opts = {
       colorscheme = "gruvbox",
     },
+  },
+  -- ポップアップ(UI)をカスタマイズ
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup({
+        input = { enabled = false },
+      })
+    end,
   },
   -- 起動画面
   {
@@ -85,7 +94,7 @@ require("lazy").setup({
   {
     'voldikss/vim-floaterm',
     keys ={
-      {'<leader>tt', ':FloatermToggle<CR>'},
+      {'<C-t>', ':FloatermToggle<CR>'},
       {'<leader>tn', ':FloatermNew<CR>'},
       {'<leader>tc', ':FloatermKill<CR>'},
       {'<leader>to', ':FloatermOnly<CR>'},
@@ -380,17 +389,23 @@ require("lazy").setup({
       end
     },
     -- 画面内瞬間移動
+    -- {
+    --   'phaazon/hop.nvim',
+    --   branch = 'v2',
+    --   keys = {
+    --     { 'ss', ':HopChar2MW<CR>' }
+    --   },
+    --   config = function()
+    --     require('hop').setup({
+    --       keys = 'etovxqpdygfblzhckisuran' 
+    --     })
+    --   end
+    -- },
     {
-      'phaazon/hop.nvim',
-      branch = 'v2',
+      'skanehira/jumpcursor.vim',
       keys = {
-        { 'ss', ':HopChar2MW<CR>' }
+        { '[j', '<Plug>(jumpcursor-jump)' },
       },
-      config = function()
-        require('hop').setup({
-          keys = 'etovxqpdygfblzhckisuran' 
-        })
-      end
     },
       -- Fuzzy finder
     {

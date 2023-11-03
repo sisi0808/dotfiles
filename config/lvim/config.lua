@@ -38,7 +38,8 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- 表示、見た目
-opt.relativenumber = true
+opt.relativenumber = false
+opt.number = false
 
 -- カーソルを常に中央に表示
 opt.so = 999
@@ -297,7 +298,6 @@ lvim.plugins = {
   --     })
   --   end
   -- },
-  
   -- Registerを拡張
   {
     "tversteeg/registers.nvim",
