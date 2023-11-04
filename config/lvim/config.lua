@@ -217,6 +217,8 @@ lvim.plugins = {
   "yuttie/comfortable-motion.vim",
   -- quick fixウインドウの一括置換
   "thinca/vim-qfreplace",
+  -- SQLの構文を自動で大文字に
+  "jsborjesson/vim-uppercase-sql",
   -- ポップアップ(UI)をカスタマイズ
   {
     "stevearc/dressing.nvim",

@@ -23,6 +23,8 @@ require("lazy").setup({
   'ellisonleao/gruvbox.nvim',
   -- quick fixウインドウの一括置換
   'thinca/vim-qfreplace',
+  -- SQLの構文を自動で大文字に
+  "jsborjesson/vim-uppercase-sql",
   -- Configure LazyVim to load gruvbox
   {
     'LazyVim/LazyVim',
