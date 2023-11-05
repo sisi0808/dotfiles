@@ -9,3 +9,4 @@ config/lvim/lazy-lock.json
 ## coc
 config/coc
 config/coc/extensions/coc-lua-data/lua-language-server/log
+config/nvim/lazy-lock.json
