@@ -163,6 +163,7 @@ lvim.colorscheme = "gruvbox"
 table.insert(lvim.plugins, {
   "zbirenbaum/copilot-cmp",
   -- event = "InsertEnter",
+  event = "lazy",
   dependencies = { "zbirenbaum/copilot.lua" },
   config = function()
     vim.defer_fn(function()
@@ -210,7 +211,7 @@ lvim.plugins = {
   -- カラースキーム
   "ellisonleao/gruvbox.nvim",
    -- 行内のf文字ハイライト
-  "unblevable/quick-scope",
+  -- "unblevable/quick-scope",
   -- ヘルプ日本語化
   "vim-jp/vimdoc-ja",
   -- 画面移動の滑らか化
@@ -219,6 +220,13 @@ lvim.plugins = {
   "thinca/vim-qfreplace",
   -- SQLの構文を自動で大文字に
   "jsborjesson/vim-uppercase-sql",
+  -- project毎にdapの設定を読み込む
+  {
+    "ldelossa/nvim-dap-projects",
+    config = function()
+      require('nvim-dap-projects').search_project_config()
+    end,
+  },
   -- ポップアップ(UI)をカスタマイズ
   {
     "stevearc/dressing.nvim",
@@ -250,17 +258,6 @@ lvim.plugins = {
     end,
   },
   -- セッション管理
-  -- {
-  --   "folke/persistence.nvim",
-  --     event = "BufReadPre", -- this will only start session saving when an actual file was opened
-  --     module = "persistence",
-  --     config = function()
-  --       require("persistence").setup {
-  --         dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
-  --         options = { "buffers", "curdir", "tabpages", "winsize" },
-  --       }
-  --   end,
-  -- },
   -- {
   --   "olimorris/persisted.nvim",
   --   -- event = "BufReadPre",
@@ -408,4 +405,12 @@ lvim.plugins = {
       -- {"sd", "<Plug>(fern-action-open:vsplit)", {silent=true, buffer=true}}
     },
   },
+  -- テスト設定
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim"
+    }
+  }
 }
