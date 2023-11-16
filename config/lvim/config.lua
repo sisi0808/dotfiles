@@ -41,6 +41,11 @@ opt.shiftwidth = 2
 opt.relativenumber = false
 opt.number = false
 
+-- 折りたたみの設定
+opt.foldmethod = "indent"
+opt.foldlevel=8
+-- opt.foldcolumn=2
+
 -- カーソルを常に中央に表示
 opt.so = 999
 -- opt.so = 0
@@ -160,18 +165,17 @@ lvim.builtin.terminal.open_mapping = "<C-t>"
 lvim.colorscheme = "gruvbox"
 
 -- Copilot(cmpの中に紛れ込んでくれる)
-table.insert(lvim.plugins, {
-  "zbirenbaum/copilot-cmp",
-  -- event = "InsertEnter",
-  event = "lazy",
-  dependencies = { "zbirenbaum/copilot.lua" },
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-      require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-    end, 100)
-  end,
-})
+-- table.insert(lvim.plugins, {
+--   "zbirenbaum/copilot-cmp",
+--   -- event = "InsertEnter",
+--   event = "lazy",
+--   dependencies = { "zbirenbaum/copilot.lua" },
+--   config = function()
+--     vim.defer_fn(function()
+--       require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+--       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+--     end, 100)
+--   end,
 
 -- Buffer操作
 lbw["b"] = {}
@@ -233,6 +237,30 @@ lvim.plugins = {
     config = function()
       require("dressing").setup({
         input = { enabled = false },
+      })
+    end,
+  },
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    lazy = false,
+    config = function()
+      require('copilot').setup({
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 75,
+        keymap = {
+          accept = "<C-l>",
+          accept_word = false,
+          accept_line = false,
+          next = "<M-o>",
+          prev = "<M-i>",
+          dismiss = "<C-]>",
+        },
+        },
       })
     end,
   },
