@@ -17,9 +17,9 @@ nmap('<leader>wq', ':wq<CR>')
 -- 新規タブをホームディレクトリで
 -- nmap('<C-t>', ':tabe ~/<CR>')
 -- 新規タブを同じディレクトリで
-nmap('<C-t>', ':tabe .<CR>')
-nmap('<C-p>', 'gt')
-nmap('<C-n>', 'gT')
+-- nmap('<C-t>', ':tabe .<CR>')
+-- nmap('<C-p>', 'gt')
+-- nmap('<C-n>', 'gT')
 
 -- Terminalモード設定
 -- tmap('<Esc>', '<C-\\><C-n>')
@@ -30,8 +30,8 @@ nmap('<C-n>', 'gT')
 nmap('<leader>s', '<C-w>s')
 nmap('<leader>v', '<C-w>v')
 -- nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true })
-nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true })
-nmap('<leader>wr', ':new ~/.config/nvim/lua/plugins.lua<CR>', {silent = true })
+nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true} )
+nmap('<leader>wr', ':new ~/.config/nvim/lua/init.lua<CR>', {silent = true} )
 -- nmap('<leader>ww', ':source ~/.config/lua/plugins.lua<CR>', {silent = true })
 
 -- ウィンドウ移動

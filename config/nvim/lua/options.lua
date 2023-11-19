@@ -17,7 +17,7 @@ opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
 opt.title = true
 opt.laststatus = 3
 opt.ruler = true
-opt.ambiwidth = "double"
+-- opt.ambiwidth = "double"
 cmd("syntax enable")
 opt.updatetime = 250
 

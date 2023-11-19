@@ -1,7 +1,7 @@
 -- Fuzzy finder
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.2',
+  -- tag = '0.1.2',
   lazy= false,
   dependencies = { 
     'nvim-lua/plenary.nvim',
@@ -12,6 +12,7 @@ return {
       end,
       dependencies = {"kkharji/sqlite.lua"}
     },
+    'nvim-tree/nvim-web-devicons'
   },
   keys = {
     { '<leader><leader>', ':Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>' },
