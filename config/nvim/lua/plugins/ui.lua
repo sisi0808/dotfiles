@@ -62,20 +62,17 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      opt.termguicolors = true
-      cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-      cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
-      require("indent_blankline").setup {
-          char = "",
-          char_highlight_list = {
-              "IndentBlanklineIndent1",
-              "IndentBlanklineIndent2",
-          },
-          space_char_highlight_list = {
-              "IndentBlanklineIndent1",
-              "IndentBlanklineIndent2",
-          },
-          show_trailing_blankline_indent = false,
+      local highlight = {
+      "CursorColumn",
+      "Whitespace",
+      }
+      require("ibl").setup {
+        indent = { highlight = highlight, char = "" },
+        whitespace = {
+            highlight = highlight,
+            remove_blankline_trail = false,
+        },
+        scope = { enabled = false },
       }
     end
   },
@@ -99,5 +96,21 @@ return {
       -- Pick buffer
       { '<M-s>', '<Cmd>BufferPick<CR>' ,{ noremap = true, silent = true }},
     }
+  },
+  -- 通知のポップアップをかっこよく
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
   }
 }

@@ -49,6 +49,7 @@ opt.clipboard:append("unnamed")
 
 -- フォント
 opt.guifont = "HackGenNerd-Regular:h12"
+opt.termguicolors = true
 
 -- ヘルプを日本語で
 opt.helplang = 'ja'

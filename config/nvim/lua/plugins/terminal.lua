@@ -1,8 +1,11 @@
 -- floating terminal
 return {
-  'voldikss/vim-floaterm',
+  'akinsho/toggleterm.nvim',
+  version = "*",
+  opts = {--[[ things you want to change go here]]},
   keys ={
-    {'<C-t>', ':FloatermToggle<CR>'},
+    {'<C-t>', ':ToggleTerm size=40 direction=float <CR>', mode='n'},
+    {'<C-t>', '<C-d>', mode='t'},
     -- {'<leader>tn', ':FloatermNew<CR>'},
     -- {'<leader>tc', ':FloatermKill<CR>'},
     -- {'<leader>to', ':FloatermOnly<CR>'},

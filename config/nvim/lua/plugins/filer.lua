@@ -60,10 +60,10 @@ return {
   },
   keys = {
     -- open as side bar
-    -- {"<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
-    -- {"<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
+    {"<F2>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
+    {"<F3>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", silent=true},
     -- {"sa", "<Plug>(fern-action-open:select)", {silent=true, buffer=true}},
     -- {"ss", "<Plug>(fern-action-open:split)", {silent=true, buffer=true}},
     -- {"sd", "<Plug>(fern-action-open:vsplit)", {silent=true, buffer=true}}
   },
-},
+}

@@ -1,4 +1,4 @@
--- Lazy Vim用のカラースキーム
+-- カラースキーム
 return {
   'ellisonleao/gruvbox.nvim'
 }
