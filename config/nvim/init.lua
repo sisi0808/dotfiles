@@ -1,5 +1,4 @@
 require("base")
 require("options")
 require("keymaps")
-require("plugins")
-require("interface")
+require("plugin_manager")
