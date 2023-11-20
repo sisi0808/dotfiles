@@ -81,3 +81,6 @@ nmap('Tj', 'T<C-k>')
 
 -- Esc設定
 imap('jk', '<Esc>')
+
+-- ハイライトを消す
+nmap('<Esc><Esc>', ':nohlsearch<CR>')

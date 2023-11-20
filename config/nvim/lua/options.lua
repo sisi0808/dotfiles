@@ -22,7 +22,7 @@ cmd("syntax enable")
 opt.updatetime = 250
 
 -- カーソルを常に中央に表示
-opt.so = 999
+-- opt.so = 999
 -- opt.so = 0
 
 -- 行末への移動

@@ -2,10 +2,18 @@ return {
   -- ポップアップ(UI)をカスタマイズ
   {
     "stevearc/dressing.nvim",
-    config = function()
-      require("dressing").setup({
-        input = { enabled = false },
-      })
+    lazy = true,
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
     end,
   },
   -- ステータスライン
@@ -62,17 +70,22 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      local highlight = {
-      "CursorColumn",
-      "Whitespace",
-      }
       require("ibl").setup {
-        indent = { highlight = highlight, char = "" },
-        whitespace = {
-            highlight = highlight,
-            remove_blankline_trail = false,
-        },
-        scope = { enabled = false },
+        exclude = { 
+          filetypes = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+          },
+        }
       }
     end
   },

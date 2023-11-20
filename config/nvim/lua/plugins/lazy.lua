@@ -1,4 +1,7 @@
 -- プラグインマネージャー
 return {
-  'folke/lazy.nvim'
+  'folke/lazy.nvim',
+  keys = {
+    {'<leader>L', ':Lazy<Cr>'}
+  }
 }
