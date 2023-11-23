@@ -10,6 +10,8 @@ nmap('<leader>6', '^')
 -- ファイル保存・終了
 nmap('<leader>w', ':w<CR>')
 nmap('<leader>q', ':q<CR>')
+nmap('<leader>wa', ':wq<CR>')
+nmap('<leader>qa', ':qa<CR>')
 nmap('<leader>qa', ':qa<CR>')
 nmap('<leader>wq', ':wq<CR>')
 
@@ -26,13 +28,13 @@ nmap('<leader>wq', ':wq<CR>')
 -- cmd('command! -nargs=* T split | wincmd j | resize 20 | terminal <args>')
 -- nmap('<leader>t', ':T<CR>')
 
--- ウィンドウ操作
-nmap('<leader>s', '<C-w>s')
-nmap('<leader>v', '<C-w>v')
--- nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true })
+-- Vimの設定ファイルを編集
 nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true} )
 nmap('<leader>wr', ':new ~/.config/nvim/lua/init.lua<CR>', {silent = true} )
--- nmap('<leader>ww', ':source ~/.config/lua/plugins.lua<CR>', {silent = true })
+
+-- ウィンドウ操作
+nmap('ss', '<C-w>s')
+nmap('sv', '<C-w>v')
 
 -- ウィンドウ移動
 nmap('sh', '<C-w>h')
@@ -81,6 +83,3 @@ nmap('Tj', 'T<C-k>')
 
 -- Esc設定
 imap('jk', '<Esc>')
-
--- ハイライトを消す
-nmap('<Esc><Esc>', ':nohlsearch<CR>')
