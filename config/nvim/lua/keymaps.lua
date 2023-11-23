@@ -83,3 +83,4 @@ nmap('Tj', 'T<C-k>')
 
 -- Esc設定
 imap('jk', '<Esc>')
+nmap('<Esc><Esc>', ':noh<CR>')

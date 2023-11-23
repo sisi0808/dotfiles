@@ -54,6 +54,9 @@ opt.termguicolors = true
 -- ヘルプを日本語で
 opt.helplang = 'ja'
 
+opt.splitbelow = true
+opt.splitright = true
+
 -- digraph setting
 cmd [[
   " 12354 => "あ"
