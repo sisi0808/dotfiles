@@ -10,8 +10,8 @@ nmap('<leader>6', '^')
 -- ファイル保存・終了
 nmap('<leader>w', ':w<CR>')
 nmap('<leader>q', ':q<CR>')
-nmap('<leader>wa', ':wq<CR>')
-nmap('<leader>qa', ':qa<CR>')
+nmap('<leader>wa', ':w<CR>')
+nmap('<leader>qa', ':q<CR>')
 nmap('<leader>qa', ':qa<CR>')
 nmap('<leader>wq', ':wq<CR>')
 

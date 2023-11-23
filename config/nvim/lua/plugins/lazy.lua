@@ -2,6 +2,6 @@
 return {
   'folke/lazy.nvim',
   keys = {
-    {'<leader>L', ':Lazy<Cr>'}
+    {'<leader>L', ':Lazy<CR>'},
   }
 }

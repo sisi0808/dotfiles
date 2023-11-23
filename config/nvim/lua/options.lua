@@ -10,7 +10,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- 表示、見た目
--- opt.relativenumber = true
+opt.relativenumber = true
 -- opt.number = true
 opt.list = true
 opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
