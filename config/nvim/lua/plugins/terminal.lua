@@ -6,7 +6,7 @@ return {
   keys ={
     {'<C-t>', ':ToggleTerm size=40 direction=float <CR>', mode='n'},
     {'<C-t>', '<C-\\><C-n>:ToggleTerm<CR>', mode='t'},
-    {'<esc>', '<C-\\><C-n>:ToggleTerm<CR>', mode='t'},
+    -- {'<esc>', '<C-\\><C-n>:ToggleTerm<CR>', mode='t'},
     -- {'<leader>tn', ':FloatermNew<CR>'},
     -- {'<leader>tc', ':FloatermKill<CR>'},
     -- {'<leader>to', ':FloatermOnly<CR>'},
