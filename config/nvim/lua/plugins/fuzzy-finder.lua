@@ -28,6 +28,7 @@ return {
     { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Text"},
     -- { "<leader>fb", ":Telescope current_buffer_fuzzy_find<CR>", desc="Buffer"},
     { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag"},
+    { "<leader>fc", ":Telescope command_history<CR>", desc="Command"},
     { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps"}
   },
 }

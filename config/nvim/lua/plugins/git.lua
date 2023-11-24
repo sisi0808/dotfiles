@@ -33,6 +33,7 @@ return {
     },
     keys = {
       {'<leader>gg', ':LazyGit<CR>', silent=true},
+      {'<Esc>', 'q', ft='lazygit'},
     },
     config = function ()
       g['lazygit_floating_window_use_plenary'] = 1,
