@@ -1,21 +1,21 @@
 return {
   -- ポップアップ(UI)をカスタマイズ
-  {
-    "stevearc/dressing.nvim",
-    lazy = true,
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
-    end,
-  },
+  -- {
+  --   "stevearc/dressing.nvim",
+  --   lazy = true,
+  --   init = function()
+  --     ---@diagnostic disable-next-line: duplicate-set-field
+  --     vim.ui.select = function(...)
+  --       require("lazy").load({ plugins = { "dressing.nvim" } })
+  --       return vim.ui.select(...)
+  --     end
+  --     ---@diagnostic disable-next-line: duplicate-set-field
+  --     vim.ui.input = function(...)
+  --       require("lazy").load({ plugins = { "dressing.nvim" } })
+  --       return vim.ui.input(...)
+  --     end
+  --   end,
+  -- },
   -- ステータスライン
   {
     'nvim-lualine/lualine.nvim',
@@ -115,7 +115,7 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      -- add any options here
+      messages = { enabled = false }
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -125,5 +125,11 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     },
+    keys = {
+      {"<leader>nn", ":Noice<CR>", desc="Noice"},
+      {"<leader>ne", ":NoiceErrors<CR>", desc="Errors"},
+      {"<leader>nh", ":NoiceHistory<CR>", desc="History"},
+      {"<leader>nl", ":NoiceLast<CR>", desc="Last"}
+    }
   }
 }
