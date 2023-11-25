@@ -30,7 +30,7 @@ nmap('<leader>wq', ':wq<CR>')
 
 -- Vimの設定ファイルを編集
 nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true} )
-nmap('<leader>wr', ':new ~/.config/nvim/lua/init.lua<CR>', {silent = true} )
+nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true} )
 
 -- ウィンドウ操作
 nmap('ss', '<C-w>s')
