@@ -17,7 +17,9 @@ local plugins = {
     {import = "plugins" },
     {import = "plugins.ui" },
     {import = "plugins.git" },
-    {import = "plugins.move" }
+    {import = "plugins.move" },
+    {import = "plugins.lsp" },
+    {import = "plugins.cmp" }
   }
 }
 
