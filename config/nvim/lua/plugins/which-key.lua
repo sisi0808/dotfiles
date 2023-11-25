@@ -7,8 +7,7 @@ return {
     o.timeoutlen = 300
   end,
   opts = {
-    defaults = {
-        mode = { "n", "v" },
+    key_labels = {
         ["<leader>g"] = { name = "+git" },
         ["<leader>L"] = { name = "+lazy" },
         ["<leader>q"] = { name = "+session" },
