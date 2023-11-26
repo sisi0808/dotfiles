@@ -23,12 +23,12 @@ return {
     }
   },
   keys = {
-    { "<leader><leader>", ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", desc="File"},
-    { "<leader>ff", ":Telescope frecency<CR>", desc="Recent" },
-    { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Text"},
-    -- { "<leader>fb", ":Telescope current_buffer_fuzzy_find<CR>", desc="Buffer"},
-    { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag"},
-    { "<leader>fc", ":Telescope command_history<CR>", desc="Command"},
-    { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps"}
+    { "<leader><leader>", ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", desc="File", silent=true},
+    { "<leader>ff", ":Telescope frecency<CR>", desc="Recent", silent=true},
+    { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Text", silent=true},
+    { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag", silent=true},
+    { "<leader>fc", ":Telescope command_history<CR>", desc="Command", silent=true},
+    { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps", silent=true},
+    { "<leader>fb", ":Telescope branches<CR>", desc="Git Branch", silent=true}
   },
 }

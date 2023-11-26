@@ -6,12 +6,15 @@ return {
     o.timeout = true
     o.timeoutlen = 300
   end,
-  opts = {
-    key_labels = {
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>L"] = { name = "+lazy" },
-        ["<leader>q"] = { name = "+session" },
-        ["<leader>f"] = { name = "+find" },
-      },
-  }
+  config = function()
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>g"] = { name = "+git"},
+      ["<leader>L"] = { name = "+lazy"},
+      ["<leader>l"] = { name = "+lsp"},
+      ["<leader>q"] = { name = "+session"},
+      ["<leader>f"] = { name = "+find"},
+      ["<leader>n"] = { name = "+noice"}
+    })
+  end
 }

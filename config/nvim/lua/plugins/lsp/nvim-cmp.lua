@@ -5,7 +5,8 @@ return {
     -- アイコン
     "onsails/lspkind.nvim",
     -- スニペット
-    "hrsh7th/vim-vsnip",
+    -- "hrsh7th/vim-vsnip",
+    "L3MON4D3/LuaSnip",
     -- cmpをlspから引っ張ってくる
     "hrsh7th/cmp-nvim-lsp",
     -- パス名を補完で出す
@@ -20,20 +21,22 @@ return {
     cmp.setup({ 
       snippet = {
         expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+          -- vim.fn["vsnip#anonymous"](args.body) 
+        require('luasnip').lsp_expand(args.body)
         end,
       },
       -- window = {
-      --   -- completion = cmp.config.window.bordered(),
-      --   -- documentation = cmp.config.window.bordered(),
+      --   completion = cmp.config.window.bordered(),
+      --   documentation = cmp.config.window.bordered(),
       -- },
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'vsnip' }, -- For vsnip users.
+        -- { name = 'vsnip' }, -- For vsnip users.
+        { name = 'luasnip' }, -- For luasnip users.
       }, {
         { name = 'buffer' },
         { name = "path" },
-        { name = "cmdline" },
+        -- { name = "cmdline" },
       }),
       formatting = {
         format = require("lspkind").cmp_format({
@@ -47,11 +50,29 @@ return {
         })
       },
       mapping = cmp.mapping.preset.insert({
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-u>'] = cmp.mapping.scroll_docs(4),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ['<C-j>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm { select = true },
+      })
+    })
+
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
       })
     })
   end

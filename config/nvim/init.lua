@@ -1,4 +1,5 @@
 require("base")
 require("options")
 require("keymaps")
+require("auto_command")
 require("plugin_manager")

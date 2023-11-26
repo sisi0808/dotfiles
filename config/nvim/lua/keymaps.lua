@@ -73,7 +73,7 @@ nmap('<leader>o', 'o<ESC>k')
 nmap('<leader>O', 'O<ESC>j')
 
 -- カーソル下の単語を、置換後の文字列の入力を待つ状態にする
-nmap('<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', {silent = true })
+-- nmap('<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', {silent = true })
 
 -- Digraph設定
 nmap('fj', 'f<C-k>')
@@ -84,3 +84,38 @@ nmap('Tj', 'T<C-k>')
 -- Esc設定
 imap('jk', '<Esc>')
 nmap('<Esc><Esc>', ':noh<CR>')
+
+-- lsp
+nmap('ge', 'open_float')
+nmap('g[', 'vim.diagnostic.goto_prev')
+nmap('g]', 'vim.diagnostic.goto_next')
+
+-- lspを起動している時のみキーマップを起動
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    local opt = { buffer=ev.buf }
+    -- nmap('K', vim.lsp.buf.hover)
+    -- nmap('gd', vim.lsp.buf.definition)
+    -- nmap('gD', vim.lsp.buf.declaration)
+    -- nmap('gt', vim.lsp.buf.type_definition)
+    -- nmap('gn', vim.lsp.buf.rename)
+    -- nmap('ga', vim.lsp.buf.code_action )
+    -- nmap('gi', vim.lsp.buf.implementation)
+    -- nmap('gr', vim.lsp.buf.references)
+    -- nmap('gf', vim.lsp.buf.formatting)
+    nmap('K', vim.lsp.buf.hover, opt)
+    nmap('gd', vim.lsp.buf.definition, opt)
+    nmap('gD', vim.lsp.buf.declaration, opt)
+    nmap('gt', vim.lsp.buf.type_definition, opt)
+    nmap('gn', vim.lsp.buf.rename, opt)
+    nmap('ga', vim.lsp.buf.code_action , opt)
+    nmap('gi', vim.lsp.buf.implementation, opt)
+    nmap('gr', vim.lsp.buf.references, opt)
+    nmap('gf', vim.lsp.buf.formatting, opt)
+  end
+})
+

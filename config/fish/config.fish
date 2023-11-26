@@ -14,6 +14,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias cat='bat'
+alias find='fd'
 
 # Git
 alias ga='git add'
@@ -61,8 +62,6 @@ export PATH="$PATH:/Users/sisi0808/src/flutter/bin"
 starship init fish | source
 
 # Add asdf path
-# source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+source /opt/homebrew/opt/asdf/asdf.fish
 
 export PATH="/Users/sisi0808/.local/bin:$PATH"

@@ -19,7 +19,7 @@ local plugins = {
     {import = "plugins.git" },
     {import = "plugins.move" },
     {import = "plugins.lsp" },
-    {import = "plugins.cmp" }
+    -- {import = "plugins.cmp" }
   }
 }
 

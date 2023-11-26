@@ -5,6 +5,8 @@ return {
   opts = {
     messages = { 
       enabled = false
+      -- view = "messages"
+      -- excluded_filetypes = {"fern"}
     }
   },
   dependencies = {
