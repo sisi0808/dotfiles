@@ -33,8 +33,8 @@ nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true} )
 nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true} )
 
 -- ウィンドウ操作
-nmap('ss', '<C-w>s')
-nmap('sv', '<C-w>v')
+nmap('ss', ':split<CR>')
+nmap('sv', ':vsplit<CR>')
 
 -- ウィンドウ移動
 nmap('sh', '<C-w>h')
@@ -98,15 +98,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     local opt = { buffer=ev.buf }
-    -- nmap('K', vim.lsp.buf.hover)
-    -- nmap('gd', vim.lsp.buf.definition)
-    -- nmap('gD', vim.lsp.buf.declaration)
-    -- nmap('gt', vim.lsp.buf.type_definition)
-    -- nmap('gn', vim.lsp.buf.rename)
-    -- nmap('ga', vim.lsp.buf.code_action )
-    -- nmap('gi', vim.lsp.buf.implementation)
-    -- nmap('gr', vim.lsp.buf.references)
-    -- nmap('gf', vim.lsp.buf.formatting)
     nmap('K', vim.lsp.buf.hover, opt)
     nmap('gd', vim.lsp.buf.definition, opt)
     nmap('gD', vim.lsp.buf.declaration, opt)
