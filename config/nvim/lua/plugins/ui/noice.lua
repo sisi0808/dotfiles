@@ -18,9 +18,9 @@ return {
     "rcarriga/nvim-notify",
   },
   keys = {
-    {"<leader>nn", ":Noice<CR>", desc="Noice"},
-    {"<leader>ne", ":NoiceErrors<CR>", desc="Errors"},
-    {"<leader>nh", ":NoiceHistory<CR>", desc="History"},
-    {"<leader>nl", ":NoiceLast<CR>", desc="Last"}
+    {"<leader>nn", ":Noice<CR>", desc="Noice", silent=true },
+    {"<leader>ne", ":NoiceErrors<CR>", desc="Errors", silent=true },
+    {"<leader>nh", ":NoiceHistory<CR>", desc="History", silent=true },
+    {"<leader>nl", ":NoiceLast<CR>", desc="Last", silent=true }
   }
 }
