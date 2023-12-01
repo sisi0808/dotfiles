@@ -10,9 +10,10 @@ set -g theme_display_git_default_branch yes
 set -g theme_color_scheme dark
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='exa'
+alias ll='eza -alF'
+alias la='eza -A'
+alias l='eza -CF'
 alias cat='bat'
 alias find='fd'
 
