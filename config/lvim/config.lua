@@ -147,6 +147,9 @@ lkn["Fj"] = "F<C-k>"
 lkn["tj"] = "t<C-k>"
 lkn["Tj"] = "T<C-k>"
 
+-- UndoをRemap設定
+lkn["U"] = "<C-r>"
+
 -- Plugins settings
 -- Core Plugin
 
