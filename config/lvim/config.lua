@@ -105,6 +105,9 @@ cmd [[
 ]]
 
 -- KeyBind
+-- カーソル移動
+lkn["<Space>4"] = "$"
+lkn["<Space>6"] = "^"
 
 -- ウィンドウ操作
 lkn["<C-h>"] = false
