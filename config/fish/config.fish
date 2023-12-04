@@ -41,7 +41,7 @@ alias fit='nvl ~/.config/fish/config.fish'
 #! enable vi mode
 fish_vi_key_bindings
 
-# alias python='python3'
+alias python='python3'
 alias pip='pip3'
 alias cptest='python cptest_atcoder.py'
 # alias autocommit='python ./auto.py && python ./delete_compiled_file.py'

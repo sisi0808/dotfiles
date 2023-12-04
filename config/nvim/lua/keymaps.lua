@@ -1,8 +1,5 @@
 -- Pluginが関係無いKeymapを設定する
 
--- leaderキーをspaceキーに設定
-g.mapleader = " "
-
 -- カーソル移動
 nmap('<leader>4', '$')
 nmap('<leader>6', '^')
@@ -14,6 +11,9 @@ nmap('<leader>wa', ':w<CR>')
 nmap('<leader>qa', ':q<CR>')
 nmap('<leader>qa', ':qa<CR>')
 nmap('<leader>wq', ':wq<CR>')
+
+-- undoをremap
+nmap('U', '<C-r>')
 
 -- タブ設定
 -- 新規タブをホームディレクトリで
@@ -86,9 +86,23 @@ imap('jk', '<Esc>')
 nmap('<Esc><Esc>', ':noh<CR>')
 
 -- lsp
-nmap('ge', 'open_float')
+nmap('ge', 'vim.diagnostic.open_float')
 nmap('g[', 'vim.diagnostic.goto_prev')
 nmap('g]', 'vim.diagnostic.goto_next')
+
+-- local on_attach = function(client, bufnr)
+--   -- Mappings.
+--   local opt = { noremap=true, silent=true, buffer=bufnr }
+--   nmap('K', vim.lsp.buf.hover, opt)
+--   nmap('gd', vim.lsp.buf.definition, opt)
+--   nmap('gD', vim.lsp.buf.declaration, opt)
+--   nmap('gt', vim.lsp.buf.type_definition, opt)
+--   nmap('gn', vim.lsp.buf.rename, opt)
+--   nmap('ga', vim.lsp.buf.code_action , opt)
+--   nmap('gi', vim.lsp.buf.implementation, opt)
+--   nmap('gr', vim.lsp.buf.references, opt)
+--   nmap('gf', vim.lsp.buf.formatting, opt)
+-- end
 
 -- lspを起動している時のみキーマップを起動
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -97,7 +111,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-    local opt = { buffer=ev.buf }
+    local opt = { noremap=true, silent=true, buffer=ev.buf }
     nmap('K', vim.lsp.buf.hover, opt)
     nmap('gd', vim.lsp.buf.definition, opt)
     nmap('gD', vim.lsp.buf.declaration, opt)

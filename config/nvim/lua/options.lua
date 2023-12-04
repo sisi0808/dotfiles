@@ -54,8 +54,12 @@ opt.termguicolors = true
 -- ヘルプを日本語で
 opt.helplang = 'ja'
 
+-- ウィンドウ分割方向の制御
 opt.splitbelow = true
 opt.splitright = true
+
+-- leaderキーをspaceキーに設定
+g.mapleader = " "
 
 -- digraph setting
 cmd [[
