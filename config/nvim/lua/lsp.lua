@@ -7,9 +7,31 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
+    "rust_analyzer"
   },
   automatic_installation = true,
+  handlers = {
+    function(server)
+      require('lspconfig')[server].setup({})
+    end,
+    rust_analyzer = function()
+      require('rust-tools').setup({
+        -- server = {
+        --   settings = {
+        --     ['rust-analyzer'] = {
+        --       checkOnsave = {
+        --         command = 'clippy'
+        --       }
+        --     }
+        --   }
+        -- }
+      })
+    end,
+  },
 })
+
+-- require("lspconfig").lua_ls.setup({})
+-- require("lspconfig").rust_analyzer.setup({})
 
 -- 2. LSP keymaps
 nmap('ge', vim.diagnostic.open_float)
@@ -66,6 +88,7 @@ cmp.setup({
   },
 
   sources = cmp.config.sources({
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'nvim_lsp_signature_help' },
@@ -113,11 +136,15 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require("mason-lspconfig").setup_handlers({
-  function(server)
-    local opt = {
-      capabilities = require("cmp_nvim_lsp").default_capabilities()
-    }
-    require('lspconfig')[server].setup(opt)
-  end,
-})
+-- require("mason-lspconfig").setup_handlers({
+--   function(server)
+--     local opt = {
+--       capabilities = require("cmp_nvim_lsp").default_capabilities()
+--     }
+--     require('lspconfig')[server].setup(opt)
+--
+--     rust_analyzer = function()
+--       require('rust-tools').setup({})
+--     end,
+--   end,
+-- })

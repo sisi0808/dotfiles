@@ -21,6 +21,8 @@ return {
     -- シンボルの補完
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     -- 計算式の補完
-    "hrsh7th/cmp-calc"
+    "hrsh7th/cmp-calc",
+    -- copilotの補完
+    "zbirenbaum/copilot-cmp"
   }
 }
