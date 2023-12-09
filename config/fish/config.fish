@@ -57,7 +57,7 @@ alias ojs='oj s main.cpp -y --no-open'
 eval (ssh-agent -c)
 
 # export flutter
-export PATH="$PATH:/Users/sisi0808/src/flutter/bin"
+# export PATH="$PATH:/Users/sisi0808/src/flutter/bin"
 
 # setup starship
 starship init fish | source
@@ -65,4 +65,7 @@ starship init fish | source
 # Add asdf path
 # source /opt/homebrew/opt/asdf/asdf.fish
 
-export PATH="/Users/sisi0808/.local/bin:$PATH"
+# export PATH="/Users/sisi0808/.local/bin:$PATH"
+fish_add_path $HOME/src/flutter/bin
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cargo/bin
