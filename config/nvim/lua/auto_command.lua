@@ -27,11 +27,4 @@ api.nvim_create_autocmd(
 )
 
 -- 今開いているバッファのファイル名をヤンク
-api.nvim_create_user_command(
-    "Nameyank",
-    {
-        function()
-            cmd("let @+ = expand('%')")
-        end,
-    }
-)
+api.nvim_create_user_command('Nameyank', 'let @+ = expand("%")', {})
