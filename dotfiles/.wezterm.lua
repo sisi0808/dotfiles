@@ -20,7 +20,7 @@ local config = {
   font = wezterm.font('Monoid Nerd Font Mono'),
   font_size = 20,
   -- カラースキームの設定
-  color_scheme = 'Gruvbox dark, medium (base16)',
+  color_scheme = 'Gruvbox dark, soft (base16)',
 }
 
 
