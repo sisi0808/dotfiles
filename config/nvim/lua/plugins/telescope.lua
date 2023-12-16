@@ -20,7 +20,14 @@ return {
       config = function()
         require("telescope").load_extension("live_grep_args")
       end
-    }
+    },
+    -- kensakuとの連携
+    {
+      "Allianaab2m/telescope-kensaku.nvim",
+      config = function()
+        require("telescope").load_extension("kensaku")
+      end
+    },
   },
   keys = {
     { "<leader><leader>", ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", desc="File", silent=true},
