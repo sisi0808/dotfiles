@@ -73,9 +73,6 @@ nmap('P', ']P')
 nmap('<leader>o', 'o<ESC>k')
 nmap('<leader>O', 'O<ESC>j')
 
--- カーソル下の単語を、置換後の文字列の入力を待つ状態にする
--- nmap('<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', {silent = true })
-
 -- Digraph設定
 nmap('fj', 'f<C-k>j')
 nmap('Fj', 'F<C-k>j')

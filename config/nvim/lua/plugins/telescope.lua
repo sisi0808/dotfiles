@@ -2,7 +2,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   lazy= false,
-  dependencies = { 
+  dependencies = {
     "nvim-lua/plenary.nvim",
     -- 最近使用したファイルを検索
     {

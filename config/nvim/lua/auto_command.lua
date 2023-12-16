@@ -14,14 +14,24 @@
 --
 
 -- auto format
-vim.api.nvim_create_autocmd(
+api.nvim_create_autocmd(
     "BufWritePost",
     {
         pattern = "*.rs",
-        group = vim.api.nvim_create_augroup("AutoFormat", {}),
+        group = api.nvim_create_augroup("AutoFormat", {}),
         callback = function()
-            vim.cmd("silent !rustfmt --quiet %")            
-            vim.cmd("edit")
+            cmd("silent !rustfmt --quiet %")
+            cmd("edit")
+        end,
+    }
+)
+
+-- 今開いているバッファのファイル名をヤンク
+api.nvim_create_user_command(
+    "Nameyank",
+    {
+        function()
+            cmd("let @+ = expand('%')")
         end,
     }
 )
