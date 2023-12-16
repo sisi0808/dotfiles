@@ -10,7 +10,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 
 -- 表示、見た目
-opt.relativenumber = true
+-- opt.relativenumber = true
 -- opt.number = true
 opt.list = true
 opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
@@ -18,6 +18,7 @@ opt.title = true
 opt.laststatus = 3
 opt.ruler = true
 -- opt.ambiwidth = "double"
+opt.ambiwidth = "single"
 cmd("syntax enable")
 opt.updatetime = 250
 
@@ -62,41 +63,41 @@ opt.splitright = true
 g.mapleader = " "
 
 -- digraph setting
-cmd [[
-  " 12354 => "あ"
-  digraph aa 12354
-  digraph ii 12356
-  digraph uu 12358
-  digraph ee 12360
-  digraph oo 12362
+fn.digraph_setlist {
+  { "aa", "あ" },
+  { "ii", "い" },
+  { "uu", "う" },
+  { "ee", "え" },
+  { "oo", "お" },
 
-  " 12450 => "ア"
-  digraph Aa 12450
-  digraph Ii 12452
-  digraph Uu 12454
-  digraph Ee 12456
-  digraph Oo 12458
+  { "Aa", "ア" },
+  { "Ii", "イ" },
+  { "Uu", "ウ" },
+  { "Ee", "エ" },
+  { "Oo", "オ" },
 
-  " ん、ン
-  digraph nn 12435
-  digraph Nn 12531
+  { "nn", "ん" },
+  { "Nn", "ン" },
 
-  " カッコ
-  digraphs j( 65288  " （
-  digraphs j) 65289  " ）
-  digraphs j[ 12300  " 「
-  digraphs j] 12301  " 」
-  digraphs j{ 12302  " 『
-  digraphs j} 12303  " 』
-  digraphs j< 12304  " 【
-  digraphs j> 12305  " 】
+  { "j(", "（" },
+  { "j)", "）" },
+  { "j[", "「" },
+  { "j]", "」" },
+  { "j{", "『" },
+  { "j}", "』" },
+  { "j<", "【" },
+  { "j>", "】" },
+  { "j,", "、" },
+  { "j.", "。" },
+  { "j!", "！" },
+  { "j?", "？" },
+  { "j:", "：" },
+  { "jj", "j" }
+}
 
-  " 句読点
-  digraphs j, 65292  " ，
-  digraphs j. 65294  " ．
-  digraphs j! 65281  " ！
-  digraphs j? 65311  " ？
-  digraphs j: 65306  " ：
-
-  digraphs jj 106  " j
-]]
+opt.matchpairs:append{
+  "（:）",
+  "「:」",
+  "『:』",
+  "【:】",
+}

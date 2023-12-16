@@ -76,10 +76,20 @@ nmap('<leader>O', 'O<ESC>j')
 -- nmap('<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>', {silent = true })
 
 -- Digraph設定
-nmap('fj', 'f<C-k>')
-nmap('Fj', 'F<C-k>')
-nmap('tj', 't<C-k>')
-nmap('Tj', 'T<C-k>')
+nmap('fj', 'f<C-k>j')
+nmap('Fj', 'F<C-k>j')
+nmap('tj', 't<C-k>j')
+nmap('Tj', 'T<C-k>j')
+
+omap('fj', 'f<C-k>j')
+omap('Fj', 'F<C-k>j')
+omap('tj', 't<C-k>j')
+omap('Tj', 'T<C-k>j')
+
+xmap('fj', 'f<C-k>j')
+xmap('Fj', 'F<C-k>j')
+xmap('tj', 't<C-k>j')
+xmap('Tj', 'T<C-k>j')
 
 -- Esc設定
 imap('jk', '<Esc>')
