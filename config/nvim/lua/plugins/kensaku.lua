@@ -4,9 +4,9 @@ return {
   lazy = false,
   dependencies = {
     -- denoの実行環境
-    {'vim-denops/denops.vim', lazy=false},
+    'vim-denops/denops.vim',
     -- /と?の検索でkensaku.vimを使う
-    {'lambdalisue/kensaku-search.vim', lazy=false}
+    'lambdalisue/kensaku-search.vim'
   },
   keys = {
     -- /と?の検索でkensaku.vimを使う

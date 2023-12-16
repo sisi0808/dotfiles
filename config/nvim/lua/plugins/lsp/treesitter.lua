@@ -9,6 +9,7 @@ return {
     require("nvim-treesitter.configs").setup({
       highlight = { enable = true },
       indent = { enable = true },
+      matchup = { enable = true },
       ensure_installed = {
         "bash",
         "c",

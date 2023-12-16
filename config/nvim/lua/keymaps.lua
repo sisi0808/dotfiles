@@ -2,6 +2,7 @@
 
 -- カーソル移動
 nmap('<leader>4', '$')
+nmap('<leader>5', '%')
 nmap('<leader>6', '^')
 
 -- ファイル保存・終了

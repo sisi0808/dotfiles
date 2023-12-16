@@ -8,6 +8,8 @@ return {
     "onsails/lspkind.nvim",
     -- スニペット
     "L3MON4D3/LuaSnip",
+    -- スニペットをcmpで使う
+    "saadparwaiz1/cmp_luasnip" ,
     -- cmpをlspから引っ張ってくる
     "hrsh7th/cmp-nvim-lsp",
     -- パス名を補完で出す
