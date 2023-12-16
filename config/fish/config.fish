@@ -17,19 +17,24 @@ alias lt='eza -T'
 alias cat='bat'
 alias find='fd'
 
+# tmux
+alias ta='tmux attach'
+alias td='tmux detach'
+alias tl='tmux ls'
+
 # Git
 alias ga='git add'
 alias gcm='git commit -m'
-alias gps  'git push '
+alias gps='git push '
 alias gb='git branch'
-alias gp  'git pull '
+alias gp='git pull '
 alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gps='git push'
-alias gl  'git log --oneline '
-alias gt  'git tree '
-alias gs  'git status '
-alias gss  'git status -s'
+alias gl='git log --oneline '
+alias gt='git tree '
+alias gs='git status '
+alias gss='git status -s'
 
 # setting nvim
 alias nvv='nvim -u ~/.config/nvim/init.vim'
