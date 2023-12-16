@@ -11,7 +11,7 @@ hs.hotkey.bind({"option"}, key, function()
 end)
 end
 
-toggleApp("iTerm", "space")
+toggleApp("WezTerm", "space")
 toggleApp("Finder", "h")
 toggleApp("Vivaldi", "j")
 toggleApp("Obsidian", "k")
