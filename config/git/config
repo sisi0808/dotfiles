@@ -1,0 +1,19 @@
+[user]
+    name = XXXX
+    email = XXXX@abc.xyz
+[init]
+    defaultbranch = main
+[merge]
+    ff = false
+[pull]
+    ff = only
+    rebase = false
+[fetch]
+    prune = true
+[push]
+    default = current
+[rebase]
+    autostash = true
+    autosquash = true
+[color]
+    ui = auto
