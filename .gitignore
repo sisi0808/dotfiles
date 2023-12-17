@@ -6,5 +6,5 @@ lazy-lock.json
 ## fish
 config/lvim/lazy-lock.json
 
-## other
-.gitconfig
+## git
+config/git/config.local
