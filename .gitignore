@@ -1,0 +1,7 @@
+## nvim
+config/nvim/session
+config/nvim/undo
+lazy-lock.json
+
+## fish
+config/lvim/lazy-lock.json
