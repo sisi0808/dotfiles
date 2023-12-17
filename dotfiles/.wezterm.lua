@@ -1,5 +1,11 @@
 local wezterm = require('wezterm')
 
+-- フルスクリーンで起動
+wezterm.on("gui-startup", function()
+  local _, _, window = wezterm.mux.spawn_window{}
+  window:gui_window():maximize()
+end)
+
 local config = {
   -- 画面サイズ
   initial_cols = 180,
@@ -21,7 +27,15 @@ local config = {
   font_size = 20,
   -- カラースキームの設定
   color_scheme = 'Gruvbox dark, soft (base16)',
+  -- ショートカットキー設定
+  keys = {
+    -- CMD+Ctl+Fでフルスクリーン切り替え
+    {
+      key = 'f',
+      mods = 'CMD|CTRL',
+      action = wezterm.action.ToggleFullScreen,
+    },
+  }
 }
-
 
 return config
