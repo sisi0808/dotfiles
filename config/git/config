@@ -1,6 +1,5 @@
-[user]
-    name = XXXX
-    email = XXXX@abc.xyz
+[include]
+    path = config.local
 [init]
     defaultbranch = main
 [merge]

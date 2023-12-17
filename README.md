@@ -13,7 +13,7 @@ WezTerm(terminal emulator) + Fish(shell) + Neovim(editor)
 cd
 git clone git@github.com:sisi0808/dotfiles.git
 cd dotfiles
-vi ./config/git  # rewrite your Git user
+vi ./config/git/config.local  # rewrite your Git user
 ./install.sh
 ```
 
