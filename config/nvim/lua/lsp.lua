@@ -6,8 +6,14 @@ require('lspconfig.ui.windows').default_options.border = 'single'
 
 require("mason-lspconfig").setup({
   ensure_installed = {
+    "efm",
     "lua_ls",
-    "rust_analyzer"
+    "bashls",
+    "clangd",
+    "cmake",
+    "rust_analyzer",
+    "marksman",
+    "pyright",
   },
   automatic_installation = true,
   handlers = {
@@ -30,8 +36,38 @@ require("mason-lspconfig").setup({
   },
 })
 
--- require("lspconfig").lua_ls.setup({})
--- require("lspconfig").rust_analyzer.setup({})
+require("lspconfig").efm.setup({
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+  settings = {
+    rootMarkers = {
+      ".git/",
+    },
+    languages = {
+      lua = {
+        {
+          formatCommand = "lua-format -i",
+          formatStdin = true
+        },
+        {
+          lintCommand = "luacheck --no-color --quiet",
+          lintFormats = { "%f:%l:%c: %m" },
+        },
+      },
+      markdown = {
+        {
+          lintCommand = "markdownlint -s",
+          lintFormats = { "%f:%l %m", "%f:%l:%c %m", "%f: %l: %m" },
+        },
+      },
+    },
+  },
+  filetypes = {
+    "lua",
+  },
+})
 
 -- 2. LSP keymaps
 nmap('ge', vim.diagnostic.open_float)
@@ -135,16 +171,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline', keyword_length = 2 }
   })
 })
-
--- require("mason-lspconfig").setup_handlers({
---   function(server)
---     local opt = {
---       capabilities = require("cmp_nvim_lsp").default_capabilities()
---     }
---     require('lspconfig')[server].setup(opt)
---
---     rust_analyzer = function()
---       require('rust-tools').setup({})
---     end,
---   end,
--- })
