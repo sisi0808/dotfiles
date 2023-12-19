@@ -9,7 +9,7 @@ return {
       'lambdalisue/fern-renderer-nerdfont.vim',
       ft='fern',
       config = function()
-        g['fern#renderer'] = "nerdfont"
+        vim.g['fern#renderer'] = "nerdfont"
       end
     },
     -- アイコン類
@@ -17,14 +17,14 @@ return {
       'lambdalisue/glyph-palette.vim',
       ft='fern',
       config = function()
-        fn['glyph_palette#apply']()
+        vim.fn['glyph_palette#apply']()
       end
     },
     -- fernをデフォルトのエクスプローラーに
     {
       'lambdalisue/fern-hijack.vim',
       config = function()
-        api.nvim_set_var('loaded_netrwPlugin', 1)
+        vim.api.nvim_set_var('loaded_netrwPlugin', 1)
       end
     },
     -- ファイルのプレビュー

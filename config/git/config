@@ -16,3 +16,5 @@
     autosquash = true
 [color]
     ui = auto
+[core]
+    editor = vim

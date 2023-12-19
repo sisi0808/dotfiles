@@ -2,6 +2,6 @@
 return {
   'machakann/vim-sandwich',
   config = function()
-   cmd("runtime macros/sandwich/keymap/surround.vim")
+    vim.cmd("runtime macros/sandwich/keymap/surround.vim")
   end
 }

@@ -5,6 +5,6 @@ return {
     {'gx', '<Plug>(openbrowser-smart-search)'}
   },
   config = function()
-    g['netrw_nogx = 1'] = 1
+    vim.g['netrw_nogx = 1'] = 1
   end
 }

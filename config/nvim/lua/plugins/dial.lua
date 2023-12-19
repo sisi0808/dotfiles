@@ -7,5 +7,4 @@ return {
     { "<C-a>", "<Plug>(dial-increment)", mode='v'},
     { "<C-x>", "<Plug>(dial-decrement)", mode='v'},
   }
-
 }

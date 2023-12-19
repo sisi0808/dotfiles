@@ -1,69 +1,69 @@
 -- 文字コード
-opt.encoding = 'utf-8'
-opt.fileencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 -- タブ、インテンド
-opt.expandtab = true
-opt.autoindent = true
-opt.smartindent = true
-opt.tabstop = 2
-opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- 表示、見た目
--- opt.relativenumber = true
--- opt.number = true
-opt.list = true
-opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
-opt.title = true
-opt.laststatus = 3
-opt.ruler = true
--- opt.ambiwidth = "double"
-opt.ambiwidth = "single"
-cmd("syntax enable")
-opt.updatetime = 250
+-- vim.opt.relativenumber = true
+-- vim.opt.number = true
+vim.opt.list = true
+vim.opt.listchars = { tab = '>>', trail = '-', nbsp = '+' }
+vim.opt.title = true
+vim.opt.laststatus = 3
+vim.opt.ruler = true
+-- vim.opt.ambiwidth = "double"
+vim.opt.ambiwidth = "single"
+vim.cmd("syntax enable")
+vim.opt.updatetime = 250
 
 -- カーソルを常に中央に表示
--- opt.so = 999
--- opt.so = 0
+-- vim.opt.so = 999
+-- vim.opt.so = 0
 
 -- 行末への移動
-opt.backspace = "indent,eol,start"
-opt.virtualedit = "onemore"
+vim.opt.backspace = "indent,eol,start"
+vim.opt.virtualedit = "onemore"
 
 -- 検索
-opt.ignorecase = true
-opt.smartcase = true
-opt.wrapscan = true
-opt.incsearch = true
-opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.wrapscan = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
 
 -- バックアップ、スワップ
-opt.backup = false
-opt.swapfile = false
-opt.autoread = true
-opt.undodir = fn.stdpath('data') .. '/undo'
-opt.undofile = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.autoread = true
+vim.opt.undodir = vim.fn.stdpath('data') .. '/undo'
+vim.opt.undofile = true
 
 -- 履歴
-opt.history = 1000
-opt.clipboard:append("unnamed")
+vim.opt.history = 1000
+vim.opt.clipboard:append("unnamed")
 
 -- フォント
-opt.guifont = "HackGenNerd-Regular:h12"
-opt.termguicolors = true
+vim.opt.guifont = "HackGenNerd-Regular:h12"
+vim.opt.termguicolors = true
 
 -- ヘルプを日本語で
-opt.helplang = 'ja'
+vim.opt.helplang = 'ja'
 
 -- ウィンドウ分割方向の制御
-opt.splitbelow = true
-opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- leaderキーをspaceキーに設定
-g.mapleader = " "
+vim.g.mapleader = " "
 
 -- digraph setting
-fn.digraph_setlist {
+vim.fn.digraph_setlist {
   { "aa", "あ" },
   { "ii", "い" },
   { "uu", "う" },
@@ -95,7 +95,7 @@ fn.digraph_setlist {
   { "jj", "j" }
 }
 
-opt.matchpairs:append{
+vim.opt.matchpairs:append{
   "（:）",
   "「:」",
   "『:』",

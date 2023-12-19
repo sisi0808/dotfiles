@@ -12,7 +12,7 @@ return {
     {'<Esc>', 'q', ft='lazygit'},
   },
   config = function ()
-    g['lazygit_floating_window_use_plenary'] = 1,
+    vim.g['lazygit_floating_window_use_plenary'] = 1
     require("telescope").load_extension("lazygit")
   end
 }

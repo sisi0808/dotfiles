@@ -2,6 +2,6 @@
 return {
   'brglng/vim-im-select',
   config = function()
-    g['im_select_default'] = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
+    vim.g['im_select_default'] = 'com.apple.inputmethod.Kotoeri.RomajiTyping.Roman'
   end
 }

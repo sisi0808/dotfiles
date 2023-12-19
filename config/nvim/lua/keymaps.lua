@@ -89,6 +89,9 @@ xmap('Fj', 'F<C-k>j')
 xmap('tj', 't<C-k>j')
 xmap('Tj', 'T<C-k>j')
 
+-- レジスタ名とmodeが相関を持つようにする
+nmap('x', '"xx')
+
 -- Esc設定
 imap('jk', '<Esc>')
 nmap('<Esc><Esc>', ':noh<CR>')

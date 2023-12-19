@@ -27,6 +27,9 @@ require("mason-lspconfig").setup({
         -- }
       })
     end,
+    lua_ls = function()
+        require('rust-tools').setup({})
+    end
   },
 })
 
