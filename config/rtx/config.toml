@@ -1,0 +1,5 @@
+[tools]
+node = "latest"
+lua = "latest"
+rust = "latest"
+deno = "latest"
