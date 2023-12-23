@@ -9,7 +9,7 @@ return {
   config = function()
     require("noice").setup({
       messages = {
-        enabled = false,
+        enabled = true,
         -- view = "notify", -- default view for messages
         view_error = "mini", -- view for errors
         view_warn = "mini", -- view for warnings

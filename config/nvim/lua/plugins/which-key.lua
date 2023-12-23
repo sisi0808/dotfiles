@@ -12,7 +12,7 @@ return {
       ["<leader>g"] = { name = "+git"},
       ["<leader>L"] = { name = "+lazy"},
       ["<leader>l"] = { name = "+lsp"},
-      ["<leader>q"] = { name = "+session"},
+      ["<leader>S"] = { name = "+session"},
       ["<leader>f"] = { name = "+find"},
       ["<leader>n"] = { name = "+noice"}
     })

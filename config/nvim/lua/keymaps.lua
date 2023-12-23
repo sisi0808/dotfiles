@@ -13,6 +13,9 @@ nmap('<leader>qa', ':q<CR>')
 nmap('<leader>qa', ':qa<CR>')
 nmap('<leader>wq', ':wq<CR>')
 
+-- ウインドウを閉じる(bufferは残る)
+nmap('<leader>c', ':clo<CR>')
+
 -- undoをremap
 nmap('U', '<C-r>')
 
@@ -30,7 +33,7 @@ nmap('U', '<C-r>')
 -- nmap('<leader>t', ':T<CR>')
 
 -- Vimの設定ファイルを編集
-nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>', {silent = true} )
+nmap('<leader>ww', ':source ~/.config/nvim/init.lua<CR>')
 nmap('<leader>wr', ':new ~/.config/nvim/init.lua<CR>', {silent = true} )
 
 -- ウィンドウ操作
