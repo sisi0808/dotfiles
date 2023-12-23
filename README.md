@@ -15,14 +15,13 @@ git clone git@github.com:sisi0808/dotfiles.git
 cd dotfiles
 vi ./config/git/config.local  # rewrite your Git user
 ./install.sh
-```
 
-```Bash
 # fish
 sudo echo "$(which fish)" >> /etc/shells
 chsh -s "$(which fish)"
 fish
-# asdf
-asdf global nodejs latest 
-asdf global deno latest 
+
+# rtx
+rtx -g node
+rtx global deno
 ```
