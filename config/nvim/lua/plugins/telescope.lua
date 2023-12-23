@@ -36,6 +36,6 @@ return {
     { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag", silent=true},
     { "<leader>fc", ":Telescope command_history<CR>", desc="Command", silent=true},
     { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps", silent=true},
-    { "<leader>fb", ":Telescope buffersCR>", desc="Buffer", silent=true}
+    { "<leader>fb", ":Telescope buffers<CR>", desc="Buffer", silent=true}
   },
 }
