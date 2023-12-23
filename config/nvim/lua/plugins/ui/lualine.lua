@@ -27,12 +27,37 @@ return {
         }
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff'},
-        lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = {'branch'},
+        lualine_b = {
+          {
+            'filename',
+            path = 1
+          }
+        },
+        lualine_c = {
+          "'%='",
+          {
+            'diff',
+            symbols = {added = '', modified = '', removed = ''},
+            separator = " | ",
+          },
+          {
+            'diagnostics',
+            sources = {
+              'nvim_diagnostic', 
+              'nvim_lsp',
+            },
+            sections = { 'error', 'warn', 'info', 'hint' },
+            -- symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
+            symbols = {error = '', warn = '', info = '', hint = ''},
+            -- colored = true,
+            -- update_in_insert = false,
+            -- always_visible = false,
+          },
+        },
+        lualine_x = {'encoding', 'filetype'},
+        lualine_z = {'location','progress'},
+        lualine_z = {'mode'},
       },
       inactive_sections = {
         lualine_a = {},
@@ -44,7 +69,13 @@ return {
       },
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
-      })
+      extensions = {
+        'fern',
+        'lazy',
+        'mason',
+        'quickfix',
+        'toggleterm'
+      }
+    })
   end
 }
