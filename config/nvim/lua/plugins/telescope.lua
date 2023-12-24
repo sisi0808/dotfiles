@@ -28,6 +28,13 @@ return {
         require("telescope").load_extension("kensaku")
       end
     },
+    -- プロジェクトごとのファイル検索
+    {
+      "nvim-telescope/telescope-project.nvim",
+      config = function()
+        require("telescope").load_extension("project")
+      end
+    }
   },
   keys = {
     { "<leader><leader>", ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", desc="File", silent=true},
@@ -36,6 +43,7 @@ return {
     { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag", silent=true},
     { "<leader>fc", ":Telescope command_history<CR>", desc="Command", silent=true},
     { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps", silent=true},
-    { "<leader>fb", ":Telescope buffers<CR>", desc="Buffer", silent=true}
+    { "<leader>fb", ":Telescope buffers<CR>", desc="Buffer", silent=true},
+    { "<leader>fp", ":Telescope project<CR>", desc="Project", silent=true}
   },
 }
