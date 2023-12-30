@@ -31,8 +31,14 @@ return {
         lualine_b = {
           {
             'filename',
-            path = 1
-          }
+            path = 1,
+            separator = " | ",
+          },
+          -- {
+          --   require("noice").api.status.mode.get,
+          --   cond = require("noice").api.status.mode.has,
+          --   color = { fg = "#ff9e64" },
+          -- }
         },
         lualine_c = {
           "'%='",
@@ -44,19 +50,28 @@ return {
           {
             'diagnostics',
             sources = {
-              'nvim_diagnostic', 
+              'nvim_diagnostic',
               'nvim_lsp',
             },
             sections = { 'error', 'warn', 'info', 'hint' },
             -- symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
             symbols = {error = '', warn = '', info = '', hint = ''},
+            separator = " | ",
             -- colored = true,
             -- update_in_insert = false,
             -- always_visible = false,
           },
         },
-        lualine_x = {'encoding', 'filetype'},
-        lualine_z = {'location','progress'},
+        lualine_x = {
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+          },
+          'encoding',
+          'filetype'
+        },
+        lualine_y = {'location','progress'},
         lualine_z = {'mode'},
       },
       inactive_sections = {
