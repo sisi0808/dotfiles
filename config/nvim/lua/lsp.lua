@@ -33,9 +33,6 @@ require("mason-lspconfig").setup({
         -- }
       })
     end,
-    lua_ls = function()
-        require('rust-tools').setup({})
-    end
   },
 })
 
@@ -50,25 +47,18 @@ require("lspconfig").efm.setup({
     },
     languages = {
       lua = {
-        {
-          formatCommand = "lua-format -i",
-          formatStdin = true
-        },
-        {
-          lintCommand = "luacheck --no-color --quiet",
-          lintFormats = { "%f:%l:%c: %m" },
-        },
+        require('efmls-configs.linters.luacheck'),
+        require('efmls-configs.formatters.stylua'),
       },
       markdown = {
-        {
-          lintCommand = "markdownlint -s",
-          lintFormats = { "%f:%l %m", "%f:%l:%c %m", "%f: %l: %m" },
-        },
+        require('efmls-configs.linters.markdownlint'),
       },
     },
   },
   filetypes = {
     "lua",
+    "markdown",
+    "cpp",
   },
 })
 
