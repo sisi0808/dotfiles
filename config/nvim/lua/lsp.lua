@@ -17,7 +17,13 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 	handlers = {
 		function(server)
-			require("lspconfig")[server].setup({})
+			require("lspconfig")[server].setup({
+				settings = {
+					lua = {
+						diagnostics = { globals = { "vim" } },
+					},
+				},
+			})
 		end,
 		rust_analyzer = function()
 			require("rust-tools").setup({
