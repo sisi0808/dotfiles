@@ -4,6 +4,34 @@ require("mason").setup({
 })
 require("lspconfig.ui.windows").default_options.border = "single"
 
+-- lua_lsに各Pluginの補完情報を追加する
+---@param plugins string[]
+---@return string[]
+local function get_plugin_path(plugins)
+  local all_plugins = require("lazy.core.config").plugins
+  local paths = {}
+  for _, name in ipairs(plugins) do
+    if all_plugins[name] then
+      table.insert(paths, all_plugins[name].dir)
+    else
+      vim.notify("Invalid plugin name: " .. name)
+    end
+  end
+  return paths
+end
+
+---@param plugins string[]
+---@return string[]
+local function library(plugins)
+  local paths = get_plugin_path(plugins)
+  table.insert(paths, vim.fn.stdpath("config"))
+  table.insert(paths, vim.env.VIMRUNTIME)
+  table.insert(paths, "${3rd}/luv/library")
+  table.insert(paths, "${3rd}/busted/library")
+  table.insert(paths, "${3rd}/luassert/library")
+  return paths
+end
+
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"efm",
@@ -25,27 +53,30 @@ require("mason-lspconfig").setup({
 				},
 			})
 		end,
-		rust_analyzer = function()
-			require("rust-tools").setup({
-				-- server = {
-				--   settings = {
-				--     ['rust-analyzer'] = {
-				--       checkOnsave = {
-				--         command = 'clippy'
-				--       }
-				--     }
-				--   }
-				-- }
-			})
+		["rust_analyzer"] = function()
+			require("rust-tools").setup({})
 		end,
+    ["lua_ls"] = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            workspace = {
+              library = library({ "lazy.nvim", "nvim-insx" }),
+              checkThirdParty = false,
+            },
+          },
+        },
+      })
+    end
 	},
 })
 
 -- Virtual textを表示しない
 -- vim.diagnostic.config({ virtual_text = false })
 -- (LSPからの)Virtual textを表示しない
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] =
+-- 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
 
 -- require("lspconfig").efm.setup({
 --   init_options = {
