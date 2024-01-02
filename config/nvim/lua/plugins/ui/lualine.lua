@@ -10,8 +10,6 @@ return {
       options = {
         icons_enabled = true,
         theme = 'catppuccin',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -28,18 +26,7 @@ return {
       },
       sections = {
         lualine_a = {'branch'},
-        lualine_b = {
-          {
-            'filename',
-            path = 1,
-            separator = " | ",
-          },
-          -- {
-          --   require("noice").api.status.mode.get,
-          --   cond = require("noice").api.status.mode.has,
-          --   color = { fg = "#ff9e64" },
-          -- }
-        },
+        lualine_b = {{'filename', path = 1}},
         lualine_c = {
           "'%='",
           {
