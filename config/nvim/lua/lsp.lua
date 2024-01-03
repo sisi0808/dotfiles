@@ -5,14 +5,14 @@ require("mason").setup({
 require("lspconfig.ui.windows").default_options.border = "single"
 
 -- lua_lsに各Pluginの補完情報を追加する
----@param plugins string[]
+---@param names string[]
 ---@return string[]
-local function get_plugin_path(plugins)
-  local all_plugins = require("lazy.core.config").plugins
+local function get_plugin_paths(names)
+  local plugins = require("lazy.core.config").plugins
   local paths = {}
-  for _, name in ipairs(plugins) do
-    if all_plugins[name] then
-      table.insert(paths, all_plugins[name].dir)
+  for _, name in ipairs(names) do
+    if plugins[name] then
+      table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
     else
       vim.notify("Invalid plugin name: " .. name)
     end
@@ -23,14 +23,26 @@ end
 ---@param plugins string[]
 ---@return string[]
 local function library(plugins)
-  local paths = get_plugin_path(plugins)
-  table.insert(paths, vim.fn.stdpath("config"))
-  table.insert(paths, vim.env.VIMRUNTIME)
+  local paths = get_plugin_paths(plugins)
+  table.insert(paths, vim.fs.joinpath(vim.fn.stdpath("config"), "lua"))
+  table.insert(paths, vim.fs.joinpath(vim.env.VIMRUNTIME, "lua"))
   table.insert(paths, "${3rd}/luv/library")
   table.insert(paths, "${3rd}/busted/library")
   table.insert(paths, "${3rd}/luassert/library")
   return paths
 end
+
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    markdown = { "markdownlint" },
+  },
+})
+
+require("lint").linters_by_ft = {
+  lua = { "luacheck" },
+  markdown = { "markdownlint" },
+}
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
@@ -45,13 +57,7 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 	handlers = {
 		function(server)
-			require("lspconfig")[server].setup({
-				settings = {
-					lua = {
-						diagnostics = { globals = { "vim" } },
-					},
-				},
-			})
+			require("lspconfig")[server].setup({})
 		end,
 		["rust_analyzer"] = function()
 			require("rust-tools").setup({})
@@ -61,10 +67,22 @@ require("mason-lspconfig").setup({
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
+            runtime = {
+              version = "LuaJIT",
+              pathStrict = true,
+              path = { "?.lua", "?/init.lua" },
+            },
             workspace = {
               library = library({ "lazy.nvim", "nvim-insx" }),
               checkThirdParty = false,
             },
+            diagnostics = {
+              enable = false,
+              globals = { "vim" }
+            },
+            format = {
+              enable = false
+            }
           },
         },
       })
@@ -103,18 +121,6 @@ require("mason-lspconfig").setup({
 --     "cpp",
 --   },
 -- })
-
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		markdown = { "markdownlint" },
-	},
-})
-
-require("lint").linters_by_ft = {
-	lua = { "luacheck" },
-	markdown = { "markdownlint" },
-}
 
 -- 2. LSP keymaps
 nmap("ge", vim.diagnostic.open_float)
