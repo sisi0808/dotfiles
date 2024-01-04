@@ -79,5 +79,19 @@ return {
   --       colorscheme everforest
   --     ]]
   --   end,
+  -- },
+  -- {
+  --    'rebelot/kanagawa.nvim',
+  --    lazy = false,
+  --    name = 'kanagawa',
+  --    config = function()
+  --      require('kanagawa').setup({
+  --          undercurl = true,
+  --          theme = "wave",
+  --          -- theme = "lotus",
+  --          -- theme = "dragon",
+  --      })
+  --      vim.cmd[[colorscheme kanagawa]]
+  --    end
   -- }
 }
