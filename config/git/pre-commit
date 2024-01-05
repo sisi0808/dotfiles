@@ -1,0 +1,22 @@
+
+#!/bin/sh
+
+# Redirect output to stderr.
+exec 1>&2
+
+# main/master/develpへのコミットの禁止
+if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = main; then
+    echo "<developへコミットできない文言>"
+    exit 1
+fi
+
+if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = master; then
+    echo "<masterへコミットできない文言>"
+    exit 1
+fi
+
+if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = develop; then
+    echo "<developへコミットできない文言>"
+    exit 1
+fi
+

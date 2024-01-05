@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+lines="$(cat)"
+
+# branch protection
+# 標準入力 $lines にブランチ名などが渡される
+# $lines をもとに、master/mainブランチへのpushであれば、終了コードを1としてpushを中断
+function restrict_master_push() {
+  echo "$lines" | while read local_ref local_sha1 remote_ref remote_sha1
+  do
+    if [[ "$remote_ref" = "refs/heads/master" ]]; then
+      echo "Do not push to master branch!!!" 1>&2
+      exit 1
+    fi
+
+    if [[ "${remote_ref}" = "refs/heads/main" ]]; then
+      echo "Do not push to main branch!!!" 1>&2
+      exit 1
+    fi
+
+    if [[ "${remote_ref}" = "refs/heads/develop" ]]; then
+      echo "Do not push to develop branch!!!" 1>&2
+      exit 1
+    fi
+  done
+}
+
+case "$(git config remote.origin.url)" in
+  # 自分用のレポジトリではスキップ
+  "git@github.com:sisi0808/dotfiles.git" )
+    echo 'skip restrict_master_push()' 1>&2
+    ;;
+  * )
+    restrict_master_push
+    ;;
+esac

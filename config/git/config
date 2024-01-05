@@ -18,3 +18,4 @@
     ui = auto
 [core]
     editor = vim
+    hooksPath = ~/.config/git/hooks
