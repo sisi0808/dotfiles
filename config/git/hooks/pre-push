@@ -27,7 +27,7 @@ function restrict_master_push() {
 
 case "$(git config remote.origin.url)" in
   # 自分用のレポジトリではスキップ
-  "git@github.com:sisi0808/dotfiles.git" )
+  *sisi0808* )
     echo 'skip restrict_master_push()' 1>&2
     ;;
   * )

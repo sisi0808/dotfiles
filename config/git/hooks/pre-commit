@@ -1,22 +1,36 @@
+#!/bin/bash -e
 
-#!/bin/sh
+lines="$(cat)"
 
-# Redirect output to stderr.
-exec 1>&2
+# branch protection
+# 標準入力 $lines にブランチ名などが渡される
+# $lines をもとに、master/mainブランチへのcommitであれば、終了コードを1としてcommitを中断
+function restrict_master_commit() {
+  echo "$lines" | while read local_ref local_sha1 remote_ref remote_sha1
+  do
+    if [[ "$remote_ref" = "refs/heads/master" ]]; then
+      echo "Do not commit to master branch!!!" 1>&2
+      exit 1
+    fi
 
-# main/master/develpへのコミットの禁止
-if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = main; then
-    echo "<developへコミットできない文言>"
-    exit 1
-fi
+    if [[ "${remote_ref}" = "refs/heads/main" ]]; then
+      echo "Do not commit to main branch!!!" 1>&2
+      exit 1
+    fi
 
-if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = master; then
-    echo "<masterへコミットできない文言>"
-    exit 1
-fi
+    if [[ "${remote_ref}" = "refs/heads/develop" ]]; then
+      echo "Do not commit to develop branch!!!" 1>&2
+      exit 1
+    fi
+  done
+}
 
-if test "`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`" = develop; then
-    echo "<developへコミットできない文言>"
-    exit 1
-fi
-
+case "$(git config remote.origin.url)" in
+  # 自分用のレポジトリではスキップ
+  *sisi0808* )
+    echo 'skip restrict_master_push()' 1>&2
+    ;;
+  * )
+    restrict_master_push
+    ;;
+esac
