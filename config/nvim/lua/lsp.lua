@@ -8,41 +8,29 @@ require("lspconfig.ui.windows").default_options.border = "single"
 ---@param names string[]
 ---@return string[]
 local function get_plugin_paths(names)
-  local plugins = require("lazy.core.config").plugins
-  local paths = {}
-  for _, name in ipairs(names) do
-    if plugins[name] then
-      table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
-    else
-      vim.notify("Invalid plugin name: " .. name)
-    end
-  end
-  return paths
+	local plugins = require("lazy.core.config").plugins
+	local paths = {}
+	for _, name in ipairs(names) do
+		if plugins[name] then
+			table.insert(paths, vim.fs.joinpath(plugins[name].dir, "lua"))
+		else
+			vim.notify("Invalid plugin name: " .. name)
+		end
+	end
+	return paths
 end
 
 ---@param plugins string[]
 ---@return string[]
 local function library(plugins)
-  local paths = get_plugin_paths(plugins)
-  table.insert(paths, vim.fs.joinpath(vim.fn.stdpath("config"), "lua"))
-  table.insert(paths, vim.fs.joinpath(vim.env.VIMRUNTIME, "lua"))
-  table.insert(paths, "${3rd}/luv/library")
-  table.insert(paths, "${3rd}/busted/library")
-  table.insert(paths, "${3rd}/luassert/library")
-  return paths
+	local paths = get_plugin_paths(plugins)
+	table.insert(paths, vim.fs.joinpath(vim.fn.stdpath("config"), "lua"))
+	table.insert(paths, vim.fs.joinpath(vim.env.VIMRUNTIME, "lua"))
+	table.insert(paths, "${3rd}/luv/library")
+	table.insert(paths, "${3rd}/busted/library")
+	table.insert(paths, "${3rd}/luassert/library")
+	return paths
 end
-
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    markdown = { "markdownlint" },
-  },
-})
-
-require("lint").linters_by_ft = {
-  lua = { "luacheck" },
-  markdown = { "markdownlint" },
-}
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
@@ -62,33 +50,44 @@ require("mason-lspconfig").setup({
 		["rust_analyzer"] = function()
 			require("rust-tools").setup({})
 		end,
-    ["lua_ls"] = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-              pathStrict = true,
-              path = { "?.lua", "?/init.lua" },
-            },
-            workspace = {
-              library = library({ "lazy.nvim", "nvim-insx" }),
-              checkThirdParty = false,
-            },
-            diagnostics = {
-              enable = false,
-              globals = { "vim" }
-            },
-            format = {
-              enable = false
-            }
-          },
-        },
-      })
-    end
+		["lua_ls"] = function()
+			local lspconfig = require("lspconfig")
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						runtime = {
+							version = "LuaJIT",
+							pathStrict = true,
+							path = { "?.lua", "?/init.lua" },
+						},
+						workspace = {
+							library = library({ "lazy.nvim", "nvim-insx" }),
+							checkThirdParty = false,
+						},
+						diagnostics = {
+							enable = false,
+						},
+						format = {
+							enable = false,
+						},
+					},
+				},
+			})
+		end,
 	},
 })
+
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		markdown = { "markdownlint" },
+	},
+})
+
+require("lint").linters_by_ft = {
+	lua = { "luacheck" },
+	markdown = { "markdownlint" },
+}
 
 -- Virtual textを表示しない
 -- vim.diagnostic.config({ virtual_text = false })
@@ -145,7 +144,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		nmap("gr", vim.lsp.buf.references, opts)
 		nmap("gf", function()
 			-- vim.lsp.buf.format({ async = true })
-			require("conform").format()
+			require("conform").format({
+				lsp_fallback = true,
+			})
 		end, opts)
 	end,
 })
