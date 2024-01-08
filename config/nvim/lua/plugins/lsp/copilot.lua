@@ -1,6 +1,7 @@
 -- copilot
 return {
   "zbirenbaum/copilot.lua",
+  -- dependencies = { "gptlang/CopilotChat.nvim" },
   cmd = "Copilot",
   event = "InsertEnter",
   lazy = false,
@@ -14,8 +15,8 @@ return {
         accept = "<C-l>",
         accept_word = false,
         accept_line = false,
-        next = "<C-o>",
-        prev = "<C-i>",
+        -- next = "<C-o>",
+        -- prev = "<C-i>",
         dismiss = "<C-]>",
       },
       },

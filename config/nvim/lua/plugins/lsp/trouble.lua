@@ -8,8 +8,8 @@ return {
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 	},
-  keys = {
-    {"<leader>tt", ":TroubleToggle<CR>", desc="Trouble Toggle", silent=true },
-    {"<leader>tc", ":TroubleClose<CR>", desc="Trouble Close", silent=true },
-  }
+	keys = {
+		{ "<leader>tt", ":TroubleToggle<CR>", desc = "Trouble Toggle", silent = true },
+		{ "<leader>tr", ":TroubleReflesh<CR>", desc = "Trouble Reflesh", silent = true },
+	},
 }
