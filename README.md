@@ -24,4 +24,8 @@ fish
 # rtx
 rtx -g node
 rtx global deno
+
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
 ```
