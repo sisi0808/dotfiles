@@ -28,9 +28,9 @@ function restrict_master_commit() {
 case "$(git config remote.origin.url)" in
   # 自分用のレポジトリではスキップ
   *sisi0808* )
-    echo 'skip restrict_master_push()' 1>&2
+    echo 'skip restrict_master_commit()' 1>&2
     ;;
   * )
-    restrict_master_push
+    restrict_master_commit
     ;;
 esac
