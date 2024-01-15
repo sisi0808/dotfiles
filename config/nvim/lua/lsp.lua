@@ -84,42 +84,25 @@ require("conform").setup({
 	},
 })
 
-require("lint").linters_by_ft = {
+-- linterの設定
+local lint = require("lint")
+
+-- luacheckの設定
+lint.linters.luacheck.args = {
+	"--globals",
+	"vim",
+	"--formatter",
+	"plain",
+	"--codes",
+	"--ranges",
+	"-",
+}
+
+-- filetype毎にinterを設定
+lint.linters_by_ft = {
 	lua = { "luacheck" },
 	markdown = { "markdownlint" },
 }
-
--- Virtual textを表示しない
--- vim.diagnostic.config({ virtual_text = false })
--- (LSPからの)Virtual textを表示しない
--- vim.lsp.handlers["textDocument/publishDiagnostics"] =
--- 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
-
--- require("lspconfig").efm.setup({
---   init_options = {
---     documentFormatting = true,
---     documentRangeFormatting = true,
---   },
---   settings = {
---     rootMarkers = {
---       ".git/",
---     },
---     languages = {
---       lua = {
---         require('efmls-configs.linters.luacheck'),
---         require('efmls-configs.formatters.stylua'),
---       },
---       markdown = {
---         require('efmls-configs.linters.markdownlint'),
---       },
---     },
---   },
---   filetypes = {
---     "lua",
---     "markdown",
---     "cpp",
---   },
--- })
 
 -- 2. LSP keymaps
 nmap("ge", vim.diagnostic.open_float)
@@ -142,6 +125,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		nmap("ga", vim.lsp.buf.code_action, opts)
 		nmap("gi", vim.lsp.buf.implementation, opts)
 		nmap("gr", vim.lsp.buf.references, opts)
+		nmap("gR", function()
+			require("trouble").toggle("lsp_references")
+		end, opts)
 		nmap("gf", function()
 			-- vim.lsp.buf.format({ async = true })
 			require("conform").format({
