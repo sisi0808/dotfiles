@@ -18,6 +18,7 @@ return {
         "c",
         "diff",
         "html",
+        "java",
         "javascript",
         "jsdoc",
         "json",
