@@ -1,5 +1,5 @@
 -- Java development plugin for Neovim
--- return {
+return {
 --   'nvim-java/nvim-java',
 --   dependencies = {
 --     'nvim-java/lua-async-await',
@@ -23,4 +23,4 @@
 --     require('java').setup()
 --     require('lspconfig').jdtls.setup({})
 --   end
--- }
+}
