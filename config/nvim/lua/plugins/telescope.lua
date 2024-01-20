@@ -18,7 +18,23 @@ return {
     {
       "nvim-telescope/telescope-live-grep-args.nvim",
       config = function()
-        require("telescope").load_extension("live_grep_args")
+        -- require("telescope").load_extension("live_grep_args")
+        local lga_actions = require("telescope-live-grep-args.actions")
+        require("telescope").setup {
+          extensions = {
+            live_grep_args = {
+              auto_quoting = true, -- enable/disable auto-quoting
+              -- define mappings, e.g.
+              mappings = { -- extend mappings
+                i = {
+                  ["<C-k>"] = lga_actions.quote_prompt(),
+                  ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob" }),
+                  ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --glob" }),
+                },
+              },
+            }
+          }
+        }
       end
     },
     -- kensakuとの連携
@@ -39,7 +55,7 @@ return {
   keys = {
     { "<leader><leader>", ":Telescope find_files find_command=rg,--files,--hidden,--glob,!*.git <CR>", desc="File", silent=true},
     { "<leader>ff", ":Telescope frecency<CR>", desc="Recent", silent=true},
-    { "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Text", silent=true},
+    { "<leader>fg", ":Telescope live_grep_args<CR>", desc="Text", silent=true},
     { "<leader>fh", ":Telescope help_tags<CR>", desc="Help tag", silent=true},
     { "<leader>fc", ":Telescope command_history<CR>", desc="Command", silent=true},
     { "<leader>fk", ":Telescope keymaps<CR>", desc="Keymaps", silent=true},
