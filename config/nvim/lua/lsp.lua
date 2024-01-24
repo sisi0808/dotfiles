@@ -34,7 +34,7 @@ end
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"efm",
+		-- "efm",
 		"lua_ls",
 		"bashls",
 		"clangd",
