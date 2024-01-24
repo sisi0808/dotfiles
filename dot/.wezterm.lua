@@ -23,7 +23,7 @@ local config = {
 	window_background_image = "/Users/sisi0808/Pictures/WallPaper/3.png",
 	window_background_image_hsb = {
 		-- Darken the background image by reducing it to 1/3rd
-		brightness = 0.015,
+		brightness = 0.045,
 		hue = 1.0,
 		saturation = 1.0,
 	},
