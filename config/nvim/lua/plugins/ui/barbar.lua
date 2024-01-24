@@ -1,8 +1,12 @@
 -- バッファ・タブバーをかっこよく
 return {
   'romgrk/barbar.nvim',
-  dependencies = {'nvim-web-devicons'},
-  event = {'BufNewFile', 'BufRead'},
+  dependencies = {
+    'lewis6991/gitsigns.nvim',
+    'nvim-web-devicons'
+  },
+  -- event = {'BufNewFile', 'BufRead'},
+  lazy = false,
   keys = {
     -- Move to previous/next
     { '<M-,>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true }},
