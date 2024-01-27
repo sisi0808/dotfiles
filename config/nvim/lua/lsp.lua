@@ -47,9 +47,6 @@ require("mason-lspconfig").setup({
 		function(server)
 			require("lspconfig")[server].setup({})
 		end,
-		["rust_analyzer"] = function()
-			require("rust-tools").setup({})
-		end,
 		["lua_ls"] = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
