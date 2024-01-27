@@ -9,34 +9,6 @@ set -g theme_date_format "+%F %H:%M"
 set -g theme_display_git_default_branch yes
 set -g theme_color_scheme dark
 
-# some more ls aliases
-alias ls='eza'
-alias ll='eza -alF'
-alias la='eza -A'
-alias lt='eza -T'
-alias cat='bat'
-alias find='fd'
-
-# tmux
-alias ta='tmux attach'
-alias td='tmux detach'
-alias tl='tmux ls'
-
-# Git
-alias ga='git add'
-alias gcm='git commit -m'
-alias gps='git push '
-alias gb='git branch'
-alias gp='git pull '
-alias gc='git checkout'
-alias gcl='git clone'
-alias gcb='git checkout -b'
-alias gps='git push'
-alias gl='git log --oneline '
-alias gt='git tree '
-alias gs='git status '
-alias gss='git status -s'
-
 # setting nvim
 alias nvv='nvim -u ~/.config/nvim/init.vim'
 alias nvl='nvim -u ~/.config/nvim/init.lua'
@@ -44,19 +16,40 @@ alias view='nvl -R'
 alias vit='nvl ~/.config/nvim/init.lua'
 alias fit='nvl ~/.config/fish/config.fish'
 
+# some more ls aliases
+abbr --add ls 'eza'
+abbr --add ll 'eza -alF'
+abbr --add la 'eza -A'
+abbr --add lt 'eza -T'
+abbr --add cat 'bat'
+abbr --add find 'fd'
+
+# tmux
+abbr --add ta 'tmux attach'
+abbr --add td 'tmux detach'
+abbr --add tl 'tmux ls'
+
+# Git
+abbr --add ga 'git add'
+abbr --add gcm 'git commit -m'
+abbr --add gP 'git push'
+abbr --add gb 'git branch'
+abbr --add gp 'git pull'
+abbr --add gc 'git checkout'
+abbr --add gcl 'git clone'
+abbr --add gcb 'git checkout -b'
+abbr --add gs 'git status '
+
+abbr --add python 'python3'
+abbr --add pip 'pip3'
+
+# for atcoder
+abbr --add ccn 'cargo compete new'
+abbr --add cct 'cargo compete test'
+abbr --add ccs 'cargo compete submit'
+
 #! enable vi mode
 fish_vi_key_bindings
-
-alias python='python3'
-alias pip='pip3'
-alias cptest='python cptest_atcoder.py'
-# alias autocommit='python ./auto.py && python ./delete_compiled_file.py'
-alias autocommit='python ./delete_compiled_file.py && python ./auto.py'
-alias makef='python makef.py'
-alias ojs='oj s main.cpp -y --no-open'
-
-# Set key bindings
-# set fish_key_bindings fish_user_key_bindings
 
 # autostart fish_ssh_agent
 # fish_ssh_agent
@@ -67,9 +60,6 @@ export PATH="$PATH:$HOME/src/flutter/bin"
 
 # setup starship
 starship init fish | source
-
-# Add asdf path
-# source /opt/homebrew/opt/asdf/asdf.fish
 
 export PATH="$HOME/.local/bin:$PATH"
 # fish_add_path $HOME/src/flutter/bin
