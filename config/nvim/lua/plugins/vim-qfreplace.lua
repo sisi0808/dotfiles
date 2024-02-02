@@ -1,4 +1,4 @@
 -- quick fixウインドウの一括置換
 return {
-  'thinca/vim-qfreplace'
+	"thinca/vim-qfreplace",
 }

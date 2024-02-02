@@ -1,8 +1,8 @@
 -- タスクランナー
 return {
-  'stevearc/overseer.nvim',
-  opts = {},
-  keys = {
-    { '<leader>T', ':OverseerRun<CR>' },
-  }
+	"stevearc/overseer.nvim",
+	opts = {},
+	keys = {
+		{ "<leader>T", ":OverseerRun<CR>" },
+	},
 }

@@ -1,4 +1,4 @@
 -- lspの色をいい感じにしてくれる
 return {
-  'folke/lsp-colors.nvim'
+	"folke/lsp-colors.nvim",
 }
