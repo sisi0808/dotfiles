@@ -67,4 +67,16 @@ return {
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Buffer", silent = true },
 		{ "<leader>fp", ":Telescope project<CR>", desc = "Project", silent = true },
 	},
+	config = function()
+		require("telescope").setup({
+			defaults = {
+				mappings = { -- extend mappings
+					i = {
+						["<c-a>"] = { "<home>", type = "command" },
+						["<c-e>"] = { "<end>", type = "command" },
+					},
+				},
+			},
+		})
+	end,
 }
