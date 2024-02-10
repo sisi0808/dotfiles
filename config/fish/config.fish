@@ -48,6 +48,10 @@ abbr --add ccn 'cargo compete new'
 abbr --add cct 'cargo compete test'
 abbr --add ccs 'cargo compete submit'
 
+# for rust
+abbr --add cr 'cargo run'
+abbr --add ct 'cargo test'
+
 #! enable vi mode
 fish_vi_key_bindings
 
