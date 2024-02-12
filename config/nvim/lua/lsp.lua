@@ -185,8 +185,8 @@ cmp.setup({
 		["<Up>"] = cmp.mapping.select_prev_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
-		["<C-j>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
+		-- ["<C-j>"] = cmp.mapping.complete(),
+		-- ["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	}),
 })
