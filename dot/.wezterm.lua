@@ -20,14 +20,14 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	window_background_image = "/Users/sisi0808/Pictures/WallPaper/3.png",
+	window_background_image = "/Users/sisi0808/Pictures/WallPaper/p1.jpg",
 	window_background_image_hsb = {
 		-- Darken the background image by reducing it to 1/3rd
 		brightness = 0.045,
 		hue = 1.0,
 		saturation = 1.0,
 	},
-	-- window_background_opacity = 0.7,
+	-- window_background_opacity = 0.9,
 	macos_window_background_blur = 9,
 	-- フォント
 	font = wezterm.font("Monoid Nerd Font Mono"),
@@ -43,6 +43,8 @@ local config = {
 			action = wezterm.action.ToggleFullScreen,
 		},
 	},
+  -- デフォルトのIME を無効にする
+  macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 }
 
 return config
