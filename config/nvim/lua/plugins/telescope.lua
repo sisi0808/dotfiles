@@ -18,23 +18,7 @@ return {
 		{
 			"nvim-telescope/telescope-live-grep-args.nvim",
 			config = function()
-				-- require("telescope").load_extension("live_grep_args")
-				local lga_actions = require("telescope-live-grep-args.actions")
-				require("telescope").setup({
-					extensions = {
-						live_grep_args = {
-							auto_quoting = true, -- enable/disable auto-quoting
-							-- define mappings, e.g.
-							mappings = { -- extend mappings
-								i = {
-									["<C-k>"] = lga_actions.quote_prompt(),
-									-- ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob" }),
-									["<C-g>"] = lga_actions.quote_prompt({ postfix = " --glob" }),
-								},
-							},
-						},
-					},
-				})
+				require("telescope").load_extension("live_grep_args")
 			end,
 		},
 		-- kensakuとの連携
@@ -49,6 +33,18 @@ return {
 			"nvim-telescope/telescope-project.nvim",
 			config = function()
 				require("telescope").load_extension("project")
+			end,
+		},
+		{
+			"nvim-telescope/telescope-media-files.nvim",
+			dependencies = {
+				"nvim-lua/popup.nvim",
+			},
+			config = function()
+				require("telescope").load_extension("media_files")
+				require("telescope").setup({
+					extensions = { media_files = { find_cmd = "rg" } },
+				})
 			end,
 		},
 	},
@@ -66,6 +62,7 @@ return {
 		{ "<leader>fk", ":Telescope keymaps<CR>", desc = "Keymaps", silent = true },
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Buffer", silent = true },
 		{ "<leader>fp", ":Telescope project<CR>", desc = "Project", silent = true },
+    { "<leader>fi", ":Telescope media_files<CR>", desc = "image", silent = true },
 	},
 	config = function()
 		require("telescope").setup({
