@@ -44,7 +44,9 @@ local config = {
 		},
 	},
   -- デフォルトのIME を無効にする
-  macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
+  macos_forward_to_ime_modifier_mask = "SHIFT|CTRL",
+  -- デフォルトのシェルをfishにする
+  -- default_prog = { '/opt/homebrew/bin/fish', '-l' }
 }
 
 return config
