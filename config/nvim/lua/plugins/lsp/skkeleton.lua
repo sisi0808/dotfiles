@@ -1,6 +1,14 @@
 return {
 	"vim-skk/skkeleton",
-	dependencies = { "vim-denops/denops.vim" },
+	dependencies = {
+    "vim-denops/denops.vim",
+    {
+      "delphinus/skkeleton_indicator.nvim",
+      config = function()
+        require'skkeleton_indicator'.setup{}
+      end
+    }
+  },
   lazy = false,
 	config = function()
 		vim.fn["skkeleton#config"]({
