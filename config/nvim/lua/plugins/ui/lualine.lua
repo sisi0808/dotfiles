@@ -74,9 +74,11 @@ return {
 			extensions = {
 				"fern",
 				"lazy",
+        "man",
 				"mason",
 				"quickfix",
 				"toggleterm",
+        "trouble"
 			},
 		})
 	end,
