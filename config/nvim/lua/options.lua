@@ -1,7 +1,6 @@
 -- 文字コード
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-
 -- タブ、インテンド
 vim.opt.expandtab = true
 vim.opt.autoindent = true
@@ -21,6 +20,11 @@ vim.opt.ruler = true
 vim.opt.ambiwidth = "single"
 vim.cmd("syntax enable")
 vim.opt.updatetime = 250
+
+-- treesitterによる折りたたみ
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 -- カーソルを常に中央に表示
 vim.opt.so = 999
