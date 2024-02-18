@@ -39,6 +39,11 @@ nmap("<leader>wr", ":new ~/.config/nvim/init.lua<CR>", { silent = true })
 -- ウィンドウ操作
 nmap("ss", ":split<CR>")
 nmap("sv", ":vsplit<CR>")
+nmap("s-", "<C-w>-")
+nmap("s+", "<C-w>+")
+nmap("s>", "<C-w>>")
+nmap("s<", "<C-w><")
+nmap("s=", "<C-w>=")
 
 -- ウィンドウ移動
 nmap("sh", "<C-w>h")
@@ -51,16 +56,9 @@ nmap("sJ", "<C-w>J")
 nmap("sK", "<C-w>K")
 nmap("sL", "<C-w>L")
 
+-- Buffer操作
 nmap("so", "<cmd>bnext<cr>")
 nmap("si", "<cmd>bprevious<cr>")
--- nmap('sn', '<cmd>bnext<cr>')
--- nmap('sp', '<cmd>bprevious<cr>')
-
-nmap("s-", "<C-w>-")
-nmap("s+", "<C-w>+")
-nmap("s>", "<C-w>>")
-nmap("s<", "<C-w><")
-nmap("s=", "<C-w>=")
 
 -- QuickFix
 nmap("]q", ":cnext<CR>")
