@@ -71,8 +71,8 @@ return {
 					i = {
 						["<c-a>"] = { "<home>", type = "command" },
 						["<c-e>"] = { "<end>", type = "command" },
-            ["<Up>"] = "cycle_history_prev",
-            ["<Down>"] = "cycle_history_next",
+            ["<c-p>"] = "cycle_history_prev",
+            ["<c-n>"] = "cycle_history_next",
 					},
 				},
 			},
