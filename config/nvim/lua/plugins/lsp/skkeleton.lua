@@ -25,7 +25,6 @@ return {
 				dicPath .. "SKK-JISYO.station",
 			},
 			userDictionary = dicPath .. ".skkeleton",
-			kanaTable = "azik",
 			globalKanaTableFiles = {
 				dicPath .. "azik_us.rule",
 			},
