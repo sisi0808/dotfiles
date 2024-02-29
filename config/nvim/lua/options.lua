@@ -19,6 +19,7 @@ vim.opt.ruler = true
 -- vim.opt.ambiwidth = "double"
 vim.opt.ambiwidth = "single"
 vim.cmd("syntax enable")
+vim.opt.linebreak = true
 vim.opt.updatetime = 250
 
 -- treesitterによる折りたたみ
@@ -57,7 +58,7 @@ vim.opt.guifont = "HackGenNerd-Regular:h12"
 vim.opt.termguicolors = true
 
 -- ヘルプを日本語で
-vim.opt.helplang = "ja"
+vim.opt.helplang = {"ja", "en"}
 
 -- ウィンドウ分割方向の制御
 vim.opt.splitbelow = true
