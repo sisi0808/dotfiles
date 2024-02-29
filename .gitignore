@@ -8,3 +8,5 @@ config/fish/fish_variables
 
 ## git
 config/git/config.local
+dot/.skk/.skkeleton
+dot/.skk/skk-jisyo.utf8
