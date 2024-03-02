@@ -31,7 +31,10 @@ local config = {
 	macos_window_background_blur = 9,
 	-- フォント
 	font = wezterm.font("Monoid Nerd Font Mono"),
+  -- font = wezterm.font("HackGenNerd"),
 	font_size = 20,
+  -- under cursor表示用の設定
+  -- term = "wezterm",
 	-- カラースキームの設定
 	color_scheme = "Gruvbox dark, soft (base16)",
 	-- ショートカットキー設定
