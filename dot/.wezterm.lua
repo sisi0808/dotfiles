@@ -30,8 +30,8 @@ local config = {
 	-- window_background_opacity = 0.9,
 	macos_window_background_blur = 9,
 	-- フォント
-	font = wezterm.font("Monoid Nerd Font Mono"),
-  -- font = wezterm.font("HackGenNerd"),
+	-- font = wezterm.font("Monoid Nerd Font Mono"),
+  font = wezterm.font("HackGen Console NFJ"),
 	font_size = 20,
   -- under cursor表示用の設定
   -- term = "wezterm",
