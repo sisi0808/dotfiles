@@ -31,7 +31,7 @@ local config = {
 	macos_window_background_blur = 9,
 	-- フォント
 	-- font = wezterm.font("Monoid Nerd Font Mono"),
-  font = wezterm.font("HackGen Console NFJ"),
+  font = wezterm.font("HackGen Console NF"),
 	font_size = 20,
   -- under cursor表示用の設定
   -- term = "wezterm",
