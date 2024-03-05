@@ -16,6 +16,9 @@ alias view='nvl -R'
 alias vit='nvl ~/.config/nvim/init.lua'
 alias fit='nvl ~/.config/fish/config.fish'
 
+# setting for vifm
+abbr --add vm 'vifm'
+
 # some more ls aliases
 abbr --add ls 'eza'
 abbr --add ll 'eza -alF'
