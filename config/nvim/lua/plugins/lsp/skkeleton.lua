@@ -29,8 +29,13 @@ return {
 				dicPath .. "azik_us.rule",
 			},
 		})
+    vim.cmd[[
+      call add(g:skkeleton#mapped_keys, '<C-l>')
+      call skkeleton#register_keymap('input', '<C-l>', 'zenkaku')
+    ]]
 		vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
     vim.fn["skkeleton#register_keymap"]("input", "'", "disable")
+    -- vim.fn["skkeleton#register_keymap"]("input", "<C-l>", "kata")
 		vim.fn["skkeleton#register_keymap"]("henkan", "X", false)
 		vim.fn["skkeleton#register_keymap"]("henkan", "<", "purgeCandidate")
 	end,
