@@ -31,7 +31,7 @@ return {
 		})
     vim.cmd[[
       call add(g:skkeleton#mapped_keys, '<C-l>')
-      call skkeleton#register_keymap('input', '<C-l>', 'zenkaku')
+      call skkeleton#register_keymap('input', '<C-l>', 'katakana')
     ]]
 		vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
     vim.fn["skkeleton#register_keymap"]("input", "'", "disable")
