@@ -6,4 +6,7 @@ return {
 			current_line_blame = true,
 		})
 	end,
+  keys = {
+    { "<leader>gd", "<cmd>Gitsigns diffthis<cr>", desc = "GitFileDiff", silent = true },
+  }
 }
