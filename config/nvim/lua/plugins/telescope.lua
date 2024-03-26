@@ -21,13 +21,13 @@ return {
 				require("telescope").load_extension("live_grep_args")
 			end,
 		},
-		-- kensakuとの連携
-		{
-			"Allianaab2m/telescope-kensaku.nvim",
-			config = function()
-				require("telescope").load_extension("kensaku")
-			end,
-		},
+		-- -- kensakuとの連携
+		-- {
+		-- 	"Allianaab2m/telescope-kensaku.nvim",
+		-- 	config = function()
+		-- 		require("telescope").load_extension("kensaku")
+		-- 	end,
+		-- },
 		-- プロジェクトごとのファイル検索
 		{
 			"nvim-telescope/telescope-project.nvim",
