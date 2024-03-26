@@ -63,6 +63,9 @@ return {
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Buffer", silent = true },
 		{ "<leader>fp", ":Telescope project<CR>", desc = "Project", silent = true },
     { "<leader>fi", ":Telescope media_files<CR>", desc = "image", silent = true },
+
+    { "<leader>fgs", ":Telescope git_status<CR>", desc = "Git Status", silent = true },
+    { "<leader>fgb", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
 	},
 	config = function()
 		require("telescope").setup({
