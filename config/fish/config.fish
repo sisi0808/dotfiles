@@ -72,3 +72,5 @@ export PATH="$HOME/.local/bin:$PATH"
 # fish_add_path $HOME/src/flutter/bin
 # fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
+
+set -x TERM wezterm
