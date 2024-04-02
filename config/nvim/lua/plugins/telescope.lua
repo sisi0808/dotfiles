@@ -6,11 +6,17 @@ return {
 		"nvim-lua/plenary.nvim",
 		-- 最近使用したファイルを検索
 		{
-			"nvim-telescope/telescope-frecency.nvim",
+			"danielfalk/smart-open.nvim",
 			config = function()
-				require("telescope").load_extension("frecency")
+				require("telescope").load_extension("smart_open")
 			end,
-			dependencies = "kkharji/sqlite.lua",
+			dependencies = {
+				"kkharji/sqlite.lua",
+				-- Only required if using match_algorithm fzf
+				{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+				-- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+				{ "nvim-telescope/telescope-fzy-native.nvim" },
+			},
 		},
 		-- icon
 		"nvim-tree/nvim-web-devicons",
@@ -55,17 +61,17 @@ return {
 			desc = "File",
 			silent = true,
 		},
-		{ "<leader>ff", ":Telescope frecency<CR>", desc = "Recent", silent = true },
+		{ "<leader>ff", ":Telescope smart_open<CR>", desc = "Recent", silent = true },
 		{ "<leader>fg", ":Telescope live_grep_args<CR>", desc = "Text", silent = true },
 		{ "<leader>fh", ":Telescope help_tags<CR>", desc = "Help tag", silent = true },
 		{ "<leader>fc", ":Telescope command_history<CR>", desc = "Command", silent = true },
 		{ "<leader>fk", ":Telescope keymaps<CR>", desc = "Keymaps", silent = true },
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Buffer", silent = true },
 		{ "<leader>fp", ":Telescope project<CR>", desc = "Project", silent = true },
-    { "<leader>fi", ":Telescope media_files<CR>", desc = "image", silent = true },
+		{ "<leader>fi", ":Telescope media_files<CR>", desc = "image", silent = true },
 
-    { "<leader>fgs", ":Telescope git_status<CR>", desc = "Git Status", silent = true },
-    { "<leader>fgb", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
+		{ "<leader>fgs", ":Telescope git_status<CR>", desc = "Git Status", silent = true },
+		{ "<leader>fgb", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
 	},
 	config = function()
 		require("telescope").setup({
@@ -74,8 +80,8 @@ return {
 					i = {
 						["<c-a>"] = { "<home>", type = "command" },
 						["<c-e>"] = { "<end>", type = "command" },
-            ["<c-p>"] = "cycle_history_prev",
-            ["<c-n>"] = "cycle_history_next",
+						["<c-p>"] = "cycle_history_prev",
+						["<c-n>"] = "cycle_history_next",
 					},
 				},
 			},
