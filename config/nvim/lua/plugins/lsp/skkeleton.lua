@@ -35,7 +35,6 @@ return {
     ]]
 		vim.fn["skkeleton#register_keymap"]("input", ";", "henkanPoint")
     vim.fn["skkeleton#register_keymap"]("input", "'", "disable")
-    -- vim.fn["skkeleton#register_keymap"]("input", "<C-l>", "kata")
 		vim.fn["skkeleton#register_keymap"]("henkan", "X", false)
 		vim.fn["skkeleton#register_keymap"]("henkan", "<", "purgeCandidate")
 	end,
