@@ -71,7 +71,8 @@ return {
 		{ "<leader>fi", ":Telescope media_files<CR>", desc = "image", silent = true },
 
 		{ "<leader>fgs", ":Telescope git_status<CR>", desc = "Git Status", silent = true },
-		{ "<leader>fgb", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
+		{ "<leader>fgc", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
+    { "<leader>fgb", ":Telescope git_branches<CR>", desc = "Git Branch", silent = true },
 	},
 	config = function()
 		require("telescope").setup({
