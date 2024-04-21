@@ -29,8 +29,14 @@ return {
       },
     })
   end,
-  -- keys = {
-  --
-  -- }
-
+  keys = {
+      { "[n", "<cmd>lua require('neotest').jump.prev({ status = 'failed'})<CR>", mode = "n" },
+      { "]n", "<cmd>lua require('neotest').jump.next({ status = 'failed'})<CR>", mode = "n" },
+      { "<leader>tt", "<cmd>lua require('neotest').summary.toggle()<CR>", mode = "n" , desc= "summary"},
+      { "<leader>to", "<cmd>lua require('neotest').output_panel.toggle()<CR>", mode = "n", desc = "output panel"},
+      { "<leader>th", "<cmd>lua require('neotest').open({ enter = true })<CR>", mode = "n", desc = "output hover"},
+      { "<leader>tr", "<cmd>lua require('neotest').run.run()<CR>", mode = "n",  desc = "run"},
+      { "<leader>te", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", mode = "n" ,desc="run file"},
+      { "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>", mode = "n", desc = "run last"},
+  }
 }
