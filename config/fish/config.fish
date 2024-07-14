@@ -46,6 +46,9 @@ abbr --add gs 'git status '
 abbr --add python 'python3'
 abbr --add pip 'pip3'
 
+# trash
+abbr --add rm 'trash'
+
 # for atcoder
 abbr --add ccn 'cargo compete new'
 abbr --add cct 'cargo compete test'
