@@ -15,6 +15,7 @@ return {
 			["<leader>S"] = { name = "+session" },
 			["<leader>f"] = { name = "+find" },
 			["<leader>n"] = { name = "+noice" },
+      ["<leader>m"] = { name = "+marks" },
 		})
 	end,
 }
