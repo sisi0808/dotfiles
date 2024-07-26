@@ -7,7 +7,10 @@ return {
 	keys = {
 		{ "<C-t>", ":ToggleTerm size=40 direction=float <CR>", mode = "n", silent = true },
 		{ "<C-t>", "<C-\\><C-n>:ToggleTerm<CR>", mode = "t", silent = true },
-		-- {'<esc>', '<C-\\><C-n>:ToggleTerm<CR>', mode='t'},
+
+		{ "sts", ":split | terminal", mode = "n", silent = true },
+		{ "stv", ":vsplit | terminal", mode = "n", silent = true },
+		{ "<esc>", "<C-\\><C-n>:ToggleTerm<CR>", mode = "t" },
 		-- {'<leader>tn', ':FloatermNew<CR>'},
 		-- {'<leader>tc', ':FloatermKill<CR>'},
 		-- {'<leader>to', ':FloatermOnly<CR>'},
