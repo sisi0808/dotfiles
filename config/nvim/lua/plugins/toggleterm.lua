@@ -10,7 +10,7 @@ return {
 
 		{ "sts", ":split | terminal", mode = "n", silent = true },
 		{ "stv", ":vsplit | terminal", mode = "n", silent = true },
-		{ "<esc>", "<C-\\><C-n>:ToggleTerm<CR>", mode = "t" },
+		{ "<esc><esc>", "<C-\\><C-n>", mode = "t" },
 		-- {'<leader>tn', ':FloatermNew<CR>'},
 		-- {'<leader>tc', ':FloatermKill<CR>'},
 		-- {'<leader>to', ':FloatermOnly<CR>'},
