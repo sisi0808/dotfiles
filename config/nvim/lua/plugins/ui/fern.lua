@@ -41,7 +41,7 @@ return {
 	keys = {
 		-- open as side bar
 		{ "<F2>", ":Fern . -reveal=% -drawer -toggle<CR>", silent = true },
-		{ "<F3>", ":Fern . -reveal=% -drawer -toggle<CR>", silent = true },
+		-- { "<F3>", ":Fern . -reveal=% -drawer -toggle<CR>", silent = true },
 		{ "sa", "<Plug>(fern-action-open:select)", ft = "fern" },
 		{ "ss", "<Plug>(fern-action-open:split)", ft = "fern" },
 		{ "sd", "<Plug>(fern-action-open:vsplit)", ft = "fern" },
