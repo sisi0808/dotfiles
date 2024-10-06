@@ -49,6 +49,20 @@
 -- 今開いているバッファのファイル名をヤンク
 vim.api.nvim_create_user_command("Nameyank", 'let @+ = expand("%")', {})
 
+-- 日付を挿入
+vim.api.nvim_create_user_command("Date",
+  function()
+    vim.fn.setreg("+", vim.fn.strftime("%Y-%m-%d"))
+  end,
+{})
+
+-- 日付を挿入
+vim.api.nvim_create_user_command("Time",
+  function()
+    vim.fn.setreg("+", vim.fn.strftime("%H:%M:%S"))
+  end,
+{})
+
 -- レジスタの名前にmodeの情報を対応させる
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("use-easy-regname", {}),
