@@ -80,6 +80,34 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
+-- 即時メモを起動
+local memo_path = vim.fn.expand('~/.local/share/memo.md')
+
+-- メモを開閉する関数
+local function memo_toggle()
+  -- 既に開いていた場合はメモを閉じる
+  if vim.fn.expand('%') == memo_path then
+    vim.cmd('write')
+    vim.cmd('bdelete')
+    return
+  end
+
+  -- ファイル編集開始 & ローカルオプション設定
+  vim.cmd('edit ' .. memo_path)
+  vim.opt_local.bufhidden = 'wipe'
+  vim.opt_local.swapfile = false
+
+  -- 自動保存設定
+  vim.api.nvim_create_autocmd(
+    { "InsertLeave", "TextChanged", "BufLeave" },
+    { buffer = 0, command = "silent! update" }
+  )
+end
+
+vim.api.nvim_create_user_command('Memo', memo_toggle, {})
+vim.api.nvim_set_keymap('n', 'mo', '<Cmd>Memo<CR>', { noremap = true, silent = true })
+
+
 -- formatterの起動タイミングを設定
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 -- 	pattern = "*",
