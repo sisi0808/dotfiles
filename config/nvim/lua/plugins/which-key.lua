@@ -9,13 +9,16 @@ return {
 	config = function()
 		local wk = require("which-key")
 		wk.register({
-			["<leader>g"] = { name = "+git" },
-			["<leader>L"] = { name = "+lazy" },
-			["<leader>l"] = { name = "+lsp" },
-			["<leader>S"] = { name = "+session" },
-			["<leader>f"] = { name = "+find" },
-			["<leader>n"] = { name = "+noice" },
-      ["<leader>m"] = { name = "+marks" },
+			{ "<leader>L", group = "lazy" },
+			{ "<leader>S", group = "session" },
+			{ "<leader>f", group = "find" },
+			{ "<leader>g", group = "git" },
+			{ "<leader>l", group = "lsp" },
+			{ "<leader>m", group = "marks" },
+			{ "<leader>n", group = "noice" },
 		})
 	end,
+	dependencies = {
+		{ "nvim-tree/nvim-web-devicons" },
+	},
 }

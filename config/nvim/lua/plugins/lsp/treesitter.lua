@@ -67,6 +67,7 @@ return {
 				"vimdoc",
 				"yaml",
 				"rust",
+				"css",
 			},
 		})
 	end,
