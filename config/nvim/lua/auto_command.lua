@@ -52,14 +52,16 @@ vim.api.nvim_create_user_command("Nameyank", 'let @+ = expand("%")', {})
 -- 日付を挿入
 vim.api.nvim_create_user_command("Date",
   function()
-    vim.fn.setreg("+", vim.fn.strftime("%Y-%m-%d"))
+    local yanked_text = vim.fn.strftime("%Y-%m-%d")
+    vim.api.nvim_put({yanked_text}, 'c', true, true)
   end,
 {})
 
 -- 日付を挿入
 vim.api.nvim_create_user_command("Time",
   function()
-    vim.fn.setreg("+", vim.fn.strftime("%H:%M:%S"))
+    local yanked_text = vim.fn.strftime("%H:%M")
+    vim.api.nvim_put({yanked_text}, 'c', true, true)
   end,
 {})
 
