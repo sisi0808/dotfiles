@@ -18,7 +18,7 @@ return {
 	},
 	opts = {
 		notes_subdir = "Files",
-    new_notes_location = "notes_subdir",
+		new_notes_location = "notes_subdir",
 		workspaces = {
 			{
 				name = "default",
@@ -70,6 +70,26 @@ return {
 		-- Specify how to handle attachments.
 		attachments = {
 			img_folder = "Public", -- This is the default
+		},
+		-- 外部リンクも開けるようにする
+		follow_url_func = function(url)
+			vim.ui.open(url) -- need Neovim 0.10.0+
+		end,
+		-- 画像リンクも開けるようにする
+		follow_img_func = function(img)
+			vim.fn.jobstart({ "qlmanage", "-p", img })
+		end,
+		-- quickSeachでの表示順
+		sort_by = "accessed",
+		ui = {
+			-- Define how various check-boxes are displayed
+			checkboxes = {
+				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+				["x"] = { char = "", hl_group = "ObsidianDone" },
+				-- [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+				-- ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+				-- ["!"] = { char = "", hl_group = "ObsidianImportant" },
+			},
 		},
 	},
 }
