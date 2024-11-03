@@ -72,7 +72,7 @@ return {
 
 		{ "<leader>fgs", ":Telescope git_status<CR>", desc = "Git Status", silent = true },
 		{ "<leader>fgc", ":Telescope git_bcommits<CR>", desc = "Git BCommit", silent = true },
-    { "<leader>fgb", ":Telescope git_branches<CR>", desc = "Git Branch", silent = true },
+		{ "<leader>fgb", ":Telescope git_branches<CR>", desc = "Git Branch", silent = true },
 	},
 	config = function()
 		require("telescope").setup({
@@ -83,6 +83,7 @@ return {
 						["<c-e>"] = { "<end>", type = "command" },
 						["<c-p>"] = "cycle_history_prev",
 						["<c-n>"] = "cycle_history_next",
+						["<c-j>"] = false,
 					},
 				},
 			},
