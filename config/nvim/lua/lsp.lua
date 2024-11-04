@@ -98,7 +98,7 @@ lint.linters.luacheck.args = {
 -- filetype毎にinterを設定
 lint.linters_by_ft = {
 	lua = { "luacheck" },
-	markdown = { "markdownlint" },
+	-- markdown = { "markdownlint" },
 }
 
 -- 2. LSP keymaps
