@@ -56,6 +56,7 @@ vim.opt.clipboard:append("unnamed")
 -- フォント
 vim.opt.guifont = "HackGenNerd-Regular:h12"
 vim.opt.termguicolors = true
+vim.opt.conceallevel = 2
 
 -- ヘルプを日本語で
 vim.opt.helplang = {"ja", "en"}
