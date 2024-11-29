@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
+    -- optionを設定する
 		require("octo").setup()
 	end,
 }
