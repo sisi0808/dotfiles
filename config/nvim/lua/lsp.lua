@@ -41,11 +41,16 @@ require("mason-lspconfig").setup({
 		"cmake",
 		"rust_analyzer",
 		"pyright",
+		"typos_lsp",
 	},
 	automatic_installation = true,
 	handlers = {
 		function(server)
 			require("lspconfig")[server].setup({})
+		end,
+		["typos_lsp"] = function()
+			local lspconfig = require("lspconfig")
+			lspconfig.typos_lsp.setup({})
 		end,
 		["lua_ls"] = function()
 			local lspconfig = require("lspconfig")
