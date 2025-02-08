@@ -77,3 +77,6 @@ export PATH="$HOME/.local/bin:$PATH"
 fish_add_path $HOME/.cargo/bin
 
 set -x TERM wezterm
+
+# For lazygit config
+export XDG_CONFIG_HOME="$HOME/.config"

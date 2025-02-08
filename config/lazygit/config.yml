@@ -1,0 +1,75 @@
+git:
+  parseEmoji: true
+
+gui:
+  showIcons: true
+  language: ja
+
+os:
+  editPreset: "nvim"
+
+customCommands:
+  - key: "<c-c>"
+    context: "files"
+    description: 'commit files with format'
+    prompts:
+      - type: "menu"
+        title: "Choice the emoji"
+        key: "Emoji"
+        options:
+          - name: ':tada:'
+            description: '🎉バージョン更新'
+            value: ':tada:'
+          - name: ':bug:'
+            description: '🐛バグ修正'
+            value: ':bug:'
+          - name: ':sparkles:'
+            description: '✨機能追加'
+            value: ':sparkles:'
+          - name: ':art:'
+            description: '🎨リファクタリング'
+            value: ':art:'
+          - name: ':construction:'
+            description: '🚧作業中'
+            value: ':construction:'
+          - name: ':memo:'
+            description: '📝文言修正'
+            value: ':memo:'
+          - name: ':fire:'
+            description: '🔥不要な機能・使われなくなった機能の削除'
+            value: ':fire:'
+          - name: ':green_heart:'
+            description: '💚CIの修正・改善'
+            value: ':green_heart:'
+          - name: ':white_check_mark:'
+            description: '✅テストの追加・修正'
+            value: ':white_check_mark:'
+          - name: ':shirt:'
+            description: '👕Lintエラーの修正やコードスタイルの修正'
+            value: ':shirt:'
+          - name: ':performance:'
+            description: '🐎パフォーマンス改善'
+            value: ':performance:'
+          - name: ':up:'
+            description: '🔼ライブラリのアップデート'
+            value: ':up:'
+          - name: ':down:'
+            description: '🔽ライブラリのダウングレード'
+            value: ':down:'
+          - name: ':lock:'
+            description: '🔓セキュリティ関連の改善'
+            value: ':lock:'
+          - name: ':wrench:'
+            description: '🔧設定値変更'
+            value: ':wrench:'
+          - name: ':books:'
+            description: '📚ドキュメント'
+            value: ':books:'
+      - type: "input"
+        title: "Enter the Message"
+        key: "Message"
+      - type: "confirm"
+        title: "Commit"
+        body: "Commit with the message '{{.Form.Emoji}}: {{.Form.Message}}'. Is this okay?"
+    command: "bash -c 'emoji=\"{{.Form.Emoji}}\"; message=\"{{.Form.Message}}\"; commit_message=\"$emoji$message\"; git commit -m \"$commit_message\"'"
+    loadingText: "Committing..."
