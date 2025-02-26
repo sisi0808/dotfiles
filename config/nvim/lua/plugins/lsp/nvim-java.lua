@@ -25,11 +25,11 @@ return {
 		require("lspconfig").jdtls.setup({
 			settings = {
 				java = {
-					configuraiton = {
+					configuration = {
 						runtimes = {
 							{
-								name = "OpenJDK-21",
-								path = "/opt/homebrew/opt/openjdk@21/bin/java",
+								name = "OpenJDK-17",
+								path = "/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents",
 								default = true,
 							},
 						},
