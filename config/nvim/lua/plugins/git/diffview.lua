@@ -3,10 +3,11 @@ return {
 	"sindrets/diffview.nvim",
 	lazy = false,
 	config = function()
+    local actions = require("diffview.actions")
 		require("diffview").setup({
 			keymaps = {
 				file_panel = {
-					{ "n", "ss", require("diffview.actions").goto_file_split, desc = "Open the file in a new split" },
+					{ "n", "ss", actions.goto_file_split, desc = "Open the file in a new split" },
 				},
 			},
 		})
